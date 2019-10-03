@@ -1,5 +1,11 @@
 ROOTDIR=/home/lizz/app
 
+# ldconfig -p | grep libevent
+# if [ $? != 0 ]; then
+#    echo "hey, install libevent first"
+#    sh zzlibevent.sh
+# fi
+
 cd $ROOTDIR
 wget https://github.com/tmux/tmux/releases/download/2.9a/tmux-2.9a.tar.gz -O tmux.tar.gz
 
