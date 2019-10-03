@@ -1,31 +1,3 @@
-# # install zsh on /home/lizz/app/zsh
-
-# ROOTDIR=/home/lizz/app
-# mkdir -p $ROOTDIR
-
-wget -O zsh.tar.xz https://sourceforge.net/projects/zsh/files/latest/download
-mkdir src && unxz zsh.tar.xz && tar -xvf zsh.tar -C src --strip-components 1
-
-# mv zsh.tar.xz $ROOTDIR/
-
-# cd $ROOTDIR
-# mkdir zsh && unxz zsh.tar.xz && tar -xvf zsh.tar -C zsh --strip-components 1
-# rm zsh.tar zlib.tar.gz
-
-# cd zsh
-
-# export C_INCLUDE_PATH=/home/lizz/app/ncurses/include:$C_INCLUDE_PATH
-# export LD_LIBRARY_PATH=/home/lizz/app/ncurses/lib:LD_LIBRARY_PATH
-# export LIBRARY_PATH=/home/lizz/app/ncurses/lib:$LIBRARY_PATH
-
-# make configure
-# ./configure --prefix=$ROOTDIR/zsh && make -j && make install
-# # ./configure --prefix=$ROOTDIR/zsh --enable-shared && make -j && make install
-
-# cd bin
-# echo zsh installed on `pwd`
-# echo put this in .profile
-# echo [ -f $HOME/bin/zsh ] && exec $HOME/bin/zsh -l
 # Installs Zsh with Oh-My-Zsh without root privileges
 # on Stanford's Sherlock (https://sherlock.stanford.edu) for use in tmux
 #
@@ -73,7 +45,7 @@ ZSH_INSTALL_DIR=$HOME/app/zsh
 mkdir tmp; cd tmp
 
 # get ncurses
-wget https://ftp.gnu.org/pub/gnu/ncurses/ncurses-6.1.tar.gz
+# wget https://ftp.gnu.org/pub/gnu/ncurses/ncurses-6.1.tar.gz
 tar -xf ncurses-6.1.tar.gz
 cd ncurses-6.1
 
@@ -82,7 +54,7 @@ export CXXFLAGS=' -fPIC'
 export CFLAGS=' -fPIC'
 
 ./configure --prefix=$ZSH_INSTALL_DIR --enable-shared
-make -j
+make
 make install
 cd ..
 
@@ -91,8 +63,7 @@ INSTALL_PATH="$ZSH_INSTALL_DIR"
 export PATH=$INSTALL_PATH/bin:$PATH
 export LD_LIBRARY_PATH=$INSTALL_PATH/lib:$LD_LIBRARY_PATH
 export CFLAGS=-I$INSTALL_PATH/include
-export CPPFLAGS="-I$INSTALL_PATH/include"
-export LDFLAGS="-L$INSTALL_PATH/lib"
+export CPPFLAGS="-I$INSTALL_PATH/include" LDFLAGS="-L$INSTALL_PATH/lib"
 
 
 # Zsh
@@ -112,7 +83,7 @@ autoconf
 # Produce Makefile and config.h via config.status
 ./configure --prefix=$ZSH_INSTALL_DIR --enable-shared
 
-make -j
+make
 make install
 
 cd ..
@@ -120,12 +91,15 @@ cd ..
 # oh-my-zsh
 
 # clone repository into local dotfiles
-git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+#git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
 # copy template file into home directory
-cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+#cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 
-cd ..
+#cd ..
 
 # delete tmp folder
-#rm -rf tmp
+# rm -rf tmp
+
+# put this in .bashrc
+# [ -f $HOME/app/zsh/bin/zsh ] && exec $HOME/app/zsh/bin/zsh -l
