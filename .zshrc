@@ -17,3 +17,6 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 [[ -s /home/lizz/.autojump/etc/profile.d/autojump.sh ]] && source /home/lizz/.autojump/etc/profile.d/autojump.sh
 
 eval $(thefuck --alias)
+
+proxy_on () { export https_proxy=61.160.210.234:808; }
+proxy_off () { export https_proxy=''; }
