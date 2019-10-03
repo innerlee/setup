@@ -1,27 +1,33 @@
-# install git on /home/lizz/app/git
+# install git
 
 ROOTDIR=/home/lizz/app
 mkdir -p $ROOTDIR
 
-wget https://codeload.github.com/git/git/tar.gz/v2.23.0 -O git.tar.gz
-
-mv git.tar.gz $ROOTDIR/
+ldconfig -p | grep libz
+if [ $? != 0 ]; then
+   echo "hey, install libz first"
+   sh zzlibz.sh
+   export CFLAGS="-I$ROOTDIR/libz/include"
+   export LDFLAGS="-L$ROOTDIR/libz/lib"
+fi
 
 cd $ROOTDIR
-tar xf git.tar.gz
-mv git-2.23.0 git
-rm git.tar.gz
+wget https://codeload.github.com/git/git/tar.gz/v2.23.0 -O git.tar.gz
 
-cd git
+mkdir -p git/src
+tar xf git.tar.gz -C git/src --strip-components 1
 
-export C_INCLUDE_PATH=/home/lizz/app/zlib/include
-export LD_LIBRARY_PATH=/home/lizz/app/zlib/lib
-export LIBRARY_PATH=/home/lizz/app/zlib/lib
-# :$LD_LIBRARY_PATH
+cd git/src
 
 make configure
-./configure --prefix=$ROOTDIR/git && make && make install
 
-cd bin
+if [[ -z "${CFLAGS}" ]]; then
+    ./configure --prefix=$ROOTDIR/git
+else
+    ./configure --prefix=$ROOTDIR/git CFLAGS=$CFLAGS LDFLAGS=$LDFLAGS
+fi
+
+make -j && make install
+
+cd ..
 echo git installed on `pwd`
-echo export PATH=`pwd`:\$PATH
