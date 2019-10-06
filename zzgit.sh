@@ -2,16 +2,13 @@
 
 ROOTDIR=/home/lizz/app
 mkdir -p $ROOTDIR
-
-ldconfig -p | grep libz
-if [ $? != 0 ]; then
-   echo "hey, install libz first"
-   sh zzlibz.sh
-   export CFLAGS="-I$ROOTDIR/libz/include"
-   export LDFLAGS="-L$ROOTDIR/libz/lib"
-fi
-
 cd $ROOTDIR
+
+echo "hey, install libz and libcurl first"
+
+export CFLAGS="-I$ROOTDIR/libz/include -I$ROOTDIR/libcurl/include -I$ROOTDIR/libcurl/include/curl"
+export LDFLAGS="-L$ROOTDIR/libz/lib -L$ROOTDIR/libcurl/lib"
+
 wget https://codeload.github.com/git/git/tar.gz/v2.23.0 -O git.tar.gz
 
 mkdir -p git/src
