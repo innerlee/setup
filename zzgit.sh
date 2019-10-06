@@ -18,11 +18,7 @@ cd git/src
 
 make configure
 
-if [[ -z "${CFLAGS}" ]]; then
-    ./configure --prefix=$ROOTDIR/git
-else
-    ./configure --prefix=$ROOTDIR/git CFLAGS=$CFLAGS LDFLAGS=$LDFLAGS
-fi
+./configure --prefix=$ROOTDIR/git CFLAGS=$CFLAGS LDFLAGS=$LDFLAGS
 
 make -j && make install
 
