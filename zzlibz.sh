@@ -4,7 +4,7 @@ ROOTDIR=/home/lizz/app
 mkdir -p $ROOTDIR
 
 cd $ROOTDIR
-wget https://libz.net/libz-1.2.11.tar.gz -O libz.tar.gz
+wget https://www.zlib.net/zlib-1.2.11.tar.gz -O libz.tar.gz
 
 mkdir -p libz/src
 tar xf libz.tar.gz -C libz/src --strip-components 1
