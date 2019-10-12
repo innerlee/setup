@@ -1,4 +1,5 @@
-ROOTDIR=/home/lizz/app
+ROOTDIR=$HOME/app
+mkdir -p $ROOTDIR
 cd $ROOTDIR
 
 wget https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz -O libevent.tar.gz

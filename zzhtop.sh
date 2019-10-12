@@ -1,6 +1,7 @@
-ROOTDIR=/home/lizz/app
-
+ROOTDIR=$HOME/app
+mkdir -p $ROOTDIR
 cd $ROOTDIR
+
 wget http://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz -O htop.tar.gz
 
 mkdir -p htop/src

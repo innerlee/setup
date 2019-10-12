@@ -14,7 +14,7 @@ export PYTHONDONTWRITEBYTECODE=1
 bindkey '^]' autosuggest-accept
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-[[ -s /home/lizz/.autojump/etc/profile.d/autojump.sh ]] && source /home/lizz/.autojump/etc/profile.d/autojump.sh
+[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
 
 eval $(thefuck --alias)
 

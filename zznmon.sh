@@ -1,4 +1,4 @@
-ROOTDIR=/home/lizz/app
+ROOTDIR=$HOME/app
 mkdir -p $ROOTDIR/bin
 
 cd $ROOTDIR

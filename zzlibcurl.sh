@@ -1,9 +1,9 @@
 # install libcurl
 
-ROOTDIR=/home/lizz/app
+ROOTDIR=$HOME/app
 mkdir -p $ROOTDIR
-
 cd $ROOTDIR
+
 wget https://curl.haxx.se/download/curl-7.66.0.tar.gz -O libcurl.tar.gz
 
 mkdir -p libcurl/src
