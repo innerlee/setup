@@ -15,7 +15,8 @@ cd git/src
 
 make configure
 
-# ./configure --prefix=$ROOTDIR/git CFLAGS="-I$ROOTDIR/libz/include" LDFLAGS="-L$ROOTDIR/libz/lib"
+# ./configure --prefix=$ROOTDIR/git
+# ./configure --prefix=$ROOTDIR/git CFLAGS="-I$ROOTDIR/libcurl/include -I$ROOTDIR/libcurl/include/curl" LDFLAGS="-L$ROOTDIR/libcurl/lib"
 ./configure --prefix=$ROOTDIR/git CFLAGS="-I$ROOTDIR/libz/include -I$ROOTDIR/libcurl/include -I$ROOTDIR/libcurl/include/curl" LDFLAGS="-L$ROOTDIR/libz/lib -L$ROOTDIR/libcurl/lib"
 make -j && make install
 
