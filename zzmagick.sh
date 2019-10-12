@@ -12,7 +12,6 @@ tar xf magick.tar.gz -C magick/src --strip-components 1
 cd magick/src
 
 ./configure --prefix=$ROOTDIR/magick
-
 make -j && make install
 
 cd ..

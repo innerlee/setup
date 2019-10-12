@@ -14,7 +14,6 @@ cd libcurl/src
 make configure
 
 ./configure --prefix=$ROOTDIR/libcurl
-
 make -j && make install
 
 cd ..

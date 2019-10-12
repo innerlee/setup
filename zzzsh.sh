@@ -34,9 +34,7 @@ autoconf
 
 # Produce Makefile and config.h via config.status
 ./configure --prefix=$ZSH_INSTALL_DIR --enable-shared
-
-make -j
-make install
+make -j && make install
 
 echo put this in .bashrc
 echo '[ -f $HOME/app/zsh/bin/zsh ] && exec $HOME/app/zsh/bin/zsh -l'

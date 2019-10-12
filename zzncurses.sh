@@ -16,7 +16,6 @@ export CXXFLAGS=" -fPIC"
 export CFLAGS=" -fPIC"
 
 ./configure --prefix=$ROOTDIR/ncurses --enable-shared
-make -j
-make install
+make -j && make install
 
 echo ncurses installed on $ROOTDIR/ncurses
