@@ -8,4 +8,4 @@ mkdir julia
 tar xf julia.tar.gz -C julia --strip-components 1
 
 cd julia
-echo `pwd`
+echo $(pwd)

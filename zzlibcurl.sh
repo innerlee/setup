@@ -17,4 +17,4 @@ make configure
 make -j && make install
 
 cd ..
-echo libcurl installed on `pwd`
+echo libcurl installed on $(pwd)

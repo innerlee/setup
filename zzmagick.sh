@@ -15,4 +15,4 @@ cd magick/src
 make -j && make install
 
 cd ..
-echo magick installed on `pwd`
+echo magick installed on $(pwd)

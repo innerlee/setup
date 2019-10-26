@@ -14,4 +14,4 @@ cd libz/src
 make -j && make install
 
 cd ..
-echo libz installed on `pwd`
+echo libz installed on $(pwd)

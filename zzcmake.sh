@@ -14,4 +14,4 @@ cd cmake/src
 make -j && make install
 
 cd ..
-echo cmake installed on `pwd`
+echo cmake installed on $(pwd)

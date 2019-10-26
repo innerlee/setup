@@ -21,4 +21,4 @@ make configure
 make -j && make install
 
 cd ..
-echo git installed on `pwd`
+echo git installed on $(pwd)

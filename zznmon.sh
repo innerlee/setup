@@ -10,4 +10,4 @@ tar xf nmon.tar.gz -C nmon/bin
 cd $ROOTDIR/bin
 ln -s ../nmon/bin/nmon_x86_rhel75 nmon
 
-echo `pwd`
+echo $(pwd)
