@@ -11,7 +11,6 @@ tar xf perl.tar.gz -C perl/src --strip-components 1
 
 cd perl/src
 ./Configure -des -Dprefix=$ROOTDIR/perl
-# ./configure --prefix=$ROOTDIR/perl
 make -j && make install
 
 cd ..
