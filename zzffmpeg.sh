@@ -10,7 +10,7 @@ mkdir -p src/ffmpeg
 tar xf ffmpeg.tar.gz -C src/ffmpeg --strip-components 1
 
 cd src/ffmpeg
-./configure --prefix=$ROOTDIR
+./configure --prefix=$ROOTDIR --enable-pic --enable-shared
 make -j && make install
 
 

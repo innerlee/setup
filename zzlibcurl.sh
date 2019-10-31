@@ -13,7 +13,7 @@ cd src/libcurl
 
 make configure
 
-./configure --with-ssl --prefix=$ROOTDIR
+./configure --with-ssl=$ROOTDIR/bin/openssl --prefix=$ROOTDIR
 make -j && make install
 
 cd ..
