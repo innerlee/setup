@@ -16,5 +16,4 @@ make configure
 ./configure --prefix=$ROOTDIR
 make -j && make install
 
-cd ..
-echo ccache installed on $(pwd)
+echo ccache installed on $ROOTDIR
