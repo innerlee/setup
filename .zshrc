@@ -18,6 +18,10 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 eval $(thefuck --alias)
 
+alias jp='cd ..'
+alias idle='sinfo | grep media | grep idle'
+alias sw='swatch -l'
+
 proxy_on () { export https_proxy=61.160.210.234:808; }
 proxy_on2 () { export https_proxy=78.47.202.24:3128; }
 proxy_off () { export https_proxy=''; }
