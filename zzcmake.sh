@@ -1,16 +1,30 @@
 # install cmake
+set -e
 
-ROOTDIR=$HOME/app
-mkdir -p $ROOTDIR
+ROOTDIR=${ZZROOT:-$HOME/app}
+NAME="cmake"
+TYPE=".tar.gz"
+FILE="$NAME$TYPE"
+DOWNLOADURL="https://github.com/Kitware/CMake/releases/download/v3.15.4/cmake-3.15.4.tar.gz"
+echo $NAME will be installed in $ROOTDIR
+
+mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
 
-wget https://github.com/Kitware/CMake/releases/download/v3.15.4/cmake-3.15.4.tar.gz -O cmake.tar.gz
+if [ -f "downloads/$FILE" ]; then
+    echo "downloads/$FILE exist"
+else
+    echo "$FILE does not exist, downloading..."
+    wget $DOWNLOADURL -O $FILE
+    mv $FILE downloads/
+fi
 
-mkdir -p src/cmake
-tar xf cmake.tar.gz -C src/cmake --strip-components 1
+mkdir -p src/$NAME
+tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
-cd src/cmake
+cd src/$NAME
+
 ./configure --prefix=$ROOTDIR
 make -j && make install
 
-echo cmake installed on $ROOTDIR
+echo $NAME installed on $ROOTDIR
