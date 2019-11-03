@@ -1,16 +1,30 @@
 # install boost
+set -e
 
-ROOTDIR=$HOME/app
-mkdir -p $ROOTDIR
+ROOTDIR=${ZZROOT:-$HOME/app}
+NAME="boost"
+TYPE=".tar.gz"
+FILE="$NAME$TYPE"
+DOWNLOADURL="https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.gz"
+echo $NAME will be installed in $ROOTDIR
+
+
+mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
 
-wget https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.gz -O boost.tar.gz
+if [ -f "downloads/$FILE" ]; then
+    echo "downloads/$FILE exist"
+else
+    echo "$FILE does not exist, downloading..."
+    wget $DOWNLOADURL -O $FILE
+    mv $FILE downloads/
+fi
 
-mkdir -p src/boost
-tar xf boost.tar.gz -C src/boost --strip-components 1
+mkdir -p src/$NAME
+tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
-cd src/boost
-./bootstrap.sh --prefix=$ROOTDIR/boost
+cd src/$NAME
+./bootstrap.sh --prefix=$ROOTDIR
 ./b2 install
 
-echo boost installed on $ROOTDIR/boost
+echo $NAME installed on $ROOTDIR
