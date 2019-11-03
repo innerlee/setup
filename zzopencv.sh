@@ -18,7 +18,7 @@ if [ -f "downloads/$FILE1" ]; then
     echo "downloads/$FILE1 exist"
 else
     echo "$FILE1 does not exist, downloading..."
-    wget $DOWNLOADURL -O $FILE1
+    wget $DOWNLOADURL1 -O $FILE1
     mv $FILE1 downloads/
 fi
 
@@ -26,7 +26,7 @@ if [ -f "downloads/$FILE2" ]; then
     echo "downloads/$FILE2 exist"
 else
     echo "$FILE2 does not exist, downloading..."
-    wget $DOWNLOADURL -O $FILE2
+    wget $DOWNLOADURL2 -O $FILE2
     mv $FILE2 downloads/
 fi
 
@@ -106,7 +106,7 @@ cmake \
     -DPYTHON3_NUMPY_INCLUDE_DIRS="$HOME/anaconda3/lib/python3.7/site-packages/numpy/core/include" \
     -DPYTHON3_INCLUDE_PATH="$HOME/anaconda3/include/python3.7m" \
     -DPYTHON3_LIBRARIES="$HOME/anaconda3/lib/libpython3.7m.so" \
-    -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib/modules ..
+    -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules ..
 
 make -j && make install
 
