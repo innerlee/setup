@@ -1,21 +1,46 @@
 # install opencv
+set -e
 
-ROOTDIR=/mnt/lustrenvme/lizz/app
-mkdir -p $ROOTDIR
+ROOTDIR=${ZZROOT:-$HOME/app}
+NAME1="opencv"
+NAME2="opencv_contrib"
+TYPE=".tar.gz"
+FILE1="$NAME1$TYPE"
+FILE2="$NAME2$TYPE"
+DOWNLOADURL1="https://github.com/opencv/opencv/archive/4.1.2.tar.gz"
+DOWNLOADURL2="https://github.com/opencv/opencv_contrib/archive/4.1.2.tar.gz"
+echo $NAME1 will be installed in $ROOTDIR
+
+mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
 
-cp /mnt/lustrenew/share/lizz/downloads/opencv-4.1.2.tar.gz opencv.tar.gz
-cp /mnt/lustrenew/share/lizz/downloads/opencv_contrib-4.1.2.tar.gz opencvcontrib.tar.gz
+if [ -f "downloads/$FILE1" ]; then
+    echo "downloads/$FILE1 exist"
+else
+    echo "$FILE1 does not exist, downloading..."
+    wget $DOWNLOADURL -O $FILE1
+    mv $FILE1 downloads/
+fi
 
-mkdir -p opencv/src/opencv_contrib
-tar xf opencv.tar.gz -C opencv/src --strip-components 1
-tar xf opencvcontrib.tar.gz -C opencv/src/opencv_contrib --strip-components 1
+if [ -f "downloads/$FILE2" ]; then
+    echo "downloads/$FILE2 exist"
+else
+    echo "$FILE2 does not exist, downloading..."
+    wget $DOWNLOADURL -O $FILE2
+    mv $FILE2 downloads/
+fi
 
-cd opencv/src
+mkdir -p src/$NAME1
+mkdir -p src/$NAME2
+tar xf downloads/$FILE1 -C src/$NAME1 --strip-components 1
+tar xf downloads/$FILE2 -C src/$NAME2 --strip-components 1
+
+cd src/$NAME1
 mkdir build
 cd build
 
 cmake \
+    -DBUILD_EXAMPLES=OFF \
     -DWITH_QT=OFF \
     -DOpenGL_GL_PREFERENCE=GLVND \
     -DBUILD_opencv_hdf=OFF \
@@ -55,14 +80,23 @@ cmake \
     -DFORCE_VTK=OFF \
     -DWITH_TBB=ON \
     -DWITH_GDAL=ON \
+    -DCUDA_ARCH_BIN=6.1 \
+    -DCUDA_ARCH_PTX=6.1 \
+    -DCUDA_FAST_MATH=ON \
+    -DWITH_CUBLAS=ON \
+    -DWITH_MKL=ON \
+    -DMKL_USE_MULTITHREAD=ON \
     -DOPENCV_ENABLE_NONFREE=ON \
     -DWITH_CUDA=ON \
-    -DWITH_NVCUVID=ON \
+    -DNVCC_FLAGS_EXTRA="--default-stream per-thread" \
+    -DWITH_NVCUVID=OFF \
+    -DBUILD_opencv_cudacodec=OFF \
     -DMKL_WITH_TBB=ON \
+    -DWITH_FFMPEG=ON \
     -DMKL_WITH_OPENMP=ON \
     -DWITH_XINE=ON \
     -DENABLE_PRECOMPILED_HEADERS=OFF \
-    -DCMAKE_INSTALL_PREFIX=/mnt/lustrenvme/lizz/app/opencv \
+    -DCMAKE_INSTALL_PREFIX="$ROOTDIR" \
     -DPYTHON_EXECUTABLE="$HOME/anaconda3/bin/python" \
     -DPYTHON_LIBRARY="$HOME/anaconda3/lib/python3.7" \
     -DPYTHON3_LIBRARY="$HOME/anaconda3/lib/python3.7" \
@@ -76,5 +110,4 @@ cmake \
 
 make -j && make install
 
-cd ../..
-echo opencv installed on $(pwd)
+echo $NAME installed on $ROOTDIR
