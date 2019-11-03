@@ -1,19 +1,30 @@
 # install ccache
+set -e
 
-ROOTDIR=$HOME/app
-mkdir -p $ROOTDIR
+ROOTDIR=${ZZROOT:-$HOME/app}
+NAME="ccache"
+TYPE=".tar.gz"
+FILE="$NAME$TYPE"
+DOWNLOADURL="https://github.com/ccache/ccache/releases/download/v3.7.5/ccache-3.7.5.tar.gz"
+echo $NAME will be installed in $ROOTDIR
+
+mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
 
-wget https://github.com/ccache/ccache/releases/download/v3.7.5/ccache-3.7.5.tar.gz -O ccache.tar.gz
+if [ -f "downloads/$FILE" ]; then
+    echo "downloads/$FILE exist"
+else
+    echo "$FILE does not exist, downloading..."
+    wget $DOWNLOADURL -O $FILE
+    mv $FILE downloads/
+fi
 
-mkdir -p src/ccache
-tar xf ccache.tar.gz -C src/ccache --strip-components 1
+mkdir -p src/$NAME
+tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
-cd src/ccache
-
-make configure
+cd src/$NAME
 
 ./configure --prefix=$ROOTDIR
 make -j && make install
 
-echo ccache installed on $ROOTDIR
+echo $NAME installed on $ROOTDIR
