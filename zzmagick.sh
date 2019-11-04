@@ -1,18 +1,30 @@
 # install image magick
+set -e
 
-ROOTDIR=$HOME/app
-mkdir -p $ROOTDIR
+ROOTDIR=${ZZROOT:-$HOME/app}
+NAME="imagemagick"
+TYPE=".tar.gz"
+FILE="$NAME$TYPE"
+DOWNLOADURL="https://imagemagick.org/download/ImageMagick.tar.gz"
+echo $NAME will be installed in $ROOTDIR
+
+mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
 
-wget https://imagemagick.org/download/ImageMagick.tar.gz -O magick.tar.gz
+if [ -f "downloads/$FILE" ]; then
+    echo "downloads/$FILE exist"
+else
+    echo "$FILE does not exist, downloading..."
+    wget $DOWNLOADURL -O $FILE
+    mv $FILE downloads/
+fi
 
-mkdir -p magick/src
-tar xf magick.tar.gz -C magick/src --strip-components 1
+mkdir -p src/$NAME
+tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
-cd magick/src
+cd src/$NAME
 
-./configure --prefix=$ROOTDIR/magick
+./configure --prefix=$ROOTDIR
 make -j && make install
 
-cd ..
-echo magick installed on $(pwd)
+echo $NAME installed on $ROOTDIR
