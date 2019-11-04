@@ -1,16 +1,30 @@
 # install yasm
+set -e
 
-ROOTDIR=$HOME/app
-mkdir -p $ROOTDIR
+ROOTDIR=${ZZROOT:-$HOME/app}
+NAME="yasm"
+TYPE=".tar.gz"
+FILE="$NAME$TYPE"
+DOWNLOADURL="http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz"
+echo $NAME will be installed in $ROOTDIR
+
+mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
 
-wget http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz -O yasm.tar.gz
+if [ -f "downloads/$FILE" ]; then
+    echo "downloads/$FILE exist"
+else
+    echo "$FILE does not exist, downloading..."
+    wget $DOWNLOADURL -O $FILE
+    mv $FILE downloads/
+fi
 
-mkdir -p src/yasm
-tar xf yasm.tar.gz -C src/yasm --strip-components 1
+mkdir -p src/$NAME
+tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
-cd src/yasm
+cd src/$NAME
+
 ./configure --prefix=$ROOTDIR
 make -j && make install
 
-echo yasm installed on $ROOTDIR
+echo $NAME installed on $ROOTDIR
