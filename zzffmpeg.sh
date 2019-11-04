@@ -1,18 +1,30 @@
 # install ffmpeg
+set -e
 
-ROOTDIR=$HOME/app
-mkdir -p $ROOTDIR
+ROOTDIR=${ZZROOT:-$HOME/app}
+NAME="ffmpeg"
+TYPE=".tar.gz"
+FILE="$NAME$TYPE"
+DOWNLOADURL="https://www.ffmpeg.org/releases/ffmpeg-4.2.1.tar.gz"
+echo $NAME will be installed in $ROOTDIR
+
+mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
 
-wget https://www.ffmpeg.org/releases/ffmpeg-4.2.1.tar.gz -O ffmpeg.tar.gz
+if [ -f "downloads/$FILE" ]; then
+    echo "downloads/$FILE exist"
+else
+    echo "$FILE does not exist, downloading..."
+    wget $DOWNLOADURL -O $FILE
+    mv $FILE downloads/
+fi
 
-mkdir -p src/ffmpeg
-tar xf ffmpeg.tar.gz -C src/ffmpeg --strip-components 1
+mkdir -p src/$NAME
+tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
-cd src/ffmpeg
+cd src/$NAME
+
 ./configure --prefix=$ROOTDIR --enable-pic --enable-shared
 make -j && make install
 
-
-cd ..
-echo ffmpeg installed on $(pwd)
+echo $NAME installed on $ROOTDIR
