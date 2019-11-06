@@ -5,9 +5,10 @@ ROOTDIR=${ZZROOT:-$HOME/app}
 NAME="gcc"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/gcc-9.2.0/gcc-9.2.0.tar.gz"
+DOWNLOADURL="http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/gcc-7.4.0/gcc-7.4.0.tar.gz"
 echo $NAME will be installed in $ROOTDIR
 
+echo CUDA 10 support up to gcc 7, CUDA 9 support up to gcc 5.
 echo Building GCC requires GMP 4.2+, MPFR 2.4.0+ and MPC 0.8.0+.
 
 mkdir -p $ROOTDIR/downloads
