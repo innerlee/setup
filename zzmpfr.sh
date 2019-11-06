@@ -1,14 +1,14 @@
-# install mpc
+# install mpfr
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="mpc"
-TYPE=".tar.gz"
+NAME="mpfr"
+TYPE=".tar.xz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="http://fs.paratools.com/mpc/MPC_3.3.1.tar.gz"
+DOWNLOADURL="https://www.mpfr.org/mpfr-current/mpfr-4.0.2.tar.xz"
 echo $NAME will be installed in $ROOTDIR
 
-echo install gmp and mpfr first
+echo install gmp first
 
 mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
@@ -22,11 +22,13 @@ else
 fi
 
 mkdir -p src/$NAME
-tar xfz downloads/$FILE -C src/$NAME --strip-components 1
+tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix=$ROOTDIR --gcc-with-mpfr=$ROOTDIR --gcc-with-gmp=$ROOTDIR
+./configure --prefix=$ROOTDIR --with-gmp=$ROOTDIR
 make -j && make check && make install
+
+make check
 
 echo $NAME installed on $ROOTDIR

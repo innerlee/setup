@@ -1,14 +1,14 @@
-# install mpc
+# install gcc
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="mpc"
+NAME="gcc"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="http://fs.paratools.com/mpc/MPC_3.3.1.tar.gz"
+DOWNLOADURL="http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/gcc-9.2.0/gcc-9.2.0.tar.gz"
 echo $NAME will be installed in $ROOTDIR
 
-echo install gmp and mpfr first
+echo Building GCC requires GMP 4.2+, MPFR 2.4.0+ and MPC 0.8.0+.
 
 mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
@@ -22,11 +22,13 @@ else
 fi
 
 mkdir -p src/$NAME
-tar xfz downloads/$FILE -C src/$NAME --strip-components 1
+tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix=$ROOTDIR --gcc-with-mpfr=$ROOTDIR --gcc-with-gmp=$ROOTDIR
-make -j && make check && make install
+mkdir -p build
+cd build
+../configure --prefix=$ROOTDIR --enable-languages=c,c++
+make -j && make install
 
 echo $NAME installed on $ROOTDIR
