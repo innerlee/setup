@@ -1,11 +1,11 @@
-# install gmp
+# install mpc
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="gmp"
-TYPE=".tar.xz"
+NAME="mpc"
+TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://gmplib.org/download/gmp/gmp-6.1.2.tar.xz"
+DOWNLOADURL="http://fs.paratools.com/mpc/MPC_3.3.1.tar.gz"
 echo $NAME will be installed in $ROOTDIR
 
 mkdir -p $ROOTDIR/downloads
@@ -20,13 +20,10 @@ else
 fi
 
 mkdir -p src/$NAME
-tar xf downloads/$FILE -C src/$NAME --strip-components 1
+tar xfz downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix=$ROOTDIR
-make -j && make install
-
-make check
+./installmpc --prefix=$ROOTDIR
 
 echo $NAME installed on $ROOTDIR
