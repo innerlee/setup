@@ -28,7 +28,7 @@ cd src/$NAME
 
 mkdir -p build
 cd build
-../configure --prefix=$ROOTDIR --enable-languages=c,c++
+../configure --prefix=$ROOTDIR --with-gmp=$ROOTDIR --with-mpfr=$ROOTDIR --with-mpc=$ROOTDIR --enable-languages=c,c++,fortran
 make -j && make install
 
 echo $NAME installed on $ROOTDIR

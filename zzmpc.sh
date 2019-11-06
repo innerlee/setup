@@ -5,7 +5,7 @@ ROOTDIR=${ZZROOT:-$HOME/app}
 NAME="mpc"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="http://fs.paratools.com/mpc/MPC_3.3.1.tar.gz"
+DOWNLOADURL="https://ftp.gnu.org/gnu/mpc/mpc-1.1.0.tar.gz"
 echo $NAME will be installed in $ROOTDIR
 
 echo install gmp and mpfr first
@@ -26,6 +26,7 @@ tar xfz downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./installmpc --prefix=$ROOTDIR -j=16
+./configure --prefix=$ROOTDIR --with-gmp=$ROOTDIR --with-mpfr=$ROOTDIR
+make -j && make check && make install
 
 echo $NAME installed on $ROOTDIR
