@@ -26,7 +26,6 @@ tar xfz downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix=$ROOTDIR --gcc-with-mpfr=$ROOTDIR --gcc-with-gmp=$ROOTDIR
-make -j && make check && make install
+./installmpc --prefix=$ROOTDIR -j=16
 
 echo $NAME installed on $ROOTDIR
