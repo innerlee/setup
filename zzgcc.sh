@@ -26,9 +26,7 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-mkdir -p build
-cd build
-../configure --prefix=$ROOTDIR --with-gmp=$ROOTDIR --with-mpfr=$ROOTDIR --with-mpc=$ROOTDIR --enable-languages=c,c++,fortran
+./configure --prefix=$ROOTDIR --with-gmp=$ROOTDIR --with-mpfr=$ROOTDIR --with-mpc=$ROOTDIR --enable-languages=c,c++,fortran --disable-multilib
 make -j && make install
 
 echo $NAME installed on $ROOTDIR
