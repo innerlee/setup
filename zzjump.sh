@@ -1,7 +1,19 @@
-ROOTDIR=$HOME/app
-mkdir -p $ROOTDIR
+# install autojump
+set -e
+
+ROOTDIR=${ZZROOT:-$HOME/app}
+NAME="autojump"
+GITURL="git://github.com/wting/autojump.git"
+echo $NAME will be installed in $ROOTDIR
+
+mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
 
-git clone git://github.com/wting/autojump.git
-cd autojump
+mkdir -p src
+cd src
+
+git clone $GITURL $NAME
+cd $NAME
+
 ./install.py
+echo $NAME installed
