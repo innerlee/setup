@@ -1,15 +1,31 @@
-ROOTDIR=$HOME/app
-mkdir -p $ROOTDIR
-cd $ROOTDIR
+# install tmux
+set -e
 
+ROOTDIR=${ZZROOT:-$HOME/app}
+NAME="tmux"
+TYPE=".tar.gz"
+FILE="$NAME$TYPE"
+DOWNLOADURL="https://github.com/tmux/tmux/releases/download/2.9a/tmux-2.9a.tar.gz"
+echo $NAME will be installed in $ROOTDIR
 echo "hey, install libevent first"
 
-wget https://github.com/tmux/tmux/releases/download/2.9a/tmux-2.9a.tar.gz -O tmux.tar.gz
+mkdir -p $ROOTDIR/downloads
+cd $ROOTDIR
 
-mkdir -p tmux/src
-tar xf tmux.tar.gz -C tmux/src --strip-components 1
+if [ -f "downloads/$FILE" ]; then
+    echo "downloads/$FILE exist"
+else
+    echo "$FILE does not exist, downloading..."
+    wget $DOWNLOADURL -O $FILE
+    mv $FILE downloads/
+fi
 
-cd tmux/src
+mkdir -p src/$NAME
+tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
-./configure --prefix=$ROOTDIR/tmux CFLAGS="-I$ROOTDIR/include -I$ROOTDIR/include/ncurses" LDFLAGS="-L$ROOTDIR/lib"
+cd src/$NAME
+
+./configure --prefix=$ROOTDIR CFLAGS="-I$ROOTDIR/include -I$ROOTDIR/include/ncurses" LDFLAGS="-L$ROOTDIR/lib"
 make -j && make install
+
+echo $NAME installed on $ROOTDIR
