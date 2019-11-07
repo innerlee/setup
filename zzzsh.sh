@@ -1,38 +1,42 @@
 # Installs Zsh
+set -e
+
+ROOTDIR=${ZZROOT:-$HOME/app}
+NAME="zsh"
+TYPE=".tar.gz"
+FILE="$NAME$TYPE"
+DOWNLOADURL="https://github.com/zsh-users/zsh/archive/zsh-5.7.1.tar.gz"
+echo $NAME will be installed in $ROOTDIR
 echo install ncurses first!
 
-ZSH_INSTALL_DIR=$HOME/app/zsh
-mkdir -p $ZSH_INSTALL_DIR
+mkdir -p $ROOTDIR/downloads
+cd $ROOTDIR
 
-# Set cflags and c++ flags to compile with Position Independent Code enabled which we need for compiling zsh
+if [ -f "downloads/$FILE" ]; then
+    echo "downloads/$FILE exist"
+else
+    echo "$FILE does not exist, downloading..."
+    wget $DOWNLOADURL -O $FILE
+    mv $FILE downloads/
+fi
+
+mkdir -p src/$NAME
+tar xf downloads/$FILE -C src/$NAME --strip-components 1
+
+cd src/$NAME
+
 export CXXFLAGS=' -fPIC'
 export CFLAGS=' -fPIC'
+export PATH=$ROOTDIR/bin:$PATH
+export LD_LIBRARY_PATH=$ROOTDIR/lib:$LD_LIBRARY_PATH
+export CFLAGS=-I$ROOTDIR/include
+export CPPFLAGS="-I$ROOTDIR/include" LDFLAGS="-L$ROOTDIR/lib"
 
-# Tell environment where ncurses is
-INSTALL_PATH="$HOME/app/ncurses"
-export PATH=$INSTALL_PATH/bin:$PATH
-export LD_LIBRARY_PATH=$INSTALL_PATH/lib:$LD_LIBRARY_PATH
-export CFLAGS=-I$INSTALL_PATH/include
-export CPPFLAGS="-I$INSTALL_PATH/include" LDFLAGS="-L$INSTALL_PATH/lib"
-
-# Zsh
-cd $ZSH_INSTALL_DIR
-
-# Get zsh
-git clone git://github.com/zsh-users/zsh.git
-
-# Move into root zsh source directory
-cd zsh
-
-# Produce config.h.in, needed to produce config.status from ./configure
 autoheader
-
-# Produce the configure file from aclocal.m4 and configure.ac
 autoconf
-
-# Produce Makefile and config.h via config.status
-./configure --prefix=$ZSH_INSTALL_DIR --enable-shared
+./configure --prefix=$ROOTDIR --enable-shared
 make -j && make install
 
+echo $NAME installed on $ROOTDIR
 echo put this in .bashrc
-echo '[ -f $HOME/app/zsh/bin/zsh ] && exec $HOME/app/zsh/bin/zsh -l'
+echo exec $ROOTDIR/bin/zsh -l
