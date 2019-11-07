@@ -1,11 +1,28 @@
-ROOTDIR=$HOME/app
-mkdir -p $ROOTDIR
+# install julia
+set -e
+
+ROOTDIR=${ZZROOT:-$HOME/app}
+NAME="julia"
+TYPE=".tar.gz"
+FILE="$NAME$TYPE"
+DOWNLOADURL="https://julialang-s3.julialang.org/bin/linux/x64/1.2/julia-1.2.0-linux-x86_64.tar.gz"
+echo $NAME will be installed in $ROOTDIR
+
+mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
 
-wget https://julialang-s3.julialang.org/bin/linux/x64/1.2/julia-1.2.0-linux-x86_64.tar.gz -O julia.tar.gz
+if [ -f "downloads/$FILE" ]; then
+    echo "downloads/$FILE exist"
+else
+    echo "$FILE does not exist, downloading..."
+    wget $DOWNLOADURL -O $FILE
+    mv $FILE downloads/
+fi
 
-mkdir julia
-tar xf julia.tar.gz -C julia --strip-components 1
+mkdir -p src/$NAME
+tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
-cd julia
-echo $(pwd)
+cd bin
+ln -s ../src/$NAME/bin/julia julia
+
+echo $NAME installed on $ROOTDIR
