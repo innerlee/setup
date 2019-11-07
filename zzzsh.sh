@@ -1,7 +1,5 @@
 # Installs Zsh
-
-# dependency ncurses
-sh zzncurses.sh
+echo install ncurses first!
 
 ZSH_INSTALL_DIR=$HOME/app/zsh
 mkdir -p $ZSH_INSTALL_DIR

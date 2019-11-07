@@ -1,21 +1,33 @@
 # install ncurses on ~/app/ncurses
+set -e
 
-ROOTDIR=$HOME/app
-mkdir -p $ROOTDIR
+ROOTDIR=${ZZROOT:-$HOME/app}
+NAME="ncurses"
+TYPE=".tar.gz"
+FILE="$NAME$TYPE"
+DOWNLOADURL="https://mirror-hk.koddos.net/gnu/ncurses/ncurses-6.1.tar.gz"
+echo $NAME will be installed in $ROOTDIR
+
+mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
 
-wget https://mirror-hk.koddos.net/gnu/ncurses/ncurses-6.1.tar.gz -O ncurses.tar.gz
+if [ -f "downloads/$FILE" ]; then
+    echo "downloads/$FILE exist"
+else
+    echo "$FILE does not exist, downloading..."
+    wget $DOWNLOADURL -O $FILE
+    mv $FILE downloads/
+fi
 
-mkdir -p ncurses/src
-tar xf ncurses.tar.gz -C ncurses/src --strip-components 1
-rm ncurses.tar.gz
+mkdir -p src/$NAME
+tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
-cd ncurses/src
+cd src/$NAME
 
 export CXXFLAGS=" -fPIC"
 export CFLAGS=" -fPIC"
 
-./configure --prefix=$ROOTDIR/ncurses --enable-shared
+./configure --prefix=$ROOTDIR --enable-shared
 make -j && make install
 
-echo ncurses installed on $ROOTDIR/ncurses
+echo $NAME installed on $ROOTDIR
