@@ -11,5 +11,5 @@ tar xf tmux.tar.gz -C tmux/src --strip-components 1
 
 cd tmux/src
 
-./configure --prefix=$ROOTDIR/tmux CFLAGS="-I$ROOTDIR/libevent/include -I$ROOTDIR/ncurses/include -I$ROOTDIR/ncurses/include/ncurses" LDFLAGS="-L$ROOTDIR/libevent/lib -L$ROOTDIR/ncurses/lib"
+./configure --prefix=$ROOTDIR/tmux CFLAGS="-I$ROOTDIR/include -I$ROOTDIR/include/ncurses" LDFLAGS="-L$ROOTDIR/lib"
 make -j && make install

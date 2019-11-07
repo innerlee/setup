@@ -1,12 +1,30 @@
-ROOTDIR=$HOME/app
-mkdir -p $ROOTDIR
+# install libevent
+set -e
+
+ROOTDIR=${ZZROOT:-$HOME/app}
+NAME="libevent"
+TYPE=".tar.gz"
+FILE="$NAME$TYPE"
+DOWNLOADURL="https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz"
+echo $NAME will be installed in $ROOTDIR
+
+mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
 
-wget https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz -O libevent.tar.gz
+if [ -f "downloads/$FILE" ]; then
+    echo "downloads/$FILE exist"
+else
+    echo "$FILE does not exist, downloading..."
+    wget $DOWNLOADURL -O $FILE
+    mv $FILE downloads/
+fi
 
-mkdir -p libevent/src
-tar xf libevent.tar.gz -C libevent/src --strip-components 1
+mkdir -p src/$NAME
+tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
-cd libevent/src
-./configure --prefix="$ROOTDIR/libevent"
+cd src/$NAME
+
+./configure --prefix=$ROOTDIR
 make -j && make install
+
+echo $NAME installed on $ROOTDIR
