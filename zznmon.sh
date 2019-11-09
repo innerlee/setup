@@ -1,13 +1,28 @@
-ROOTDIR=$HOME/app
-mkdir -p $ROOTDIR/bin
+# install nmon
+set -e
 
+ROOTDIR=${ZZROOT:-$HOME/app}
+NAME="nmon"
+TYPE=".tar.gz"
+FILE="$NAME$TYPE"
+DOWNLOADURL="http://sourceforge.net/projects/nmon/files/nmon16j.tar.gz"
+echo $NAME will be installed in $ROOTDIR
+
+mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
-wget http://sourceforge.net/projects/nmon/files/nmon16j.tar.gz -O nmon.tar.gz
 
-mkdir -p src/nmon
-tar xf nmon.tar.gz -C src/nmon
+if [ -f "downloads/$FILE" ]; then
+    echo "downloads/$FILE exist"
+else
+    echo "$FILE does not exist, downloading..."
+    wget $DOWNLOADURL -O $FILE
+    mv $FILE downloads/
+fi
 
-cd $ROOTDIR/bin
+mkdir -p src/$NAME
+tar xf downloads/$FILE -C src/$NAME
+
+cd bin
 ln -s ../src/nmon/nmon_x86_rhel75 nmon
 
-echo $(pwd)
+echo $NAME installed on $ROOTDIR
