@@ -1,11 +1,11 @@
-# install nasm
+# install x265
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="nasm"
-TYPE=".tar.xz"
+NAME="x265"
+TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://www.nasm.us/pub/nasm/releasebuilds/2.14.02/nasm-2.14.02.tar.xz"
+DOWNLOADURL="https://bitbucket.org/multicoreware/x265/downloads/x265_3.2.1.tar.gz"
 echo $NAME will be installed in $ROOTDIR
 
 mkdir -p $ROOTDIR/downloads
@@ -22,10 +22,9 @@ fi
 mkdir -p src/$NAME
 tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
-cd src/$NAME
+cd src/$NAME/build/linux
 
-./autogen.sh
-./configure --prefix=$ROOTDIR
+cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$ROOTDIR" -DENABLE_SHARED:bool=on ../../source
 make -j && make install
 
 echo $NAME installed on $ROOTDIR

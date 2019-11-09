@@ -1,11 +1,11 @@
-# install nasm
+# install x264
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="nasm"
-TYPE=".tar.xz"
+NAME="x264"
+TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://www.nasm.us/pub/nasm/releasebuilds/2.14.02/nasm-2.14.02.tar.xz"
+DOWNLOADURL="https://code.videolan.org/videolan/x264/-/archive/master/x264-master.tar.gz"
 echo $NAME will be installed in $ROOTDIR
 
 mkdir -p $ROOTDIR/downloads
@@ -24,8 +24,8 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./autogen.sh
-./configure --prefix=$ROOTDIR
+PKG_CONFIG_PATH="$ROOTDIR/lib/pkgconfig"
+./configure --prefix=$ROOTDIR --enable-shared
 make -j && make install
 
 echo $NAME installed on $ROOTDIR
