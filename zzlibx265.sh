@@ -1,11 +1,11 @@
-# install x264
+# install libx265
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="x264"
+NAME="libx265"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://code.videolan.org/videolan/x264/-/archive/master/x264-master.tar.gz"
+DOWNLOADURL="https://bitbucket.org/multicoreware/x265/downloads/x265_3.2.1.tar.gz"
 echo $NAME will be installed in $ROOTDIR
 
 mkdir -p $ROOTDIR/downloads
@@ -22,10 +22,9 @@ fi
 mkdir -p src/$NAME
 tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
-cd src/$NAME
+cd src/$NAME/build/linux
 
-PKG_CONFIG_PATH="$ROOTDIR/lib/pkgconfig"
-./configure --prefix=$ROOTDIR --enable-shared
+cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$ROOTDIR" -DENABLE_SHARED:bool=on ../../source
 make -j && make install
 
 echo $NAME installed on $ROOTDIR

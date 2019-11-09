@@ -1,11 +1,11 @@
-# install x265
+# install libvpx
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="x265"
+NAME="libvpx"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://bitbucket.org/multicoreware/x265/downloads/x265_3.2.1.tar.gz"
+DOWNLOADURL="https://chromium.googlesource.com/webm/libvpx.git/+archive/refs/heads/master.tar.gz"
 echo $NAME will be installed in $ROOTDIR
 
 mkdir -p $ROOTDIR/downloads
@@ -20,11 +20,11 @@ else
 fi
 
 mkdir -p src/$NAME
-tar xf downloads/$FILE -C src/$NAME --strip-components 1
+tar xf downloads/$FILE -C src/$NAME
 
-cd src/$NAME/build/linux
+cd src/$NAME
 
-cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$ROOTDIR" -DENABLE_SHARED:bool=on ../../source
+./configure --prefix="$ROOTDIR" --disable-examples --disable-unit-tests --enable-vp9-highbitdepth --as=yasm
 make -j && make install
 
 echo $NAME installed on $ROOTDIR
