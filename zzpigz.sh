@@ -1,13 +1,12 @@
-# install boost
+# install pigz
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="boost"
+NAME="pigz"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.gz"
+DOWNLOADURL="https://zlib.net/pigz/pigz-2.4.tar.gz"
 echo $NAME will be installed in $ROOTDIR
-
 
 mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
@@ -23,12 +22,9 @@ fi
 mkdir -p src/$NAME
 tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
-# export CC=/mnt/lustre/lizz/app/bin/gcc
-# export CXX=/mnt/lustre/lizz/app/bin/g++
-# export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:/mnt/lustre/lizz/anaconda3/include/python3.7m/"
-
 cd src/$NAME
-./bootstrap.sh --prefix=$ROOTDIR
-./b2 install
 
-echo $NAME installed on $ROOTDIR
+make -j
+
+echo not finished yet
+# echo $NAME installed on $ROOTDIR
