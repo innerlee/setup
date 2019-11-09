@@ -24,7 +24,9 @@ tar xf downloads/$FILE -C src/$NAME
 
 cd src/$NAME
 
-./configure --prefix="$ROOTDIR" --disable-examples --disable-unit-tests --enable-vp9-highbitdepth --as=yasm
+export CXXFLAGS=' -fPIC'
+export CFLAGS=' -fPIC'
+./configure --prefix="$ROOTDIR" --disable-examples --disable-unit-tests --enable-vp9-highbitdepth --as=yasm --enable-shared
 make -j && make install
 
 echo $NAME installed on $ROOTDIR

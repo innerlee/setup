@@ -25,7 +25,18 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix=$ROOTDIR --enable-gpl --enable-libx264 --enable-libx265 --enable-libvpx --enable-pic --enable-shared
+PKG_CONFIG_PATH="$ROOTDIR/lib/pkgconfig"
+./configure \
+    --prefix=$ROOTDIR \
+    --extra-libs=-lpthread \
+    --extra-libs=-lm \
+    --enable-gpl \
+    --enable-libx264 \
+    --enable-libx265 \
+    --enable-libvpx \
+    --enable-nonfree \
+    --enable-pic \
+    --enable-shared
 make -j && make install
 
 echo $NAME installed on $ROOTDIR
