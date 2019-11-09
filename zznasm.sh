@@ -1,13 +1,12 @@
-# install ffmpeg
+# install nasm
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="ffmpeg"
-TYPE=".tar.gz"
+NAME="nasm"
+TYPE=".tar.xz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://www.ffmpeg.org/releases/ffmpeg-4.2.1.tar.gz"
+DOWNLOADURL="https://www.nasm.us/pub/nasm/releasebuilds/2.14.02/nasm-2.14.02.tar.xz"
 echo $NAME will be installed in $ROOTDIR
-echo install nasm, yasm, libx264, libx265, libvpx
 
 mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
@@ -25,7 +24,8 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix=$ROOTDIR --enable-pic --enable-shared
+sh autogen.sh
+sh configure --prefix=$ROOTDIR
 make -j && make install
 
 echo $NAME installed on $ROOTDIR
