@@ -24,7 +24,7 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix=$ROOTDIR
+./configure --prefix=$ROOTDIR --with-png=yes --with-jpeg=yes --with-jp2=yes --with-freetype=yes
 make -j && make install
 
 echo $NAME installed on $ROOTDIR
