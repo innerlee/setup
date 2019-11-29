@@ -23,7 +23,6 @@ alias sw='swatch -l'
 alias gitsub='git submodule update --init --recursive'
 
 proxy_on () { export https_proxy=61.160.210.234:808; }
-proxy_on2 () { export https_proxy=78.47.202.24:3128; }
 proxy_off () { export https_proxy=''; }
 vidres () { ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0 $1 }
 vidnframe () { ffmpeg -i $1 -vcodec copy -f rawvideo -y /dev/null 2>&1 | tr ^M '\n' | awk '/^frame=/ {print $2}' | tail -n 1 }
