@@ -102,3 +102,5 @@ cmake \
 make -j && make install
 
 echo $NAME installed on $ROOTDIR
+echo add following line to .zshrc
+echo export OpenCV_DIR=$ROOTDIR
