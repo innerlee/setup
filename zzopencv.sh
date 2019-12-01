@@ -36,7 +36,7 @@ tar xf downloads/$FILE1 -C src/$NAME1 --strip-components 1
 tar xf downloads/$FILE2 -C src/$NAME2 --strip-components 1
 
 cd src/$NAME1
-mkdir build
+mkdir -p build
 cd build
 
 cmake \
@@ -97,15 +97,6 @@ cmake \
     -DWITH_XINE=ON \
     -DENABLE_PRECOMPILED_HEADERS=OFF \
     -DCMAKE_INSTALL_PREFIX="$ROOTDIR" \
-    -DPYTHON_EXECUTABLE="$HOME/anaconda3/bin/python" \
-    -DPYTHON_LIBRARY="$HOME/anaconda3/lib/python3.7" \
-    -DPYTHON3_LIBRARY="$HOME/anaconda3/lib/python3.7" \
-    -DPYTHON3_EXECUTABLE="$HOME/anaconda3/bin/python" \
-    -DPYTHON3_INCLUDE_DIR="$HOME/anaconda3/include/python3.7m" \
-    -DPYTHON3_INCLUDE_DIR2="$HOME/anaconda3/include" \
-    -DPYTHON3_NUMPY_INCLUDE_DIRS="$HOME/anaconda3/lib/python3.7/site-packages/numpy/core/include" \
-    -DPYTHON3_INCLUDE_PATH="$HOME/anaconda3/include/python3.7m" \
-    -DPYTHON3_LIBRARIES="$HOME/anaconda3/lib/libpython3.7m.so" \
     -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules ..
 
 make -j && make install
