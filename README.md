@@ -138,7 +138,7 @@ Updated: Dec 7, 2019
     -   install script: `sh zzdenseflow.sh`
 -   [wslssh.bat](wslssh.bat) (use ssh of wsl in win10, no installation, `.bat` script as is)
     -   depends on: `sshpass`
-    -   you can set `vscode` ssh path to this `wslssh.bat`, work together with sshpass
+    -   you can set `vscode` ssh path to this `wslssh.bat`, work together with `sshpass` (installed in wsl)
 -   [sshkey.sh](sshkey.sh) (gen an ssh key)
     -   run script: `sh sshkey.sh`
 -   [zshplugin](zshplugin.sh) (completions, autosuggestions, syntax-highlighting)
