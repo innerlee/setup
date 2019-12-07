@@ -15,7 +15,7 @@ cd $ROOTDIR
 if [ -f "downloads/$FILE" ]; then
     echo "downloads/$FILE exist"
 else
-    echo "$FILE does not exist, downloading..."
+    echo "$FILE does not exist, downloading from $DOWNLOADURL"
     wget $DOWNLOADURL -O $FILE
     mv $FILE downloads/
 fi
@@ -25,7 +25,7 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./config --prefix=$ROOTDIR --openssldir=$ROOTDIR/ssl
+./config --prefix=$ROOTDIR/ssl --openssldir=$ROOTDIR/ssl
 make -j && make install
 
-echo $NAME installed on $ROOTDIR, with --openssldir=$ROOTDIR/ssl
+echo $NAME installed on $ROOTDIR/ssl, with --openssldir=$ROOTDIR/ssl

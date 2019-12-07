@@ -8,7 +8,7 @@ TYPE=".tar.gz"
 FILE="$NAME$TYPE"
 DOWNLOADURL="https://imagemagick.org/download/ImageMagick.tar.gz"
 echo $NAME will be installed in $ROOTDIR
-echo Dependency: freetype jpeg png
+echo Dependency: freetype jpeg png perl
 
 mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
@@ -16,7 +16,7 @@ cd $ROOTDIR
 if [ -f "downloads/$FILE" ]; then
     echo "downloads/$FILE exist"
 else
-    echo "$FILE does not exist, downloading..."
+    echo "$FILE does not exist, downloading from $DOWNLOADURL"
     wget $DOWNLOADURL -O $FILE
     mv $FILE downloads/
 fi

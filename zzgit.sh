@@ -16,7 +16,7 @@ cd $ROOTDIR
 if [ -f "downloads/$FILE" ]; then
     echo "downloads/$FILE exist"
 else
-    echo "$FILE does not exist, downloading..."
+    echo "$FILE does not exist, downloading from $DOWNLOADURL"
     wget $DOWNLOADURL -O $FILE
     mv $FILE downloads/
 fi
