@@ -27,6 +27,7 @@ Updated: Dec 7, 2019
 ### libs
 
 * [boost](https://www.boost.org/) (1.71.0)
+    - `sh zzboost.sh`
 * [gmp](https://gmplib.org/) (6.1.2)
 * [mpc](https://ftp.gnu.org/gnu/mpc/) (1.1.0)
 * [mpfr](https://www.mpfr.org/) (4.0.2)

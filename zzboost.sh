@@ -9,7 +9,6 @@ FILE="$NAME$TYPE"
 DOWNLOADURL="https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.gz"
 echo $NAME will be installed in $ROOTDIR
 
-
 mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
 
