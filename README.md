@@ -82,4 +82,4 @@ Updated: Dec 7, 2019
 * [`.zshrc`](.tmux.conf) (zsh configuration)
 * [`.netrc`](.netrc) (lftp password-less configuration)
 * [`.ssh/config`](.ssh/config) (suppress git clone warnings)
-* [`.lftp/rc](.lftp/rc) (suppress lftp ssl warning)
+* [`.lftp/rc`](.lftp/rc) (suppress lftp ssl warning)
