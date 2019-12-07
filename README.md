@@ -105,6 +105,7 @@ Updated: Dec 7, 2019
     -   install script: `sh zzjulia.sh`
 -   [autojump](https://github.com/wting/autojump) (master)
     -   install script: `sh zzautojump.sh`
+    -   post install: put [lines of configs](.zshrc#L17) in `.zshrc`
 -   [imagemagick](https://imagemagick.org/) (latest)
     -   depends on: `freetype`, `libjpeg-turbo`, `libpng`, `perl`
     -   install script: `sh zzimagemagick.sh`
@@ -114,7 +115,7 @@ Updated: Dec 7, 2019
 -   [zsh](http://zsh.sourceforge.net/) (5.7.1)
     -   depends on: `ncurses`
     -   install script: `sh zzzsh.sh`
-    -   post install: to set `zsh` as default shell without root, add `exec $ZZROOT/bin/zsh -l` to `.bashrc`
+    -   post install: to set `zsh` as default shell without root, add `exec $ZZROOT/bin/zsh -l` to `.bashrc` ([example](https://github.com/innerlee/setup/blob/master/.bashrc))
 -   [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh) (latest)
     -   depends on: `zsh`
     -   install script: `sh zzohmyzsh.sh`
@@ -144,11 +145,13 @@ Updated: Dec 7, 2019
 -   [zshplugin.sh](zshplugin.sh) (completions, autosuggestions, syntax-highlighting)
     -   depends on: `git`
     -   install script: `sh zshplugin.sh`
+    -   post install: put [lines of configs](.zshrc#L6-L15) in `.zshrc`
 -   [nordtmux.sh](nordtmux.sh) (nord theme for tmux)
     -   depends on: `git`, `tmux`
     -   install script: `sh nordtmux.sh`
 -   [dircolor.sh](dircolor.sh) (nord theme for zsh)
     -   install script: `sh dircolor.sh`
+    -   post install: put [lines of configs](.zshrc#L1-L2) in `.zshrc`
 
 ### zz configures
 
