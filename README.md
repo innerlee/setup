@@ -50,11 +50,11 @@ Updated: Dec 7, 2019
         Please modify the cmake flags for your needs.
     -   depends on: `ccache`, `ffmpeg`
     -   install script: `sh zzopencv.sh`
-    -   post install: `export OpenCV_DIR=$ROOTDIR`
+    -   post install: `export OpenCV_DIR=$ZZROOT`
 -   [openssl](https://www.openssl.org/) (1.1.1d)
     -   note: both `PREFIX` and `OPENSSLDIR` are set to `$ZZROOT/ssl`
     -   install script: `sh zzopenssl.sh`
-    -   post install: for cmake `export OPENSSL_ROOT_DIR=$ZZROOT/ssl`, and for configure `--with-ssl=$ROOTDIR/ssl`
+    -   post install: for cmake `export OPENSSL_ROOT_DIR=$ZZROOT/ssl`, and for configure `--with-ssl=$ZZROOT/ssl`
 -   [libcurl](https://curl.haxx.se/libcurl/) (7.67.0)
     -   depends on: `autoconf`, `automake`, `libtool`, `m4`, `nroff`, `perl`, `openssl`
     -   install script: `sh zzlibcurl.sh`
@@ -114,7 +114,7 @@ Updated: Dec 7, 2019
 -   [zsh](http://zsh.sourceforge.net/) (5.7.1)
     -   depends on: `ncurses`
     -   install script: `sh zzzsh.sh`
-    -   post install: to set `zsh` as default shell without root, add `exec $ROOTDIR/bin/zsh -l` to `.bashrc`
+    -   post install: to set `zsh` as default shell without root, add `exec $ZZROOT/bin/zsh -l` to `.bashrc`
 -   [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh) (latest)
     -   depends on: `zsh`
     -   install script: `sh zzohmyzsh.sh`
