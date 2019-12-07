@@ -160,3 +160,6 @@ Updated: Dec 7, 2019
 -   [`.netrc`](.netrc) (lftp password-less configuration)
 -   [`.ssh/config`](.ssh/config) (suppress git clone warnings)
 -   [`.lftp/rc`](.lftp/rc) (suppress lftp ssl warning)
+
+### useful articles
+-   [opengl on remote machine](https://www.scm.com/doc/Installation/Remote_GUI.html)
