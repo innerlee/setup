@@ -141,9 +141,14 @@ Updated: Dec 7, 2019
     -   you can set `vscode` ssh path to this `wslssh.bat`, work together with `sshpass` (installed in wsl)
 -   [sshkey.sh](sshkey.sh) (gen an ssh key)
     -   run script: `sh sshkey.sh`
--   [zshplugin](zshplugin.sh) (completions, autosuggestions, syntax-highlighting)
+-   [zshplugin.sh](zshplugin.sh) (completions, autosuggestions, syntax-highlighting)
     -   depends on: `git`
     -   install script: `sh zshplugin.sh`
+-   [nordtmux.sh](nordtmux.sh) (nord theme for tmux)
+    -   depends on: `git`, `tmux`
+    -   install script: `sh nordtmux.sh`
+-   [dircolor.sh](dircolor.sh) (nord theme for zsh)
+    -   install script: `sh dircolor.sh`
 
 ### zz configures
 
