@@ -1,3 +1,4 @@
+#!/bin/bash
 # install yasm
 set -e
 

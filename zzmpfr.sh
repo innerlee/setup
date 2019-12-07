@@ -1,11 +1,12 @@
+#!/bin/bash
 # install mpfr
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
 NAME="mpfr"
-TYPE=".tar.xz"
+TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://www.mpfr.org/mpfr-current/mpfr-4.0.2.tar.xz"
+DOWNLOADURL="https://ftp.gnu.org/gnu/mpfr/mpfr-4.0.2.tar.gz"
 echo $NAME will be installed in $ROOTDIR
 
 echo install gmp first

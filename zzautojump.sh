@@ -1,12 +1,12 @@
 #!/bin/bash
-# install ncurses
+# install autojump
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="ncurses"
+NAME="autojump"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="ftp://ftp.invisible-island.net/ncurses/ncurses.tar.gz"
+DOWNLOADURL="https://github.com/wting/autojump/archive/master.tar.gz"
 echo $NAME will be installed in $ROOTDIR
 
 mkdir -p $ROOTDIR/downloads
@@ -25,7 +25,6 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix=$ROOTDIR --with-shared --enable-pc-files --enable-widec
-make -j && make install
+./install.py
 
 echo $NAME installed on $ROOTDIR

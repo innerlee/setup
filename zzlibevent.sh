@@ -1,3 +1,4 @@
+#!/bin/bash
 # install libevent
 set -e
 
@@ -5,7 +6,7 @@ ROOTDIR=${ZZROOT:-$HOME/app}
 NAME="libevent"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz"
+DOWNLOADURL="https://github.com/libevent/libevent/releases/download/release-2.1.11-stable/libevent-2.1.11-stable.tar.gz"
 echo $NAME will be installed in $ROOTDIR
 
 mkdir -p $ROOTDIR/downloads

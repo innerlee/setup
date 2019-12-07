@@ -1,20 +1,33 @@
+#!/bin/bash
 # install libcurl
+set -e
 
-ROOTDIR=$HOME/app
-mkdir -p $ROOTDIR
+ROOTDIR=${ZZROOT:-$HOME/app}
+NAME="libcurl"
+TYPE=".tar.gz"
+FILE="$NAME$TYPE"
+DOWNLOADURL="https://curl.haxx.se/download/curl-7.67.0.tar.gz"
+echo $NAME will be installed in $ROOTDIR
+echo Dependency: autoconf, automake, libtool, m4, nroff, perl, OpenSSL
+
+mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
 
-wget https://curl.haxx.se/download/curl-7.66.0.tar.gz -O libcurl.tar.gz
+if [ -f "downloads/$FILE" ]; then
+    echo "downloads/$FILE exist"
+else
+    echo "$FILE does not exist, downloading..."
+    wget $DOWNLOADURL -O $FILE
+    mv $FILE downloads/
+fi
 
-mkdir -p src/libcurl
-tar xf libcurl.tar.gz -C src/libcurl --strip-components 1
+mkdir -p src/$NAME
+tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
-cd src/libcurl
+cd src/$NAME
 
-make configure
-
-./configure --with-ssl=$ROOTDIR/bin/openssl --prefix=$ROOTDIR
+./buildconf
+./configure --with-ssl --prefix=$ROOTDIR  # --with-libssl-prefix=/usr/local/ssl
 make -j && make install
 
-cd ..
-echo libcurl installed on $(pwd)
+echo $NAME installed on $ROOTDIR

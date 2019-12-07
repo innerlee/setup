@@ -1,3 +1,4 @@
+#!/bin/bash
 # install julia
 set -e
 

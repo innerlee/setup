@@ -1,3 +1,4 @@
+#!/bin/bash
 # install unrar
 set -e
 
@@ -5,7 +6,7 @@ ROOTDIR=${ZZROOT:-$HOME/app}
 NAME="unrar"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="http://www.rarlab.com/rar/unrarsrc-5.8.3.tar.gz"
+DOWNLOADURL="https://www.rarlab.com/rar/unrarsrc-5.8.4.tar.gz"
 echo $NAME will be installed in $ROOTDIR
 
 mkdir -p $ROOTDIR/downloads

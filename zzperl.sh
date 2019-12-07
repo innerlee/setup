@@ -1,17 +1,31 @@
+#!/bin/bash
 # install perl
+set -e
 
-ROOTDIR=$HOME/app
-mkdir -p $ROOTDIR
+ROOTDIR=${ZZROOT:-$HOME/app}
+NAME="perl"
+TYPE=".tar.gz"
+FILE="$NAME$TYPE"
+DOWNLOADURL="https://www.cpan.org/src/5.0/perl-5.30.1.tar.gz"
+echo $NAME will be installed in $ROOTDIR
+
+mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
 
-wget https://www.cpan.org/src/5.0/perl-5.30.0.tar.gz -O perl.tar.gz
+if [ -f "downloads/$FILE" ]; then
+    echo "downloads/$FILE exist"
+else
+    echo "$FILE does not exist, downloading..."
+    wget $DOWNLOADURL -O $FILE
+    mv $FILE downloads/
+fi
 
-mkdir -p perl/src
-tar xf perl.tar.gz -C perl/src --strip-components 1
+mkdir -p src/$NAME
+tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
-cd perl/src
-./Configure -des -Dprefix=$ROOTDIR/perl
+cd src/$NAME
+
+./Configure -des -Dprefix=$ROOTDIR
 make -j && make install
 
-cd ..
-echo perl installed on $(pwd)
+echo $NAME installed on $ROOTDIR

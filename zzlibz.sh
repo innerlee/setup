@@ -1,17 +1,31 @@
+#!/bin/bash
 # install libz
+set -e
 
-ROOTDIR=$HOME/app
-mkdir -p $ROOTDIR
+ROOTDIR=${ZZROOT:-$HOME/app}
+NAME="libz"
+TYPE=".tar.gz"
+FILE="$NAME$TYPE"
+DOWNLOADURL="https://www.zlib.net/zlib-1.2.11.tar.gz"
+echo $NAME will be installed in $ROOTDIR
+
+mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
 
-wget https://www.zlib.net/zlib-1.2.11.tar.gz -O libz.tar.gz
+if [ -f "downloads/$FILE" ]; then
+    echo "downloads/$FILE exist"
+else
+    echo "$FILE does not exist, downloading..."
+    wget $DOWNLOADURL -O $FILE
+    mv $FILE downloads/
+fi
 
-mkdir -p libz/src
-tar xf libz.tar.gz -C libz/src --strip-components 1
+mkdir -p src/$NAME
+tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
-cd libz/src
-./configure --prefix=$ROOTDIR/libz
+cd src/$NAME
+
+./configure --prefix=$ROOTDIR
 make -j && make install
 
-cd ..
-echo libz installed on $(pwd)
+echo $NAME installed on $ROOTDIR

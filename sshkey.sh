@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cd
 ssh-keygen -t rsa -b 4096 -C lizz@sentime.com
 

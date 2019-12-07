@@ -1,3 +1,4 @@
+#!/bin/bash
 # install tmux
 set -e
 
@@ -5,7 +6,7 @@ ROOTDIR=${ZZROOT:-$HOME/app}
 NAME="tmux"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://github.com/tmux/tmux/releases/download/2.9a/tmux-2.9a.tar.gz"
+DOWNLOADURL="https://github.com/tmux/tmux/releases/download/3.0a/tmux-3.0a.tar.gz"
 echo $NAME will be installed in $ROOTDIR
 echo "hey, install libevent first"
 
@@ -25,7 +26,7 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix=$ROOTDIR CFLAGS="-I$ROOTDIR/include -I$ROOTDIR/include/ncurses" LDFLAGS="-L$ROOTDIR/lib"
+./configure --prefix=$ROOTDIR
 make -j && make install
 
 echo $NAME installed on $ROOTDIR

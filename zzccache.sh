@@ -1,3 +1,4 @@
+#!/bin/bash
 # install ccache
 set -e
 
@@ -5,7 +6,7 @@ ROOTDIR=${ZZROOT:-$HOME/app}
 NAME="ccache"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://github.com/ccache/ccache/releases/download/v3.7.5/ccache-3.7.5.tar.gz"
+DOWNLOADURL="https://github.com/ccache/ccache/releases/download/v3.7.6/ccache-3.7.6.tar.gz"
 echo $NAME will be installed in $ROOTDIR
 
 mkdir -p $ROOTDIR/downloads

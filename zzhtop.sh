@@ -1,13 +1,32 @@
-ROOTDIR=$HOME/app
-mkdir -p $ROOTDIR
+#!/bin/bash
+# install htop
+set -e
+
+ROOTDIR=${ZZROOT:-$HOME/app}
+NAME="htop"
+TYPE=".tar.gz"
+FILE="$NAME$TYPE"
+DOWNLOADURL="http://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz"
+echo $NAME will be installed in $ROOTDIR
+echo Dependency: ncurses
+
+mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
 
-wget http://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz -O htop.tar.gz
+if [ -f "downloads/$FILE" ]; then
+    echo "downloads/$FILE exist"
+else
+    echo "$FILE does not exist, downloading..."
+    wget $DOWNLOADURL -O $FILE
+    mv $FILE downloads/
+fi
 
-mkdir -p htop/src
-tar xf htop.tar.gz -C htop/src --strip-components 1
+mkdir -p src/$NAME
+tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
-cd htop/src
+cd src/$NAME
 
-./configure --prefix=$ROOTDIR/htop CFLAGS="-I$ROOTDIR/ncurses/include -I$ROOTDIR/ncurses/include/ncurses" LDFLAGS="-L$ROOTDIR/ncurses/lib" --disable-unicode
+./configure --prefix=$ROOTDIR
 make -j && make install
+
+echo $NAME installed on $ROOTDIR

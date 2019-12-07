@@ -1,3 +1,4 @@
+#!/bin/bash
 # install libx265
 set -e
 

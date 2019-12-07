@@ -1,12 +1,14 @@
-# install pigz
+#!/bin/bash
+# install image magick
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="pigz"
+NAME="imagemagick"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://zlib.net/pigz/pigz-2.4.tar.gz"
+DOWNLOADURL="https://imagemagick.org/download/ImageMagick.tar.gz"
 echo $NAME will be installed in $ROOTDIR
+echo Dependency: freetype jpeg png
 
 mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
@@ -24,7 +26,7 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-make -j
+./configure --prefix=$ROOTDIR --with-modules --enable-shared --with-perl
+make -j && make install
 
-echo not finished yet
-# echo $NAME installed on $ROOTDIR
+echo $NAME installed on $ROOTDIR

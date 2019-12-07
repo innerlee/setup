@@ -1,3 +1,4 @@
+#!/bin/bash
 # install sshpass
 set -e
 

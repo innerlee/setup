@@ -1,3 +1,4 @@
+#!/bin/bash
 # install hdf5
 set -e
 

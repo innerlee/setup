@@ -1,13 +1,14 @@
 #!/bin/bash
-# install ncurses
+# install libjpeg-turbo
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="ncurses"
+NAME="libjpeg-turbo"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="ftp://ftp.invisible-island.net/ncurses/ncurses.tar.gz"
+DOWNLOADURL="https://github.com/libjpeg-turbo/libjpeg-turbo/archive/2.0.3.tar.gz"
 echo $NAME will be installed in $ROOTDIR
+echo Dependency: nasm, yasm
 
 mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
@@ -25,7 +26,8 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix=$ROOTDIR --with-shared --enable-pc-files --enable-widec
+mkdir build
+cmake -G"Unix Makefiles" -DCMAKE_INSTALL_PREFIX=$ROOTDIR ..
 make -j && make install
 
 echo $NAME installed on $ROOTDIR

@@ -1,3 +1,4 @@
+#!/bin/bash
 # install ccache
 set -e
 
@@ -7,6 +8,7 @@ TYPE=".tar.gz"
 FILE="$NAME$TYPE"
 DOWNLOADURL="https://github.com/ccache/ccache/releases/download/v3.7.5/ccache-3.7.5.tar.gz"
 echo $NAME will be installed in $ROOTDIR
+echo Dependency: boost, opencv
 
 mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR

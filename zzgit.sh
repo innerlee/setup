@@ -1,3 +1,4 @@
+#!/bin/bash
 # install git
 set -e
 
@@ -5,9 +6,9 @@ ROOTDIR=${ZZROOT:-$HOME/app}
 NAME="git"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://codeload.github.com/git/git/tar.gz/v2.23.0"
+DOWNLOADURL="https://github.com/git/git/archive/v2.24.0.tar.gz"
 echo $NAME will be installed in $ROOTDIR
-echo "hey, install libz and libcurl first"
+echo "hey, install libz and libcurl first, and temporarily remove anaconda from your PATH before install!"
 
 mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR

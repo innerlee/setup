@@ -1,3 +1,4 @@
+#!/bin/bash
 # install nmon
 set -e
 

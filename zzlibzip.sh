@@ -1,19 +1,34 @@
+#!/bin/bash
 # install libzip
+set -e
 
-ROOTDIR=$HOME/app
-mkdir -p $ROOTDIR
+ROOTDIR=${ZZROOT:-$HOME/app}
+NAME="libzip"
+TYPE=".tar.gz"
+FILE="$NAME$TYPE"
+DOWNLOADURL="https://libzip.org/download/libzip-1.5.2.tar.gz"
+echo $NAME will be installed in $ROOTDIR
+
+mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
 
-wget https://libzip.org/download/libzip-1.5.2.tar.gz -O libzip.tar.gz
+if [ -f "downloads/$FILE" ]; then
+    echo "downloads/$FILE exist"
+else
+    echo "$FILE does not exist, downloading..."
+    wget $DOWNLOADURL -O $FILE
+    mv $FILE downloads/
+fi
 
-mkdir -p src/libzip
-tar xf libzip.tar.gz -C src/libzip --strip-components 1
+mkdir -p src/$NAME
+tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
-cd src/libzip
+cd src/$NAME
+
 mkdir build
 cd build
 cmake -DCMAKE_INSTALL_PREFIX=$ROOTDIR ..
 ./configure --prefix=$ROOTDIR
 make -j && make install
 
-echo libzip installed on $ROOTDIR
+echo $NAME installed on $ROOTDIR

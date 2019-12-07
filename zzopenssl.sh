@@ -1,11 +1,12 @@
-# install image magick
+#!/bin/bash
+# install openssl
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="imagemagick"
+NAME="openssl"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://imagemagick.org/download/ImageMagick.tar.gz"
+DOWNLOADURL="https://www.openssl.org/source/openssl-1.1.1d.tar.gz"
 echo $NAME will be installed in $ROOTDIR
 
 mkdir -p $ROOTDIR/downloads
@@ -24,7 +25,7 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix=$ROOTDIR --with-png=yes --with-jpeg=yes --with-jp2=yes --with-freetype=yes
+./config --prefix=$ROOTDIR --openssldir=$ROOTDIR/ssl
 make -j && make install
 
-echo $NAME installed on $ROOTDIR
+echo $NAME installed on $ROOTDIR, with --openssldir=$ROOTDIR/ssl

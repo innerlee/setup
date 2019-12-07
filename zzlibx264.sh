@@ -1,3 +1,4 @@
+#!/bin/bash
 # install libx264
 set -e
 

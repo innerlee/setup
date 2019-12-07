@@ -1,3 +1,4 @@
+#!/bin/bash
 # Installs Zsh
 set -e
 
@@ -25,12 +26,10 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-export CXXFLAGS=' -fPIC'
 export CFLAGS=' -fPIC'
-export PATH=$ROOTDIR/bin:$PATH
-export LD_LIBRARY_PATH=$ROOTDIR/lib:$LD_LIBRARY_PATH
-export CFLAGS=-I$ROOTDIR/include
-export CPPFLAGS="-I$ROOTDIR/include" LDFLAGS="-L$ROOTDIR/lib"
+export CXXFLAGS=' -fPIC'
+# export CFLAGS=-I$ROOTDIR/include
+# export CPPFLAGS="-I$ROOTDIR/include" LDFLAGS="-L$ROOTDIR/lib"
 
 autoheader
 autoconf

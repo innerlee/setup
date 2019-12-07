@@ -1,3 +1,4 @@
+#!/bin/bash
 # install gcc
 set -e
 
@@ -5,7 +6,7 @@ ROOTDIR=${ZZROOT:-$HOME/app}
 NAME="gcc"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/gcc-7.4.0/gcc-7.4.0.tar.gz"
+DOWNLOADURL="http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/gcc-7.5.0/gcc-7.5.0.tar.gz"
 echo $NAME will be installed in $ROOTDIR
 
 echo CUDA 10 support up to gcc 7, CUDA 9 support up to gcc 5.
