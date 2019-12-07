@@ -31,13 +31,3 @@ make configure
 make -j && make install
 
 echo $NAME installed on $ROOTDIR
-
-# install git
-ROOTDIR=${ZZROOT:-$HOME/app}
-mkdir -p $ROOTDIR
-cd $ROOTDIR
-
-
-
-# ./configure --prefix=$ROOTDIR CFLAGS="-I$ROOTDIR/libcurl/include -I$ROOTDIR/libcurl/include/curl" LDFLAGS="-L$ROOTDIR/libcurl/lib"
-# ./configure --prefix=$ROOTDIR CFLAGS="-I$ROOTDIR/libz/include -I$ROOTDIR/libcurl/include -I$ROOTDIR/libcurl/include/curl" LDFLAGS="-L$ROOTDIR/libz/lib -L$ROOTDIR/libcurl/lib"
