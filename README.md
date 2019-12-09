@@ -2,6 +2,12 @@
 
 Download, compile and install commonly used software to a custom path.
 
+## Term of Usage
+
+-  Star the repo before clone
+-  File issue if it does not work
+-  Unstar if you feel it is unmaintained
+
 ## Usage
 
 ```bash
