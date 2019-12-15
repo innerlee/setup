@@ -1,12 +1,12 @@
 #!/bin/bash
-# install ccache
+# install denseflow
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="ccache"
+NAME="denseflow"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://github.com/ccache/ccache/releases/download/v3.7.5/ccache-3.7.5.tar.gz"
+DOWNLOADURL="https://codeload.github.com/innerlee/denseflow/tar.gz/master"
 echo $NAME will be installed in $ROOTDIR
 echo Dependency: boost, opencv
 
@@ -26,7 +26,9 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix=$ROOTDIR
+mkdir -p build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX=$ROOTDIR ..
 make -j && make install
 
 echo $NAME installed on $ROOTDIR
