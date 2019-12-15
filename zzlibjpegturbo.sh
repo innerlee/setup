@@ -26,7 +26,8 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-mkdir build
+mkdir -p build
+cd build
 cmake -G"Unix Makefiles" -DCMAKE_INSTALL_PREFIX=$ROOTDIR ..
 make -j && make install
 
