@@ -81,7 +81,7 @@ Updated: Dec 15, 2019
 -   [libtool](https://www.gnu.org/software/libtool/) (2.4.6)
     -   install script: [`./zzlibtool.sh`](zzlibtool.sh)
 -   [libjpeg](http://www.ijg.org/) (6b)
-    -   depends on: `nasm`, `yasm`
+    -   depends on: `libtool`
     -   install script: [`./zzlibjpeg.sh`](zzlibjpeg.sh)
 -   [libjpeg-turbo](https://libjpeg-turbo.org/) (2.0.3)
     -   depends on: `nasm`, `yasm`
