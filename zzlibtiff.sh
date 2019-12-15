@@ -1,12 +1,12 @@
 #!/bin/bash
-# install libpng
+# install libtiff
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="libpng"
+NAME="libtiff"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://download.sourceforge.net/libpng/libpng-1.6.37.tar.gz"
+DOWNLOADURL="http://download.osgeo.org/libtiff/tiff-4.1.0.tar.gz"
 echo $NAME will be installed in $ROOTDIR
 
 mkdir -p $ROOTDIR/downloads
@@ -25,7 +25,11 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix=$ROOTDIR LDFLAGS="-L/$ZZROOT/lib -lz"
-make -j && make install
+mkdir -p build
+cd build
+
+cmake -DCMAKE_INSTALL_PREFIX=$ROOTDIR -G Ninja ..
+ninja
+ninja install
 
 echo $NAME installed on $ROOTDIR

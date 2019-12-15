@@ -1,12 +1,12 @@
 #!/bin/bash
-# install libpng
+# install libgif
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="libpng"
+NAME="libgif"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://download.sourceforge.net/libpng/libpng-1.6.37.tar.gz"
+DOWNLOADURL="https://sourceforge.net/projects/giflib/files/giflib-5.2.1.tar.gz"
 echo $NAME will be installed in $ROOTDIR
 
 mkdir -p $ROOTDIR/downloads
@@ -25,7 +25,7 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix=$ROOTDIR LDFLAGS="-L/$ZZROOT/lib -lz"
-make -j && make install
+make -j
+make PREFIX=$ROOTDIR install
 
 echo $NAME installed on $ROOTDIR

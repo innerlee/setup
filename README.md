@@ -79,12 +79,23 @@ Updated: Dec 15, 2019
 -   [libzip](https://libzip.org/) (1.5.2)
     -   install script: `sh zzlibzip.sh`
 -   [libtool](https://www.gnu.org/software/libtool/) (2.4.6)
-    -   install script: `sh zzlibzip.sh`
+    -   install script: `sh zzlibtool.sh`
+-   [libjpeg](http://www.ijg.org/) (6b)
+    -   depends on: `nasm`, `yasm`
+    -   install script: `sh zzlibjpeg.sh`
 -   [libjpeg-turbo](https://libjpeg-turbo.org/) (2.0.3)
     -   depends on: `nasm`, `yasm`
     -   install script: `sh zzlibjpegturbo.sh`
 -   [libpng](http://www.libpng.org/pub/png/libpng.html) (1.6.37)
     -   install script: `sh zzlibpng.sh`
+-   [libtiff](http://www.simplesystems.org/libtiff/) (4.1.0)
+    -   install script: `sh zzlibtiff.sh`
+-   [libwebp](https://developers.google.com/speed/webp/download) (1.0.3)
+    -   install script: `sh zzlibwebp.sh`
+-   [libgif](http://giflib.sourceforge.net/) (5.2.1)
+    -   install script: `sh zzlibgif.sh`
+-   [libopenjp2](https://www.openjpeg.org/) (2.3.1)
+    -   install script: `sh zzlibopenjp2.sh`
 
 ### tools
 

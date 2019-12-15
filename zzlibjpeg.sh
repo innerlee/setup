@@ -1,12 +1,12 @@
 #!/bin/bash
-# install libpng
+# install libjpeg
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="libpng"
+NAME="libjpeg"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://download.sourceforge.net/libpng/libpng-1.6.37.tar.gz"
+DOWNLOADURL="http://www.ijg.org/files/jpegsrc.v6b.tar.gz"
 echo $NAME will be installed in $ROOTDIR
 
 mkdir -p $ROOTDIR/downloads
@@ -25,7 +25,8 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix=$ROOTDIR LDFLAGS="-L/$ZZROOT/lib -lz"
-make -j && make install
+ln -s $ROOTDIR/bin/libtool libtool
+./configure --enable-shared --prefix=$ROOTDIR
+make -j && make install-lib
 
 echo $NAME installed on $ROOTDIR

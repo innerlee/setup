@@ -1,13 +1,14 @@
 #!/bin/bash
-# install libpng
+# install libopenjp2
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="libpng"
+NAME="libopenjp2"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://download.sourceforge.net/libpng/libpng-1.6.37.tar.gz"
+DOWNLOADURL="https://github.com/uclouvain/openjpeg/archive/v2.3.1.tar.gz"
 echo $NAME will be installed in $ROOTDIR
+echo Dependency: nasm, yasm
 
 mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
@@ -25,7 +26,10 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix=$ROOTDIR LDFLAGS="-L/$ZZROOT/lib -lz"
+mkdir -p build
+cd build
+
+cmake -E env LDFLAGS="-L/$ZZROOT/lib -lz" cmake -DCMAKE_INSTALL_PREFIX=$ROOTDIR -DCMAKE_C_FLAGS="-O3 -march=native -DNDEBUG" ..
 make -j && make install
 
 echo $NAME installed on $ROOTDIR

@@ -1,12 +1,12 @@
 #!/bin/bash
-# install libpng
+# install libwebp
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="libpng"
+NAME="libwebp"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://download.sourceforge.net/libpng/libpng-1.6.37.tar.gz"
+DOWNLOADURL="https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.0.3.tar.gz"
 echo $NAME will be installed in $ROOTDIR
 
 mkdir -p $ROOTDIR/downloads
@@ -25,7 +25,7 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix=$ROOTDIR LDFLAGS="-L/$ZZROOT/lib -lz"
+./configure --prefix=$ROOTDIR
 make -j && make install
 
 echo $NAME installed on $ROOTDIR
