@@ -25,7 +25,7 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-ln -s $ROOTDIR/bin/libtool libtool
+ln -s `which libtool` libtool
 ./configure --enable-shared --prefix=$ROOTDIR
 make -j && make install-lib
 
