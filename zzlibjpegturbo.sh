@@ -6,7 +6,7 @@ ROOTDIR=${ZZROOT:-$HOME/app}
 NAME="libjpeg-turbo"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://github.com/libjpeg-turbo/libjpeg-turbo/archive/2.0.3.tar.gz"
+DOWNLOADURL="https://ftp.osuosl.org/pub/blfs/conglomeration/libjpeg-turbo/libjpeg-turbo-2.0.3.tar.gz"
 echo $NAME will be installed in $ROOTDIR
 echo Dependency: nasm, yasm
 
