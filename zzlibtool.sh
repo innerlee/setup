@@ -1,12 +1,12 @@
 #!/bin/bash
-# install libzip
+# install libtool
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="libzip"
+NAME="libtool"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://libzip.org/download/libzip-1.5.2.tar.gz"
+DOWNLOADURL="http://mirror-hk.koddos.net/gnu/libtool/libtool-2.4.6.tar.gz"
 echo $NAME will be installed in $ROOTDIR
 
 mkdir -p $ROOTDIR/downloads
@@ -25,9 +25,6 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-mkdir -p build
-cd build
-cmake -DCMAKE_INSTALL_PREFIX=$ROOTDIR ..
 ./configure --prefix=$ROOTDIR
 make -j && make install
 

@@ -28,7 +28,7 @@ For the download link, check the `DOWNLOADURL` variable in its script; for the e
 
 Verified on Ubuntu 18.04
 
-Updated: Dec 7, 2019
+Updated: Dec 15, 2019
 
 ### libs
 
@@ -74,7 +74,11 @@ Updated: Dec 7, 2019
     -   install script: `sh zzlibx265.sh`
 -   [libz](https://www.zlib.net/) (1.2.11)
     -   install script: `sh zzlibz.sh`
+-   [libzstd](https://facebook.github.io/zstd/) (1.4.4)
+    -   install script: `sh zzlibzstd.sh`
 -   [libzip](https://libzip.org/) (1.5.2)
+    -   install script: `sh zzlibzip.sh`
+-   [libtool](https://www.gnu.org/software/libtool/) (2.4.6)
     -   install script: `sh zzlibzip.sh`
 -   [libjpeg-turbo](https://libjpeg-turbo.org/) (2.0.3)
     -   depends on: `nasm`, `yasm`
