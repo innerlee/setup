@@ -183,4 +183,9 @@ Updated: Dec 17, 2019
 -   [`.lftp/rc`](.lftp/rc) (suppress lftp ssl warning)
 
 ### useful articles
+
 -   [opengl on remote machine](https://www.scm.com/doc/Installation/Remote_GUI.html)
+
+### misc
+ 
+- useful Julia packages: ArgParse Glob Images FileIO StatsBase Shell UnicodePlots PyCall PyPlot Plots ImageFiltering ImageMagick Interpolations
