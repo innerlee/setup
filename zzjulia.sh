@@ -20,10 +20,10 @@ else
     mv $FILE downloads/
 fi
 
-mkdir -p src/$NAME
-tar xf downloads/$FILE -C src/$NAME --strip-components 1
+mkdir -p $NAME
+tar xf downloads/$FILE -C $NAME --strip-components 1
 
 cd bin
-ln -s ../src/$NAME/bin/julia julia
+ln -s ../$NAME/bin/julia julia -f
 
 echo $NAME installed on $ROOTDIR
