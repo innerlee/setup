@@ -28,7 +28,7 @@ For the download link, check the `DOWNLOADURL` variable in its script; for the e
 
 Verified on Ubuntu 18.04
 
-Updated: Dec 15, 2019
+Updated: Dec 17, 2019
 
 ### libs
 
