@@ -8,7 +8,7 @@ TYPE=".tar.gz"
 FILE="$NAME$TYPE"
 DOWNLOADURL="https://imagemagick.org/download/ImageMagick.tar.gz"
 echo $NAME will be installed in $ROOTDIR
-echo Dependency: freetype jpeg png perl libltdl zlib
+echo Dependency: freetype jpeg png perl libtool zlib
 
 mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
