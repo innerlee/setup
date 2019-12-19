@@ -3,11 +3,13 @@
 using Pkg, Pkg.BinaryPlatforms, Pkg.Artifacts
 
 SUPPORTED = [
-    "Arpack",
-    "GEOS",
-    "git_crypt",
-    "SuiteSparse",
-    "SymEngine",
+    "LibCURL",
+    "FFMPEG",
+    "Git",
+    "HDF5",
+    "Lua",
+    "LAME",
+    "ImageMagick"
 ]
 
 if length(ARGS) == 1
@@ -61,7 +63,8 @@ files = joinpath.([DOWNLOADDIR], basename.(links))
 for (link, file) in zip(links, files)
     println("downloading $link to $file")
     if !isfile(file)
-        tmpfile = download(string(link))
+        tmpfile = tempname()
+        run(`wget -O $tmpfile $link`)
         mv(tmpfile, file, force=true)
     end
 end
