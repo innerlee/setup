@@ -1,0 +1,76 @@
+#!/usr/bin/env julia
+
+using Pkg, Pkg.BinaryPlatforms, Pkg.Artifacts
+
+SUPPORTED = [
+    "Arpack",
+    "GEOS",
+    "git_crypt",
+    "SuiteSparse",
+    "SymEngine",
+]
+
+if length(ARGS) == 1
+    NAME = ARGS[1]
+else
+    println("Usage: ./jlinstall Software")
+    println("Supported softwares:")
+    println(join(SUPPORTED, "\n"))
+    exit(0)
+end
+
+INSTALLDIR = get(ENV, "JLROOT", joinpath(homedir(), "jlapp"))
+DOWNLOADDIR = joinpath(INSTALLDIR, "downloads")
+mkpath(INSTALLDIR)
+mkpath(DOWNLOADDIR)
+
+function getdeps(name)
+    s = read(download("https://raw.githubusercontent.com/JuliaBinaryWrappers/$(name)_jll.jl/master/Project.toml"), String)
+    replace.(SubString.(s, findall(r"\w+_jll", s)), ["_jll" => ""])
+end
+
+function getartifact(name)
+    artifacts_toml = download("https://raw.githubusercontent.com/JuliaBinaryWrappers/$(name)_jll.jl/master/Artifacts.toml")
+    artifacts = Pkg.Artifacts.load_artifacts_toml(artifacts_toml)
+    platforms = [Pkg.Artifacts.unpack_platform(e, name, artifacts_toml) for e in artifacts[name]]
+    best_platform = select_platform(Dict(p => triplet(p) for p in platforms))
+    filter(e->triplet(Pkg.Artifacts.unpack_platform(e, name, artifacts_toml)) == best_platform, artifacts[name])[1]["download"][1]["url"]
+end
+
+deps = []
+namesdone = []
+
+function adddeps(name)
+    global deps, namedone
+    name in namesdone && return
+    push!(deps, name)
+    for d in getdeps(name)
+        if d ∉ deps
+            adddeps(d)
+        end
+    end
+end
+
+adddeps(NAME)
+
+links = getartifact.(deps)
+println(join(links, "\n"))
+
+println()
+files = joinpath.([DOWNLOADDIR], basename.(links))
+for (link, file) in zip(links, files)
+    println("downloading $link to $file")
+    if !isfile(file)
+        tmpfile = download(string(link))
+        mv(tmpfile, file, force=true)
+    end
+end
+
+println()
+for file in files
+    println("extracting $file")
+    run(`tar xf $file -C $INSTALLDIR`)
+end
+
+println()
+println("done.")
