@@ -64,7 +64,7 @@ for (link, file) in zip(links, files)
     println("downloading $link to $file")
     if !isfile(file)
         tmpfile = tempname()
-        run(`wget -O $tmpfile $link`)
+        run(`wget -q -O $tmpfile $link`)
         mv(tmpfile, file, force=true)
     end
 end
