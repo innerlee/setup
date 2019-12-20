@@ -9,7 +9,8 @@ SUPPORTED = [
     "HDF5",
     "Lua",
     "LAME",
-    "ImageMagick"
+    "ImageMagick",
+    "Htop"
 ]
 
 if length(ARGS) == 1
