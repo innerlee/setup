@@ -10,7 +10,8 @@ SUPPORTED = [
     "Lua",
     "LAME",
     "ImageMagick",
-    "Htop"
+    "Htop",
+    "Vmtouch"
 ]
 
 if length(ARGS) == 1
