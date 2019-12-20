@@ -1,5 +1,4 @@
 #!/usr/bin/env julia
-
 using Pkg, Pkg.BinaryPlatforms, Pkg.Artifacts
 
 SUPPORTED = [
@@ -11,7 +10,8 @@ SUPPORTED = [
     "LAME",
     "ImageMagick",
     "Htop",
-    "Vmtouch"
+    "Vmtouch",
+    "iperf"
 ]
 
 if length(ARGS) == 1
