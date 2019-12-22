@@ -28,8 +28,8 @@ cd src/$NAME
 
 export CFLAGS=' -fPIC'
 export CXXFLAGS=' -fPIC'
-# export CFLAGS=-I$ROOTDIR/include
-# export CPPFLAGS="-I$ROOTDIR/include" LDFLAGS="-L$ROOTDIR/lib"
+export CFLAGS=-I$ROOTDIR/include
+export CPPFLAGS="-I$ROOTDIR/include" LDFLAGS="-L$ROOTDIR/lib"
 
 autoheader
 autoconf
