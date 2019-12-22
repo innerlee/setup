@@ -25,7 +25,7 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix=$ROOTDIR --with-shared --enable-pc-files --enable-widec
+./configure --prefix=$ROOTDIR --with-shared --enable-pc-files --enable-widec --with-pkg-config-libdir=$ROOTDIR/lib/pkgconfig
 make -j && make install
 
 echo $NAME installed on $ROOTDIR
