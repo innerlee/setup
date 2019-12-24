@@ -25,6 +25,9 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
+export CFLAGS=-I$ROOTDIR/include
+export CPPFLAGS="-I$ROOTDIR/include -I$ROOTDIR/include/ncursesw" LDFLAGS="-L$ROOTDIR/lib"
+
 ./configure --prefix=$ROOTDIR
 make -j && make install
 
