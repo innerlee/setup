@@ -11,7 +11,8 @@ SUPPORTED = [
     "ImageMagick",
     "Htop",
     "Vmtouch",
-    "iperf"
+    "iperf",
+    "tmux"
 ]
 
 if length(ARGS) == 1
