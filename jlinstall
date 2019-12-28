@@ -12,7 +12,8 @@ SUPPORTED = [
     "Htop",
     "Vmtouch",
     "iperf",
-    "tmux"
+    "tmux",
+    "bmon"
 ]
 
 if length(ARGS) == 1
