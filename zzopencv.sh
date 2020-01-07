@@ -39,7 +39,7 @@ tar xf downloads/$FILE2 -C src/$NAME2 --strip-components 1
 cd src/$NAME1
 mkdir -p build
 cd build
-
+export PKG_CONFIG_PATH=$ROOTDIR/lib/pkgconfig
 cmake \
     -DBUILD_EXAMPLES=OFF \
     -DWITH_QT=OFF \
@@ -81,8 +81,8 @@ cmake \
     -DFORCE_VTK=OFF \
     -DWITH_TBB=ON \
     -DWITH_GDAL=ON \
-    -DCUDA_ARCH_BIN=6.1,7.0,7.5 \
-    -DCUDA_ARCH_PTX=7.5 \
+    -DCUDA_ARCH_BIN=6.1 \
+    -DCUDA_ARCH_PTX=6.1 \
     -DCUDA_FAST_MATH=ON \
     -DWITH_CUBLAS=ON \
     -DWITH_MKL=ON \
@@ -100,7 +100,7 @@ cmake \
     -DCMAKE_INSTALL_PREFIX="$ROOTDIR" \
     -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules ..
 
-make -j && make install
+make -j7 && make install
 
 echo $NAME installed on $ROOTDIR
 echo add following line to .zshrc
