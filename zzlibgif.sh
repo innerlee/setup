@@ -25,7 +25,7 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-make -j
+make -j$(nproc)
 make PREFIX=$ROOTDIR install
 
 echo $NAME installed on $ROOTDIR

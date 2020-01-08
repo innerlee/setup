@@ -30,6 +30,6 @@ mkdir -p build
 cd build
 
 cmake -E env LDFLAGS="-L/$ZZROOT/lib -lz" cmake -DCMAKE_INSTALL_PREFIX=$ROOTDIR -DCMAKE_C_FLAGS="-O3 -march=native -DNDEBUG" ..
-make -j && make install
+make -j$(nproc) && make install
 
 echo $NAME installed on $ROOTDIR

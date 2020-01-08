@@ -1,5 +1,5 @@
 #!/bin/bash
-# install libnumactl 
+# install libnumactl
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
@@ -27,6 +27,6 @@ cd src/$NAME
 
 #./autogen.sh
 ./configure --prefix=$ROOTDIR
-make -j && make install
+make -j$(nproc) && make install
 
 echo $NAME installed on $ROOTDIR

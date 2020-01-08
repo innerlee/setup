@@ -27,6 +27,6 @@ cd src/$NAME
 
 ln -s `which libtool` libtool
 ./configure --enable-shared --prefix=$ROOTDIR
-make -j && make install-lib
+make -j$(nproc) && make install-lib
 
 echo $NAME installed on $ROOTDIR

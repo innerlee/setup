@@ -26,6 +26,6 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 cd src/$NAME/build/linux
 
 cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$ROOTDIR" -DENABLE_SHARED:bool=on ../../source
-make -j && make install
+make -j$(nproc) && make install
 
 echo $NAME installed on $ROOTDIR

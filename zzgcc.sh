@@ -29,6 +29,6 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 cd src/$NAME
 
 ./configure --prefix=$ROOTDIR --with-gmp=$ROOTDIR --with-mpfr=$ROOTDIR --with-mpc=$ROOTDIR --disable-multilib --enable-languages=c,c++,fortran
-make -j && make install
+make -j$(nproc) && make install
 
 echo $NAME installed on $ROOTDIR

@@ -28,6 +28,6 @@ cd src/$NAME
 
 make configure
 ./configure --prefix=$ROOTDIR
-make -j && make install
+make -j$(nproc) && make install
 
 echo $NAME installed on $ROOTDIR

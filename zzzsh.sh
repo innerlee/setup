@@ -34,7 +34,7 @@ export CPPFLAGS="-I$ROOTDIR/include" LDFLAGS="-L$ROOTDIR/lib"
 autoheader
 autoconf
 ./configure --prefix=$ROOTDIR --enable-shared
-make -j && make install
+make -j$(nproc) && make install
 
 echo $NAME installed on $ROOTDIR
 echo put this in .bashrc

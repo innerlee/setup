@@ -28,6 +28,6 @@ tar xfz downloads/$FILE -C src/$NAME --strip-components 1
 cd src/$NAME
 
 ./configure --prefix=$ROOTDIR --with-gmp=$ROOTDIR --with-mpfr=$ROOTDIR
-make -j && make check && make install
+make -j$(nproc) && make check && make install
 
 echo $NAME installed on $ROOTDIR

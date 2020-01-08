@@ -28,6 +28,6 @@ cd src/$NAME
 
 ./buildconf
 ./configure --with-ssl --prefix=$ROOTDIR --with-ssl=$ROOTDIR/ssl
-make -j && make install
+make -j$(nproc) && make install
 
 echo $NAME installed on $ROOTDIR

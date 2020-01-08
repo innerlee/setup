@@ -38,6 +38,6 @@ PKG_CONFIG_PATH="$ROOTDIR/lib/pkgconfig"
     --enable-nonfree \
     --enable-pic \
     --enable-shared
-make -j && make install
+make -j$(nproc) && make install
 
 echo $NAME installed on $ROOTDIR

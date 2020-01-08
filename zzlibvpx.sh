@@ -28,6 +28,6 @@ cd src/$NAME
 export CXXFLAGS=' -fPIC'
 export CFLAGS=' -fPIC'
 ./configure --prefix="$ROOTDIR" --disable-examples --disable-unit-tests --enable-vp9-highbitdepth --as=yasm --enable-shared
-make -j && make install
+make -j$(nproc) && make install
 
 echo $NAME installed on $ROOTDIR

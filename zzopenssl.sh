@@ -26,6 +26,6 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 cd src/$NAME
 
 ./config --prefix=$ROOTDIR/ssl --openssldir=$ROOTDIR/ssl
-make -j && make install
+make -j$(nproc) && make install
 
 echo $NAME installed on $ROOTDIR/ssl, with --openssldir=$ROOTDIR/ssl

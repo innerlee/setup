@@ -29,6 +29,6 @@ cd src/$NAME
 mkdir -p build
 cd build
 cmake -G"Unix Makefiles" -DCMAKE_INSTALL_PREFIX=$ROOTDIR ..
-make -j && make install
+make -j$(nproc) && make install
 
 echo $NAME installed on $ROOTDIR

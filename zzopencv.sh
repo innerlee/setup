@@ -100,7 +100,7 @@ cmake \
     -DCMAKE_INSTALL_PREFIX="$ROOTDIR" \
     -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules ..
 
-make -j && make install
+make -j$(nproc) && make install
 
 echo $NAME installed on $ROOTDIR
 echo add following line to .zshrc
