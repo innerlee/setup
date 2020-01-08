@@ -82,8 +82,6 @@ cmake \
     -DFORCE_VTK=OFF \
     -DWITH_TBB=ON \
     -DWITH_GDAL=ON \
-    -DCUDA_ARCH_BIN=6.1,7.0,7.5 \
-    -DCUDA_ARCH_PTX=7.5 \
     -DCUDA_FAST_MATH=ON \
     -DWITH_CUBLAS=ON \
     -DWITH_MKL=ON \
