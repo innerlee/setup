@@ -25,7 +25,6 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-update_configure_scripts  # the config.sub is too old
 ./configure --prefix=$ROOTDIR
 make -j$(nproc) && make install
 
