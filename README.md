@@ -4,7 +4,7 @@ Download, compile and install commonly used software to a custom path.
 
 <div style="align:center">
     <img src="https://img.devrant.com/devrant/rant/r_54040_zGEQB.jpg" height=128 />
-    <img src="https://www.leadingagile.com/wp-content/uploads/2017/03/works-on-my-machine.jpg" height=128 />
+<!--     <img src="https://www.leadingagile.com/wp-content/uploads/2017/03/works-on-my-machine.jpg" height=128 /> -->
 </div>
 
 ## Term of Usage
