@@ -24,6 +24,6 @@ mkdir -p src/$NAME
 tar xf downloads/$FILE -C src/$NAME
 
 cd bin
-ln -s ../src/nmon/nmon_x86_rhel75 nmon
+ln -s ../src/nmon/nmon_x86_rhel75 nmon -f
 
 echo $NAME installed on $ROOTDIR
