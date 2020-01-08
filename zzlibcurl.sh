@@ -31,3 +31,5 @@ cd src/$NAME
 make -j$(nproc) && make install
 
 echo $NAME installed on $ROOTDIR
+echo You may need
+echo export SSL_CERT_DIR=/etc/ssl/certs
