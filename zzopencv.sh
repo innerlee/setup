@@ -40,6 +40,7 @@ cd src/$NAME1
 mkdir -p build
 cd build
 
+export PKG_CONFIG_PATH=$ROOTDIR/lib/pkgconfig
 cmake \
     -DBUILD_EXAMPLES=OFF \
     -DWITH_QT=OFF \
