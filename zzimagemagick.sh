@@ -26,6 +26,9 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
+export CFLAGS="-I$ROOTDIR/include"
+export CPPFLAGS="-I$ROOTDIR/include"
+export LDFLAGS="-L$ROOTDIR/lib"
 export PKG_CONFIG_PATH="$ROOTDIR/lib/pkgconfig"
 ./configure --prefix=$ROOTDIR --with-modules --enable-shared --with-perl
 make -j$(nproc) && make install
