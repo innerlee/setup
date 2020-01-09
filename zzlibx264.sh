@@ -24,8 +24,8 @@ mkdir -p src/$NAME
 tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
-
-PKG_CONFIG_PATH="$ROOTDIR/lib/pkgconfig"
+export PATH=$ROOTDIR/bin:$PATH
+export PKG_CONFIG_PATH="$ROOTDIR/lib/pkgconfig":$PKG_CONFIG_PATH
 ./configure --prefix=$ROOTDIR --enable-shared
 make -j$(nproc) && make install
 

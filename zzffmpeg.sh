@@ -8,7 +8,7 @@ TYPE=".tar.gz"
 FILE="$NAME$TYPE"
 DOWNLOADURL="https://www.ffmpeg.org/releases/ffmpeg-4.2.1.tar.gz"
 echo $NAME will be installed in $ROOTDIR
-echo install nasm, yasm, libx264, libx265, libvpx
+echo [NOTES] install nasm, yasm, libx264, libx265, libvpx first
 
 mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
@@ -25,8 +25,8 @@ mkdir -p src/$NAME
 tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
-
-export PKG_CONFIG_PATH="$ROOTDIR/lib/pkgconfig"
+export PATH=$ROOTDIR/bin:$PATH
+export PKG_CONFIG_PATH="$ROOTDIR/lib/pkgconfig":$PKG_CONFIG_PATH
 ./configure \
     --prefix=$ROOTDIR \
     --extra-libs=-lpthread \
