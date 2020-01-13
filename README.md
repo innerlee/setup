@@ -29,6 +29,9 @@ sh zzgit.sh
 If the download speed of the machine is too slow, you can put the `git.tar.gz` (using git as an example) into `$ZZROOT/downloads` before running the script.
 For the download link, check the `DOWNLOADURL` variable in its script; for the exact name of the software, check the `NAME` variable.
 
+**NOTE2:**
+If you compile from source, please make sure that they are compiled using the same gcc version!
+
 ## Supported Softwares
 
 Verified on Ubuntu 18.04
@@ -187,12 +190,15 @@ Updated: Dec 31, 2019
 -   [`.ssh/config`](.ssh/config) (suppress git clone warnings)
 -   [`.lftp/rc`](.lftp/rc) (suppress lftp ssl warning)
 
-### useful articles
-
--   [opengl on remote machine](https://www.scm.com/doc/Installation/Remote_GUI.html)
-
 ### misc
 
+-   [opengl on remote machine](https://www.scm.com/doc/Installation/Remote_GUI.html)
 - useful Julia packages: ArgParse Glob Images FileIO StatsBase Shell UnicodePlots PyCall PyPlot Plots ImageFiltering ImageMagick Interpolations Revise OhMyREPL DataFrames ProgressMeter JLD2 Distances ImageTransformations JuMP HDF5 ImageInTerminal ImageView DataStructures JSON JuliaFormatter
 - free JuMP solvers: Cbc Clp COSMO CSDP ECOS GLPK Juniper OSQP ProxSDP SCS SDPA
 - good reference: http://www.linuxfromscratch.org/blfs/view/svn/index.html
+
+### faq
+
+- **Q** My boost segfaluts :( <br/>
+**A** Make sure they the boost are comipiled and linked using the same gcc/g++ version
+
