@@ -199,6 +199,6 @@ Updated: Dec 31, 2019
 
 ### faq
 
-- **Q** My boost segfaluts :( <br/>
-**A** Make sure they the boost are comipiled and linked using the same gcc/g++ version
+- **Q**: My boost segfaluts :( <br/>
+**A**: Make sure they the boost are comipiled and linked using the same gcc/g++ version
 
