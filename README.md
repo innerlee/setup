@@ -203,3 +203,5 @@ Updated: Dec 31, 2019
 - **Q**: My boost segfaluts :( <br/>
 **A**: Make sure they the boost are comipiled and linked using the same gcc/g++ version
 
+- **Q**: `Cert verify failed: BADCERT_NOT_TRUSTED` :( <br/>
+**A**: Try `export SSL_CERT_DIR=/etc/ssl/certs`
