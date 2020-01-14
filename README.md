@@ -205,3 +205,10 @@ Updated: Dec 31, 2019
 
 - **Q**: `Cert verify failed: BADCERT_NOT_TRUSTED` :( <br/>
 **A**: Try `export SSL_CERT_DIR=/etc/ssl/certs`
+
+- **Q**: `warning: templates not found in /workspace/destdir/share/git-core/templates` :( <br/>
+**A**: Add the following to `$HOME/.gitconfig`
+```
+[init]
+        templatedir = $HOME/app/share/git-core/templates
+```
