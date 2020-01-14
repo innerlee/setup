@@ -1,0 +1,13 @@
+{
+    "Prompt": "[^_^]",
+    "InitialFilter": "Regexp",
+    "Action": {
+        "selectAllAndFinish": [
+            "peco.SelectAll",
+            "peco.Finish"
+        ]
+    },
+    "Keymap": {
+        "C-c,C-c": "selectAllAndFinish"
+    }
+}
