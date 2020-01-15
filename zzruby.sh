@@ -9,6 +9,7 @@ FILE="$NAME$TYPE"
 DOWNLOADURL="https://cache.ruby-lang.org/pub/ruby/2.7/ruby-2.7.0.tar.gz"
 echo $NAME will be installed in $ROOTDIR
 echo Dependency: openssl
+# libreadline, libyaml, libxml, libssl, zlib1g
 
 mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
