@@ -1,14 +1,15 @@
 #!/bin/bash
-# install ffmpeg
+# install ruby
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="ffmpeg"
+NAME="ruby"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://www.ffmpeg.org/releases/ffmpeg-4.2.1.tar.gz"
+DOWNLOADURL="https://cache.ruby-lang.org/pub/ruby/2.7/ruby-2.7.0.tar.gz"
 echo $NAME will be installed in $ROOTDIR
-echo [NOTES] install nasm, yasm, libx264, libx265, libvpx first
+echo Dependency: openssl
+# libreadline, libyaml, libxml, libssl, zlib1g
 
 mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
@@ -26,22 +27,11 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-export PATH=$ROOTDIR/bin:$PATH
 export CFLAGS="-I$ROOTDIR/include"
 export CPPFLAGS="-I$ROOTDIR/include"
 export LDFLAGS="-L$ROOTDIR/lib"
-export PKG_CONFIG_PATH="$ROOTDIR/lib/pkgconfig":$PKG_CONFIG_PATH
-./configure \
-    --prefix=$ROOTDIR \
-    --extra-libs=-lpthread \
-    --extra-libs=-lm \
-    --enable-gpl \
-    --enable-libx264 \
-    --enable-libx265 \
-    --enable-libvpx \
-    --enable-nonfree \
-    --enable-pic \
-    --enable-shared
+export PKG_CONFIG_PATH="$ROOTDIR/lib/pkgconfig"
+./configure --prefix=$ROOTDIR --disable-install-doc
 make -j$(nproc) && make install
 
 echo $NAME installed on $ROOTDIR

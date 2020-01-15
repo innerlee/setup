@@ -2,6 +2,11 @@
 
 Download, compile and install commonly used software to a custom path.
 
+<div style="align:center">
+    <img src="https://img.devrant.com/devrant/rant/r_54040_zGEQB.jpg" height=128 />
+<!--     <img src="https://www.leadingagile.com/wp-content/uploads/2017/03/works-on-my-machine.jpg" height=128 /> -->
+</div>
+
 ## Term of Usage
 
 -  Star the repo before clone
@@ -23,6 +28,9 @@ sh zzgit.sh
 **NOTE:**
 If the download speed of the machine is too slow, you can put the `git.tar.gz` (using git as an example) into `$ZZROOT/downloads` before running the script.
 For the download link, check the `DOWNLOADURL` variable in its script; for the exact name of the software, check the `NAME` variable.
+
+**NOTE2:**
+If you compile from source, please make sure that they are compiled using the same gcc version!
 
 ## Supported Softwares
 
@@ -182,12 +190,25 @@ Updated: Dec 31, 2019
 -   [`.ssh/config`](.ssh/config) (suppress git clone warnings)
 -   [`.lftp/rc`](.lftp/rc) (suppress lftp ssl warning)
 
-### useful articles
-
--   [opengl on remote machine](https://www.scm.com/doc/Installation/Remote_GUI.html)
-
 ### misc
 
+-   [opengl on remote machine](https://www.scm.com/doc/Installation/Remote_GUI.html)
 - useful Julia packages: ArgParse Glob Images FileIO StatsBase Shell UnicodePlots PyCall PyPlot Plots ImageFiltering ImageMagick Interpolations Revise OhMyREPL DataFrames ProgressMeter JLD2 Distances ImageTransformations JuMP HDF5 ImageInTerminal ImageView DataStructures JSON JuliaFormatter
 - free JuMP solvers: Cbc Clp COSMO CSDP ECOS GLPK Juniper OSQP ProxSDP SCS SDPA
 - good reference: http://www.linuxfromscratch.org/blfs/view/svn/index.html
+-   [CUDA arch and CUDA gencode list](https://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-cards/)
+
+### faq
+
+- **Q**: My boost segfaluts :( <br/>
+**A**: Make sure they the boost are comipiled and linked using the same gcc/g++ version
+
+- **Q**: `Cert verify failed: BADCERT_NOT_TRUSTED` :( <br/>
+**A**: Try `export SSL_CERT_DIR=/etc/ssl/certs`
+
+- **Q**: `warning: templates not found in /workspace/destdir/share/git-core/templates` :( <br/>
+**A**: Add the following to `$HOME/.gitconfig`
+```
+[init]
+        templatedir = $HOME/app/share/git-core/templates
+```

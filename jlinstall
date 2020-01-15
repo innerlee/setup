@@ -13,7 +13,8 @@ SUPPORTED = [
     "Vmtouch",
     "iperf",
     "tmux",
-    "bmon"
+    "bmon",
+    "peco"
 ]
 
 if length(ARGS) == 1
@@ -25,7 +26,7 @@ else
     exit(0)
 end
 
-INSTALLDIR = get(ENV, "JLROOT", joinpath(homedir(), "app"))
+INSTALLDIR = get(ENV, "JLROOT", joinpath(get(ENV, "ZZROOT", joinpath(homedir(), "app")), "jl"))
 DOWNLOADDIR = joinpath(INSTALLDIR, "downloads")
 mkpath(INSTALLDIR)
 mkpath(DOWNLOADDIR)
