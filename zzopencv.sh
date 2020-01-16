@@ -39,8 +39,9 @@ tar xf downloads/$FILE2 -C src/$NAME2 --strip-components 1
 cd src/$NAME1
 mkdir -p build
 cd build
-export PATH=$ROOTDIR/bin:$PATH
-export PKG_CONFIG_PATH=$ROOTDIR/lib/pkgconfig:PKG_CONFIG_PATH
+
+export PKG_CONFIG_PATH=$ROOTDIR/lib/pkgconfig:$PKG_CONFIG_PATH
+
 cmake \
     -DBUILD_EXAMPLES=OFF \
     -DWITH_QT=OFF \
