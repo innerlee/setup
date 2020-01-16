@@ -93,7 +93,7 @@ Updated: Dec 31, 2019
     -   install script: [`./zzlibjpeg.sh`](zzlibjpeg.sh)
 -   [libjpeg-turbo](https://libjpeg-turbo.org/) (2.0.3)
     -   depends on: `nasm`, `yasm`
-    -   install script: [`./zzlibjpegturbo.sh`](zzlibjpegturbo.sh)
+    -   install script: [`./zzlibjpeg-turbo.sh`](zzlibjpeg-turbo.sh)
 -   [libpng](http://www.libpng.org/pub/png/libpng.html) (1.6.37)
     -   install script: [`./zzlibpng.sh`](zzlibpng.sh)
 -   [libtiff](http://www.simplesystems.org/libtiff/) (4.1.0)
