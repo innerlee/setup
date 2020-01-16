@@ -30,7 +30,8 @@ cd src/$NAME
 export CFLAGS="-I$ROOTDIR/include"
 export CPPFLAGS="-I$ROOTDIR/include"
 export LDFLAGS="-L$ROOTDIR/lib"
-export PKG_CONFIG_PATH="$ROOTDIR/lib/pkgconfig"
+export PKG_CONFIG_PATH="$ROOTDIR/lib/pkgconfig":$PKG_CONFIG_PATH
+
 ./configure --prefix=$ROOTDIR --disable-install-doc
 make -j$(nproc) && make install
 
