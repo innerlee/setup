@@ -1,13 +1,14 @@
 #!/bin/bash
-# install libx264
+# install libvips
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="libx264"
+NAME="libvips"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://code.videolan.org/videolan/x264/-/archive/master/x264-master.tar.gz"
+DOWNLOADURL="https://github.com/libvips/libvips/releases/download/v8.8.4/vips-8.8.4.tar.gz"
 echo $NAME will be installed in $ROOTDIR
+echo Dependency: libjpeg libexif giflib librsvg libtiff libpng fftw3 lcms2 ImageMagick pangoft2 orc-0.4 libwebp
 
 mkdir -p $ROOTDIR/downloads
 cd $ROOTDIR
@@ -22,11 +23,13 @@ fi
 
 mkdir -p src/$NAME
 tar xf downloads/$FILE -C src/$NAME --strip-components 1
+
 cd src/$NAME
 
-export PKG_CONFIG_PATH="$ROOTDIR/lib/pkgconfig":$PKG_CONFIG_PATH
-
-./configure --prefix=$ROOTDIR --enable-shared
-make -j$(nproc) && make install
+export PKG_CONFIG_PATH="$ROOTDIR/lib/pkgconfig"
+./configure --prefix=$ROOTDIR
+# make -j$(nproc) && make install
 
 echo $NAME installed on $ROOTDIR
+echo You may need
+echo export GI_TYPELIB_PATH="$ROOTDIR/lib/girepository-1.0"

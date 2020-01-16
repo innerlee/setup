@@ -40,7 +40,8 @@ cd src/$NAME1
 mkdir -p build
 cd build
 
-export PKG_CONFIG_PATH=$ROOTDIR/lib/pkgconfig
+export PKG_CONFIG_PATH=$ROOTDIR/lib/pkgconfig:$PKG_CONFIG_PATH
+
 cmake \
     -DBUILD_EXAMPLES=OFF \
     -DWITH_QT=OFF \
@@ -97,7 +98,9 @@ cmake \
     -DWITH_XINE=ON \
     -DENABLE_PRECOMPILED_HEADERS=OFF \
     -DCMAKE_INSTALL_PREFIX="$ROOTDIR" \
-    -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules ..
+    -DOPENCV_GENERATE_PKGCONFIG=ON \
+    -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
+    ..
 
 make -j$(nproc) && make install
 
