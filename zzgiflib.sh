@@ -1,9 +1,9 @@
 #!/bin/bash
-# install libgif
+# install giflib
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="libgif"
+NAME="giflib"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
 DOWNLOADURL="https://sourceforge.net/projects/giflib/files/giflib-5.2.1.tar.gz"

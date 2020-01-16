@@ -100,8 +100,8 @@ Updated: Dec 31, 2019
     -   install script: [`./zzlibtiff.sh`](zzlibtiff.sh)
 -   [libwebp](https://developers.google.com/speed/webp/download) (1.0.3)
     -   install script: [`./zzlibwebp.sh`](zzlibwebp.sh)
--   [libgif](http://giflib.sourceforge.net/) (5.2.1)
-    -   install script: [`./zzlibgif.sh`](zzlibgif.sh)
+-   [giflib](http://giflib.sourceforge.net/) (5.2.1)
+    -   install script: [`./zzgiflib.sh`](zzgiflib.sh)
 -   [libopenjp2](https://www.openjpeg.org/) (2.3.1)
     -   install script: [`./zzlibopenjp2.sh`](zzlibopenjp2.sh)
 
