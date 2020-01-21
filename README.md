@@ -212,3 +212,10 @@ Updated: Dec 31, 2019
 [init]
         templatedir = $HOME/app/share/git-core/templates
 ```
+
+- **Q**: `fatal: unable to find remote helper for 'https'` :( <br/>
+**A**: Add the following to `$HOME/.zshrc` (or `.bashrc` of course)
+```
+export GIT_EXEC_PATH=$ZZROOT/libexec/git-core
+export GIT_SSL_CAINFO=/etc/ssl/certs/ca-bundle.crt
+```
