@@ -219,3 +219,11 @@ Updated: Dec 31, 2019
 export GIT_EXEC_PATH=$ZZROOT/libexec/git-core
 export GIT_SSL_CAINFO=/etc/ssl/certs/ca-bundle.crt
 ```
+
+- **Q**: `Using the 'memory' GSettings backend.  Your settings will not be saved or shared with other applications.` :( <br/>
+**A**: Add the following to `$HOME/.zshrc` (or `.bashrc` of course)
+```
+export GIO_EXTRA_MODULES=/usr/lib/x86_64-linux-gnu/gio/modules/
+```
+
+
