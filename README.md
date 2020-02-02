@@ -25,6 +25,19 @@ export LD_LIBRARY_PATH=$ZZROOT/lib:$ZZROOT/lib64:$LD_LIBRARY_PATH
 sh zzgit.sh
 ```
 
+### jlinstall
+
+`jlinstall` is another way to install softwares.
+It uses pre-built binaries so that no compilation is needed.
+The default install path of `jlinstall` is `JLROOT=$ZZROOT/jl`.
+
+```
+export ZZROOT=$HOME/app
+export JLROOT=$ZZROOT/jl
+export PATH=$ZZROOT/bin:$JLROOT/bin:$PATH
+export LD_LIBRARY_PATH=$ZZROOT/lib:$ZZROOT/lib64:$JLROOT/lib:$JLROOT/lib64:$LD_LIBRARY_PATH
+```
+
 **NOTE:**
 If the download speed of the machine is too slow, you can put the `git.tar.gz` (using git as an example) into `$ZZROOT/downloads` before running the script.
 For the download link, check the `DOWNLOADURL` variable in its script; for the exact name of the software, check the `NAME` variable.
