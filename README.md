@@ -240,4 +240,9 @@ export GIT_SSL_CAINFO=/etc/ssl/certs/ca-bundle.crt
 export GIO_EXTRA_MODULES=/usr/lib/x86_64-linux-gnu/gio/modules/
 ```
 
-
+- **Q**: `import pyvips` segfault :( <br/>
+**A**: Make sure `gstreamer-orc <0.4.30`, `imagemagick <7.0.9`.
+```
+conda install -c conda-forge imagemagick=7.0.8
+conda install -c conda-forge gstreamer-orc=0.4.29
+```
