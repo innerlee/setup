@@ -70,6 +70,7 @@ Updated: Dec 31, 2019
     -   install script: [`./zzyasm.sh`](zzyasm.sh)
 -   [ncurses](https://invisible-island.net/ncurses/) (6.1)
     -   install script: [`./zzncurses.sh`](zzncurses.sh)
+    -   post install: `export TERMINFO=$ZZROOT/share/terminfo`
 -   [freetype](https://www.freetype.org/) (2.10.1)
     -   install script: [`./zzfreetype.sh`](zzfreetype.sh)
 -   [opencv](https://opencv.org/) (4.1.2)
