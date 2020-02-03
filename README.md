@@ -206,11 +206,12 @@ Updated: Dec 31, 2019
 
 ### misc
 
--   [opengl on remote machine](https://www.scm.com/doc/Installation/Remote_GUI.html)
+- [opengl on remote machine](https://www.scm.com/doc/Installation/Remote_GUI.html)
 - useful Julia packages: ArgParse Glob Images FileIO StatsBase Shell UnicodePlots PyCall PyPlot Plots ImageFiltering ImageMagick Interpolations Revise OhMyREPL DataFrames ProgressMeter JLD2 Distances ImageTransformations JuMP HDF5 ImageInTerminal ImageView DataStructures JSON JuliaFormatter
 - free JuMP solvers: Cbc Clp COSMO CSDP ECOS GLPK Juniper OSQP ProxSDP SCS SDPA
 - good reference: http://www.linuxfromscratch.org/lfs/view/development/index.html and http://www.linuxfromscratch.org/blfs/view/svn/index.html and https://pkgs.org/
--   [CUDA arch and CUDA gencode list](https://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-cards/)
+- [CUDA arch and CUDA gencode list](https://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-cards/)
+- Good note on how to load jpeg faster. https://docs.fast.ai/performance.html
 
 ### faq
 
