@@ -7,10 +7,10 @@ NAME="gmp"
 TYPE=".tar.xz"
 FILE="$NAME$TYPE"
 DOWNLOADURL="https://gmplib.org/download/gmp/gmp-6.1.2.tar.xz"
-echo $NAME will be installed in $ROOTDIR
+echo $NAME will be installed in "$ROOTDIR"
 
-mkdir -p $ROOTDIR/downloads
-cd $ROOTDIR
+mkdir -p "$ROOTDIR/downloads"
+cd "$ROOTDIR"
 
 if [ -f "downloads/$FILE" ]; then
     echo "downloads/$FILE exist"
@@ -25,7 +25,7 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix=$ROOTDIR
-make -j$(nproc) && make check && make install
+./configure --prefix="$ROOTDIR"
+make -j"$(nproc)" && make check && make install
 
-echo $NAME installed on $ROOTDIR
+echo $NAME installed on "$ROOTDIR"

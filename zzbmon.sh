@@ -7,10 +7,10 @@ NAME="bmon"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
 DOWNLOADURL="https://github.com/tgraf/bmon/releases/download/v4.0/bmon-4.0.tar.gz"
-echo $NAME will be installed in $ROOTDIR
+echo $NAME will be installed in "$ROOTDIR"
 
-mkdir -p $ROOTDIR/downloads
-cd $ROOTDIR
+mkdir -p "$ROOTDIR/downloads"
+cd "$ROOTDIR"
 
 if [ -f "downloads/$FILE" ]; then
     echo "downloads/$FILE exist"
@@ -25,10 +25,11 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-export CFLAGS=-I$ROOTDIR/include
-export CPPFLAGS="-I$ROOTDIR/include -I$ROOTDIR/include/ncursesw" LDFLAGS="-L$ROOTDIR/lib"
+export CFLAGS="-I$ROOTDIR/include"
+export CPPFLAGS="-I$ROOTDIR/include -I$ROOTDIR/include/ncursesw"
+export LDFLAGS="-L$ROOTDIR/lib"
 
-./configure --prefix=$ROOTDIR
-make -j$(nproc) && make install
+./configure --prefix="$ROOTDIR"
+make -j"$(nproc)" && make install
 
-echo $NAME installed on $ROOTDIR
+echo $NAME installed on "$ROOTDIR"

@@ -7,10 +7,10 @@ NAME="boost"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
 DOWNLOADURL="https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.gz"
-echo $NAME will be installed in $ROOTDIR
+echo $NAME will be installed in "$ROOTDIR"
 
-mkdir -p $ROOTDIR/downloads
-cd $ROOTDIR
+mkdir -p "$ROOTDIR/downloads"
+cd "$ROOTDIR"
 
 if [ -f "downloads/$FILE" ]; then
     echo "downloads/$FILE exist"
@@ -28,9 +28,9 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 # export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:/mnt/lustre/lizz/anaconda3/include/python3.7m/"
 
 cd src/$NAME
-./bootstrap.sh --prefix=$ROOTDIR
+./bootstrap.sh --prefix="$ROOTDIR"
 ./b2 install
 
-echo $NAME installed on $ROOTDIR
+echo $NAME installed on "$ROOTDIR"
 echo add following line to .zshrc
-echo export BOOST_ROOT=$ROOTDIR
+echo export BOOST_ROOT="$ROOTDIR"
