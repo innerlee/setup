@@ -27,7 +27,7 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 cd src/$NAME
 
 ./buildconf
-./configure --with-ssl --prefix="$ROOTDIR" --with-ssl="$ROOTDIR"/ssl
+./configure --with-ssl --prefix="$ROOTDIR" --with-ssl
 make -j"$(nproc)" && make install
 
 echo $NAME installed on "$ROOTDIR"

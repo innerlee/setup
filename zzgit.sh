@@ -8,7 +8,7 @@ TYPE=".tar.gz"
 FILE="$NAME$TYPE"
 DOWNLOADURL="https://github.com/git/git/archive/v2.25.1.tar.gz"
 echo $NAME will be installed in "$ROOTDIR"
-echo "hey, install libz and libcurl first, and temporarily remove anaconda from your PATH before install!"
+echo "hey, install libz, opennssl and libcurl first, and temporarily remove anaconda from your PATH before install!"
 
 mkdir -p "$ROOTDIR/downloads"
 cd "$ROOTDIR"
