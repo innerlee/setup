@@ -7,10 +7,10 @@ NAME="ncurses"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
 DOWNLOADURL="ftp://ftp.invisible-island.net/ncurses/ncurses.tar.gz"
-echo $NAME will be installed in $ROOTDIR
+echo $NAME will be installed in "$ROOTDIR"
 
-mkdir -p $ROOTDIR/downloads
-cd $ROOTDIR
+mkdir -p "$ROOTDIR/downloads"
+cd "$ROOTDIR"
 
 if [ -f "downloads/$FILE" ]; then
     echo "downloads/$FILE exist"
@@ -25,7 +25,9 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix=$ROOTDIR --with-shared --enable-pc-files --enable-widec --with-pkg-config-libdir=$ROOTDIR/lib/pkgconfig
-make -j && make install
+./configure --prefix="$ROOTDIR" --with-shared --enable-pc-files --enable-widec --with-pkg-config-libdir="$ROOTDIR"/lib/pkgconfig
+make -j"$(nproc)" && make install
 
-echo $NAME installed on $ROOTDIR
+echo $NAME installed on "$ROOTDIR"
+echo You may need
+echo export TERMINFO="$ROOTDIR/share/terminfo"

@@ -7,12 +7,12 @@ NAME="mpfr"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
 DOWNLOADURL="https://ftp.gnu.org/gnu/mpfr/mpfr-4.0.2.tar.gz"
-echo $NAME will be installed in $ROOTDIR
+echo $NAME will be installed in "$ROOTDIR"
 
 echo install gmp first
 
-mkdir -p $ROOTDIR/downloads
-cd $ROOTDIR
+mkdir -p "$ROOTDIR/downloads"
+cd "$ROOTDIR"
 
 if [ -f "downloads/$FILE" ]; then
     echo "downloads/$FILE exist"
@@ -27,9 +27,9 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix=$ROOTDIR --with-gmp=$ROOTDIR
-make -j && make check && make install
+./configure --prefix="$ROOTDIR" --with-gmp="$ROOTDIR"
+make -j"$(nproc)" && make check && make install
 
 make check
 
-echo $NAME installed on $ROOTDIR
+echo $NAME installed on "$ROOTDIR"

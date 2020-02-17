@@ -7,11 +7,11 @@ NAME="libopenjp2"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
 DOWNLOADURL="https://github.com/uclouvain/openjpeg/archive/v2.3.1.tar.gz"
-echo $NAME will be installed in $ROOTDIR
+echo $NAME will be installed in "$ROOTDIR"
 echo Dependency: nasm, yasm
 
-mkdir -p $ROOTDIR/downloads
-cd $ROOTDIR
+mkdir -p "$ROOTDIR/downloads"
+cd "$ROOTDIR"
 
 if [ -f "downloads/$FILE" ]; then
     echo "downloads/$FILE exist"
@@ -29,7 +29,7 @@ cd src/$NAME
 mkdir -p build
 cd build
 
-cmake -E env LDFLAGS="-L/$ZZROOT/lib -lz" cmake -DCMAKE_INSTALL_PREFIX=$ROOTDIR -DCMAKE_C_FLAGS="-O3 -march=native -DNDEBUG" ..
-make -j && make install
+cmake -E env LDFLAGS="-L/$ZZROOT/lib -lz" cmake -DCMAKE_INSTALL_PREFIX="$ROOTDIR" -DCMAKE_C_FLAGS="-O3 -march=native -DNDEBUG" ..
+make -j"$(nproc)" && make install
 
-echo $NAME installed on $ROOTDIR
+echo $NAME installed on "$ROOTDIR"

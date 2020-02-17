@@ -6,12 +6,12 @@ ROOTDIR=${ZZROOT:-$HOME/app}
 NAME="imagemagick"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://imagemagick.org/download/ImageMagick.tar.gz"
-echo $NAME will be installed in $ROOTDIR
+DOWNLOADURL="https://github.com/ImageMagick/ImageMagick/archive/7.0.9-14.tar.gz"
+echo $NAME will be installed in "$ROOTDIR"
 echo Dependency: freetype jpeg png perl libtool zlib
 
-mkdir -p $ROOTDIR/downloads
-cd $ROOTDIR
+mkdir -p "$ROOTDIR/downloads"
+cd "$ROOTDIR"
 
 if [ -f "downloads/$FILE" ]; then
     echo "downloads/$FILE exist"
@@ -26,7 +26,12 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix=$ROOTDIR --with-modules --enable-shared --with-perl
-make -j && make install
+export CFLAGS="-I$ROOTDIR/include"
+export CPPFLAGS="-I$ROOTDIR/include"
+export LDFLAGS="-L$ROOTDIR/lib"
+export PKG_CONFIG_PATH="$ROOTDIR/lib/pkgconfig:$ROOTDIR/share/pkgconfig:"$PKG_CONFIG_PATH
 
-echo $NAME installed on $ROOTDIR
+./configure --prefix="$ROOTDIR" --with-modules --enable-shared --with-perl
+make -j"$(nproc)" && make install
+
+echo $NAME installed on "$ROOTDIR"

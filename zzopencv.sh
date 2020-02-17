@@ -10,10 +10,10 @@ FILE1="$NAME1$TYPE"
 FILE2="$NAME2$TYPE"
 DOWNLOADURL1="https://github.com/opencv/opencv/archive/4.1.2.tar.gz"
 DOWNLOADURL2="https://github.com/opencv/opencv_contrib/archive/4.1.2.tar.gz"
-echo $NAME1 will be installed in $ROOTDIR
+echo $NAME1 will be installed in "$ROOTDIR"
 
-mkdir -p $ROOTDIR/downloads
-cd $ROOTDIR
+mkdir -p "$ROOTDIR/downloads"
+cd "$ROOTDIR"
 
 if [ -f "downloads/$FILE1" ]; then
     echo "downloads/$FILE1 exist"
@@ -39,6 +39,8 @@ tar xf downloads/$FILE2 -C src/$NAME2 --strip-components 1
 cd src/$NAME1
 mkdir -p build
 cd build
+
+export PKG_CONFIG_PATH="$ROOTDIR"/lib/pkgconfig:$PKG_CONFIG_PATH
 
 cmake \
     -DBUILD_EXAMPLES=OFF \
@@ -76,13 +78,11 @@ cmake \
     -DBUILD_NEW_PYTHON_SUPPORT=ON \
     -DBUILD_opencv_python3=OFF \
     -DHAVE_opencv_python3=OFF \
-    -DPYTHON_DEFAULT_EXECUTABLE=$(which python) \
+    -DPYTHON_DEFAULT_EXECUTABLE="$(which python)" \
     -DWITH_OPENGL=ON \
     -DFORCE_VTK=OFF \
     -DWITH_TBB=ON \
     -DWITH_GDAL=ON \
-    -DCUDA_ARCH_BIN=6.1,7.0,7.5 \
-    -DCUDA_ARCH_PTX=7.5 \
     -DCUDA_FAST_MATH=ON \
     -DWITH_CUBLAS=ON \
     -DWITH_MKL=ON \
@@ -98,10 +98,12 @@ cmake \
     -DWITH_XINE=ON \
     -DENABLE_PRECOMPILED_HEADERS=OFF \
     -DCMAKE_INSTALL_PREFIX="$ROOTDIR" \
-    -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules ..
+    -DOPENCV_GENERATE_PKGCONFIG=ON \
+    -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
+    ..
 
-make -j && make install
+make -j"$(nproc)" && make install
 
-echo $NAME installed on $ROOTDIR
+echo "$NAME1" installed on "$ROOTDIR"
 echo add following line to .zshrc
-echo export OpenCV_DIR=$ROOTDIR
+echo export OpenCV_DIR="$ROOTDIR"

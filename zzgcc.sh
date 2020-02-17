@@ -7,13 +7,13 @@ NAME="gcc"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
 DOWNLOADURL="http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/gcc-7.5.0/gcc-7.5.0.tar.gz"
-echo $NAME will be installed in $ROOTDIR
+echo $NAME will be installed in "$ROOTDIR"
 
 echo CUDA 10 support up to gcc 7, CUDA 9 support up to gcc 5.
 echo Building GCC requires GMP 4.2+, MPFR 2.4.0+ and MPC 0.8.0+.
 
-mkdir -p $ROOTDIR/downloads
-cd $ROOTDIR
+mkdir -p "$ROOTDIR/downloads"
+cd "$ROOTDIR"
 
 if [ -f "downloads/$FILE" ]; then
     echo "downloads/$FILE exist"
@@ -28,7 +28,7 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix=$ROOTDIR --with-gmp=$ROOTDIR --with-mpfr=$ROOTDIR --with-mpc=$ROOTDIR --disable-multilib --enable-languages=c,c++,fortran
-make -j && make install
+./configure --prefix="$ROOTDIR" --with-gmp="$ROOTDIR" --with-mpfr="$ROOTDIR" --with-mpc="$ROOTDIR" --disable-multilib --enable-languages=c,c++,fortran
+make -j"$(nproc)" && make install
 
-echo $NAME installed on $ROOTDIR
+echo $NAME installed on "$ROOTDIR"

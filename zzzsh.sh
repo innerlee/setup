@@ -7,11 +7,11 @@ NAME="zsh"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
 DOWNLOADURL="https://github.com/zsh-users/zsh/archive/zsh-5.7.1.tar.gz"
-echo $NAME will be installed in $ROOTDIR
+echo $NAME will be installed in "$ROOTDIR"
 echo install ncurses first!
 
-mkdir -p $ROOTDIR/downloads
-cd $ROOTDIR
+mkdir -p "$ROOTDIR/downloads"
+cd "$ROOTDIR"
 
 if [ -f "downloads/$FILE" ]; then
     echo "downloads/$FILE exist"
@@ -28,14 +28,15 @@ cd src/$NAME
 
 export CFLAGS=' -fPIC'
 export CXXFLAGS=' -fPIC'
-export CFLAGS=-I$ROOTDIR/include
-export CPPFLAGS="-I$ROOTDIR/include" LDFLAGS="-L$ROOTDIR/lib"
+export CFLAGS="-I$ROOTDIR/include"
+export CPPFLAGS="-I$ROOTDIR/include"
+export LDFLAGS="-L$ROOTDIR/lib"
 
 autoheader
 autoconf
-./configure --prefix=$ROOTDIR --enable-shared
-make -j && make install
+./configure --prefix="$ROOTDIR" --enable-shared
+make -j"$(nproc)" && make install
 
-echo $NAME installed on $ROOTDIR
+echo $NAME installed on "$ROOTDIR"
 echo put this in .bashrc
-echo exec $ROOTDIR/bin/zsh -l
+echo exec "$ROOTDIR"/bin/zsh -l

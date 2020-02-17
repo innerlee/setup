@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd
+cd || exit
 ssh-keygen -t rsa -b 4096 -C lizz@sentime.com
 
 eval "$(ssh-agent -s)"

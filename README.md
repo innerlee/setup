@@ -2,6 +2,11 @@
 
 Download, compile and install commonly used software to a custom path.
 
+<div style="align:center">
+    <img src="https://img.devrant.com/devrant/rant/r_54040_zGEQB.jpg" height=128 />
+<!--     <img src="https://www.leadingagile.com/wp-content/uploads/2017/03/works-on-my-machine.jpg" height=128 /> -->
+</div>
+
 ## Term of Usage
 
 -  Star the repo before clone
@@ -20,15 +25,31 @@ export LD_LIBRARY_PATH=$ZZROOT/lib:$ZZROOT/lib64:$LD_LIBRARY_PATH
 sh zzgit.sh
 ```
 
+### jlinstall
+
+`jlinstall` is another way to install softwares.
+It uses pre-built binaries so that no compilation is needed.
+The default install path of `jlinstall` is `JLROOT=$ZZROOT/jl`.
+
+```
+export ZZROOT=$HOME/app
+export JLROOT=$ZZROOT/jl
+export PATH=$ZZROOT/bin:$JLROOT/bin:$PATH
+export LD_LIBRARY_PATH=$ZZROOT/lib:$ZZROOT/lib64:$JLROOT/lib:$JLROOT/lib64:$LD_LIBRARY_PATH
+```
+
 **NOTE:**
 If the download speed of the machine is too slow, you can put the `git.tar.gz` (using git as an example) into `$ZZROOT/downloads` before running the script.
 For the download link, check the `DOWNLOADURL` variable in its script; for the exact name of the software, check the `NAME` variable.
+
+**NOTE2:**
+If you compile from source, please make sure that they are compiled using the same gcc version!
 
 ## Supported Softwares
 
 Verified on Ubuntu 18.04
 
-Updated: Dec 17, 2019
+Updated: Dec 31, 2019
 
 ### libs
 
@@ -49,6 +70,7 @@ Updated: Dec 17, 2019
     -   install script: [`./zzyasm.sh`](zzyasm.sh)
 -   [ncurses](https://invisible-island.net/ncurses/) (6.1)
     -   install script: [`./zzncurses.sh`](zzncurses.sh)
+    -   post install: `export TERMINFO=$ZZROOT/share/terminfo`
 -   [freetype](https://www.freetype.org/) (2.10.1)
     -   install script: [`./zzfreetype.sh`](zzfreetype.sh)
 -   [opencv](https://opencv.org/) (4.1.2)
@@ -85,15 +107,15 @@ Updated: Dec 17, 2019
     -   install script: [`./zzlibjpeg.sh`](zzlibjpeg.sh)
 -   [libjpeg-turbo](https://libjpeg-turbo.org/) (2.0.3)
     -   depends on: `nasm`, `yasm`
-    -   install script: [`./zzlibjpegturbo.sh`](zzlibjpegturbo.sh)
+    -   install script: [`./zzlibjpeg-turbo.sh`](zzlibjpeg-turbo.sh)
 -   [libpng](http://www.libpng.org/pub/png/libpng.html) (1.6.37)
     -   install script: [`./zzlibpng.sh`](zzlibpng.sh)
 -   [libtiff](http://www.simplesystems.org/libtiff/) (4.1.0)
     -   install script: [`./zzlibtiff.sh`](zzlibtiff.sh)
 -   [libwebp](https://developers.google.com/speed/webp/download) (1.0.3)
     -   install script: [`./zzlibwebp.sh`](zzlibwebp.sh)
--   [libgif](http://giflib.sourceforge.net/) (5.2.1)
-    -   install script: [`./zzlibgif.sh`](zzlibgif.sh)
+-   [giflib](http://giflib.sourceforge.net/) (5.2.1)
+    -   install script: [`./zzgiflib.sh`](zzgiflib.sh)
 -   [libopenjp2](https://www.openjpeg.org/) (2.3.1)
     -   install script: [`./zzlibopenjp2.sh`](zzlibopenjp2.sh)
 
@@ -182,11 +204,46 @@ Updated: Dec 17, 2019
 -   [`.ssh/config`](.ssh/config) (suppress git clone warnings)
 -   [`.lftp/rc`](.lftp/rc) (suppress lftp ssl warning)
 
-### useful articles
-
--   [opengl on remote machine](https://www.scm.com/doc/Installation/Remote_GUI.html)
-
 ### misc
 
-- useful Julia packages: ArgParse Glob Images FileIO StatsBase Shell UnicodePlots PyCall PyPlot Plots ImageFiltering ImageMagick Interpolations Revise OhMyREPL DataFrames ProgressMeter JLD2 Distances ImageTransformations JuMP HDF5 ImageInTerminal ImageView
+- [opengl on remote machine](https://www.scm.com/doc/Installation/Remote_GUI.html)
+- useful Julia packages: ArgParse Glob Images FileIO StatsBase Shell UnicodePlots PyCall PyPlot Plots ImageFiltering ImageMagick Interpolations Revise OhMyREPL DataFrames ProgressMeter JLD2 Distances ImageTransformations JuMP HDF5 ImageInTerminal ImageView DataStructures JSON JuliaFormatter
 - free JuMP solvers: Cbc Clp COSMO CSDP ECOS GLPK Juniper OSQP ProxSDP SCS SDPA
+- good reference: http://www.linuxfromscratch.org/lfs/view/development/index.html and http://www.linuxfromscratch.org/blfs/view/svn/index.html and https://pkgs.org/
+- [CUDA arch and CUDA gencode list](https://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-cards/)
+- Good note on how to load jpeg faster. https://docs.fast.ai/performance.html
+
+### faq
+
+- **Q**: My boost segfaluts :( <br/>
+**A**: Make sure they the boost are comipiled and linked using the same gcc/g++ version
+
+- **Q**: `Cert verify failed: BADCERT_NOT_TRUSTED` :( <br/>
+**A**: Try `export SSL_CERT_DIR=/etc/ssl/certs`
+
+- **Q**: `warning: templates not found in /workspace/destdir/share/git-core/templates` :( <br/>
+**A**: Add the following to `$HOME/.gitconfig`
+```
+[init]
+        templatedir = $HOME/app/share/git-core/templates
+```
+
+- **Q**: `fatal: unable to find remote helper for 'https'` :( <br/>
+**A**: Add the following to `$HOME/.zshrc` (or `.bashrc` of course)
+```
+export GIT_EXEC_PATH=$ZZROOT/libexec/git-core
+export GIT_SSL_CAINFO=/etc/ssl/certs/ca-bundle.crt
+```
+
+- **Q**: `Using the 'memory' GSettings backend.  Your settings will not be saved or shared with other applications.` :( <br/>
+**A**: Add the following to `$HOME/.zshrc` (or `.bashrc` of course)
+```
+export GIO_EXTRA_MODULES=/usr/lib/x86_64-linux-gnu/gio/modules/
+```
+
+- **Q**: `import pyvips` segfault :( <br/>
+**A**: Make sure `gstreamer-orc <0.4.30`, `imagemagick <7.0.9`.
+```
+conda install -c conda-forge imagemagick=7.0.8
+conda install -c conda-forge gstreamer-orc=0.4.29
+```

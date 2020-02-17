@@ -7,10 +7,10 @@ NAME="libx264"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
 DOWNLOADURL="https://code.videolan.org/videolan/x264/-/archive/master/x264-master.tar.gz"
-echo $NAME will be installed in $ROOTDIR
+echo $NAME will be installed in "$ROOTDIR"
 
-mkdir -p $ROOTDIR/downloads
-cd $ROOTDIR
+mkdir -p "$ROOTDIR/downloads"
+cd "$ROOTDIR"
 
 if [ -f "downloads/$FILE" ]; then
     echo "downloads/$FILE exist"
@@ -22,11 +22,11 @@ fi
 
 mkdir -p src/$NAME
 tar xf downloads/$FILE -C src/$NAME --strip-components 1
-
 cd src/$NAME
 
-PKG_CONFIG_PATH="$ROOTDIR/lib/pkgconfig"
-./configure --prefix=$ROOTDIR --enable-shared
-make -j && make install
+export PKG_CONFIG_PATH="$ROOTDIR/lib/pkgconfig:$ROOTDIR/share/pkgconfig:"$PKG_CONFIG_PATH
 
-echo $NAME installed on $ROOTDIR
+./configure --prefix="$ROOTDIR" --enable-shared
+make -j"$(nproc)" && make install
+
+echo $NAME installed on "$ROOTDIR"
