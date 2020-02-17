@@ -6,7 +6,7 @@ ROOTDIR=${ZZROOT:-$HOME/app}
 NAME="git"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://github.com/git/git/archive/v2.24.0.tar.gz"
+DOWNLOADURL="https://github.com/git/git/archive/v2.25.1.tar.gz"
 echo $NAME will be installed in "$ROOTDIR"
 echo "hey, install libz and libcurl first, and temporarily remove anaconda from your PATH before install!"
 
