@@ -24,4 +24,4 @@ mkdir -p src/$NAME
 tar xf downloads/$FILE -C $ROOTDIR/
 
 echo $NAME installed on "$ROOTDIR", please add this line to your .zshrc or .bashrc
-echo "export PATH=\$PATH:$ROOTDIR/go/bin"
+echo "export PATH=\$PATH:$ROOTDIR/go/bin:$HOME/go/bin"
