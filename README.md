@@ -249,7 +249,7 @@ conda install -c conda-forge gstreamer-orc=0.4.29
 ```
 
 - **Q**: GitError(Code:ECERTIFICATE, Class:SSL, the SSL certificate is invalid: 0x08 - The certificate is not correctly signed by the trusted CA) :( <br/>
-**A**: Make sure `gstreamer-orc <0.4.30`, `imagemagick <7.0.9`.
+**A**: Run the following
 ```julia
 julia> import LibGit2
 julia> LibGit2.set_ssl_cert_locations("/etc/ssl/certs/ca-certificates.crt")
