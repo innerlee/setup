@@ -212,7 +212,7 @@ Updated: Dec 31, 2019
 - good reference: http://www.linuxfromscratch.org/lfs/view/development/index.html and http://www.linuxfromscratch.org/blfs/view/svn/index.html and https://pkgs.org/
 - [CUDA arch and CUDA gencode list](https://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-cards/)
 - Good note on how to load jpeg faster. https://docs.fast.ai/performance.html
-- View image in terminal: [viu](https://github.com/atanunq/viu) and tiv(https://github.com/stefanhaustein/TerminalImageViewer)
+- View image in terminal: [viu](https://github.com/atanunq/viu) and [tiv](https://github.com/stefanhaustein/TerminalImageViewer)
 
 ### faq
 
