@@ -256,3 +256,9 @@ julia> import LibGit2
 julia> LibGit2.set_ssl_cert_locations("/etc/ssl/certs/ca-certificates.crt")
 ```
 
+- **Q**: dotnet error :( <br/>
+**A**: Add the following to `$HOME/.zshrc` (or `.bashrc` of course)
+```bash
+export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true
+export MSBuildSDKsPath=$DOTNET_ROOT/sdk/3.1.102/Sdks
+```
