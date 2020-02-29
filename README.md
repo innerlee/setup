@@ -262,3 +262,20 @@ julia> LibGit2.set_ssl_cert_locations("/etc/ssl/certs/ca-certificates.crt")
 export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true
 export MSBuildSDKsPath=$DOTNET_ROOT/sdk/3.1.102/Sdks
 ```
+
+- **Q**: Install OpenCV: CUDA Version wrong:( <br/>
+**A**: Add the path of the correct version CUDA to `zzopencv.sh` when runing cmake
+```bash
+cmake   ......
+        -DCUDA_TOOLKIT_ROOT_DIR=/mnt/lustre/share/cuda-9.0/ \
+        ......
+```
+
+- **Q**: Install Denseflow: OpenCV Version wrong, can't find customized path for opencv:( <br/>
+**A**: Add the path of the correct version opencv and corresponding cuda version to `zzdenseflow.sh` when runing cmake
+```bash
+cmake -DCMAKE_INSTALL_PREFIX=$ROOTDIR \
+      -DOpenCV_DIR=$ROOT_DIR/lib64/cmake/opencv4 \
+      -gencode=arch=compute_61,code=sm_61 \
+      -DCUDA_TOOLKIT_ROOT_DIR=/mnt/lustre/share/cuda-9.0/ ..
+```
