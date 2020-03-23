@@ -279,3 +279,16 @@ cmake -DCMAKE_INSTALL_PREFIX=$ROOTDIR \
       -gencode=arch=compute_61,code=sm_61 \
       -DCUDA_TOOLKIT_ROOT_DIR=/mnt/lustre/share/cuda-9.0/ ..
 ```
+
+- **Q**: Unzip filenames looks messy when there are unicodes :( <br/>
+**A**: Specify the encoding of filenames.
+```bash
+$ unzip -h
+UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.
+  ...
+  -O CHARSET  specify a character encoding for DOS, Windows and OS/2 archives
+  -I CHARSET  specify a character encoding for UNIX and other archives
+  ...
+  
+unzip -O GB18030 gb18030.zip -d target_dir
+```
