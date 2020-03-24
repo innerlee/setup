@@ -1,16 +1,15 @@
 #!/bin/bash
-# install julia
+# install powershell
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="julia"
+NAME="powershell"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://julialang-s3.julialang.org/bin/linux/x64/1.4/julia-1.4.0-linux-x86_64.tar.gz"
+DOWNLOADURL="https://github.com/PowerShell/PowerShell/releases/download/v7.0.0/powershell-7.0.0-linux-x64.tar.gz"
 echo $NAME will be installed in "$ROOTDIR"
 
 mkdir -p "$ROOTDIR/downloads"
-mkdir -p "$ROOTDIR"/bin
 cd "$ROOTDIR"
 
 if [ -f "downloads/$FILE" ]; then
@@ -21,10 +20,11 @@ else
     mv $FILE downloads/
 fi
 
-mkdir -p $NAME
-tar xf downloads/$FILE -C $NAME --strip-components 1
+mkdir -p bin/$NAME
+tar xf downloads/$FILE -C bin/$NAME --strip-components 1
 
-cd bin
-ln -s ../$NAME/bin/julia julia -f
+cd bin/
+
+ln -s $NAME/pwsh .
 
 echo $NAME installed on "$ROOTDIR"
