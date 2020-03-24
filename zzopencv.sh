@@ -80,6 +80,7 @@ cmake \
     -DHAVE_opencv_python3=OFF \
     -DPYTHON_DEFAULT_EXECUTABLE="$(which python)" \
     -DWITH_OPENGL=ON \
+    -DWITH_VTK=OFF \
     -DFORCE_VTK=OFF \
     -DWITH_TBB=ON \
     -DWITH_GDAL=ON \
