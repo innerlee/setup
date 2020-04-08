@@ -292,3 +292,13 @@ UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.
   
 unzip -O GB18030 gb18030.zip -d target_dir
 ```
+
+- **Q**: Get locale warnings :( <br/>
+**A**: Run
+```bash
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+locale-gen en_US.UTF-8
+sudo dpkg-reconfigure locales
+```
