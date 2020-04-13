@@ -25,7 +25,7 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix="$ROOTDIR"
+./configure --prefix="$ROOTDIR" --enable-cxx --disable-static
 make -j"$(nproc)" && make install
 
 echo $NAME installed on "$ROOTDIR"
