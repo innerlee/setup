@@ -214,6 +214,7 @@ Updated: Dec 31, 2019
 - Good note on how to load jpeg faster. https://docs.fast.ai/performance.html
 - View image in terminal: [viu](https://github.com/atanunq/viu) and [tiv](https://github.com/stefanhaustein/TerminalImageViewer)
 - image lossless optimization: jpegtran optipng
+- image lossy optimization: pngquant
 
 ### faq
 
