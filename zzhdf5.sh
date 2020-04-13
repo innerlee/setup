@@ -6,7 +6,7 @@ ROOTDIR=${ZZROOT:-$HOME/app}
 NAME="hdf5"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://s3.amazonaws.com/hdf-wordpress-1/wp-content/uploads/manual/HDF5/HDF5_1_10_5/source/hdf5-1.10.5.tar.gz -O hdf5.tar.gz"
+DOWNLOADURL="https://hdf-wordpress-1.s3.amazonaws.com/wp-content/uploads/manual/HDF5/HDF5_1_12_0/source/hdf5-1.12.0.tar.gz"
 echo $NAME will be installed in "$ROOTDIR"
 
 mkdir -p "$ROOTDIR/downloads"
