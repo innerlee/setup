@@ -6,7 +6,7 @@ ROOTDIR=${ZZROOT:-$HOME/app}
 NAME="cmake"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://github.com/Kitware/CMake/releases/download/v3.16.0/cmake-3.16.0.tar.gz"
+DOWNLOADURL="https://github.com/Kitware/CMake/releases/download/v3.16.6/cmake-3.16.6.tar.gz"
 echo $NAME will be installed in "$ROOTDIR"
 
 mkdir -p "$ROOTDIR/downloads"
