@@ -304,3 +304,6 @@ export LC_ALL=en_US.UTF-8
 locale-gen en_US.UTF-8
 sudo dpkg-reconfigure locales
 ```
+
+- **Q**: moov atom not found :( <br/>
+**A**: Use https://github.com/anthwlock/untrunc to fix it.
