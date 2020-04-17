@@ -215,6 +215,8 @@ Updated: Dec 31, 2019
 - View image in terminal: [viu](https://github.com/atanunq/viu) and [tiv](https://github.com/stefanhaustein/TerminalImageViewer)
 - image lossless optimization: jpegtran optipng
 - image lossy optimization: pngquant
+- ffmpeg tricks
+  * silent: `ffmpeg -hide_banner -loglevel panic`
 
 ### faq
 
@@ -307,3 +309,4 @@ sudo dpkg-reconfigure locales
 
 - **Q**: moov atom not found :( <br/>
 **A**: Use https://github.com/anthwlock/untrunc to fix it.
+
