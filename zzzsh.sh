@@ -6,7 +6,7 @@ ROOTDIR=${ZZROOT:-$HOME/app}
 NAME="zsh"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://github.com/zsh-users/zsh/archive/zsh-5.7.1.tar.gz"
+DOWNLOADURL="https://github.com/zsh-users/zsh/archive/zsh-5.8.tar.gz"
 echo $NAME will be installed in "$ROOTDIR"
 echo install ncurses first!
 
