@@ -16,6 +16,7 @@ SUPPORTED = [
     "bmon",
     "TerminalImageViewer",
     "OATHToolkit",
+    "neofetch",
     "peco"
 ]
 
