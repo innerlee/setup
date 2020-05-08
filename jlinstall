@@ -17,6 +17,7 @@ SUPPORTED = [
     "TerminalImageViewer",
     "OATHToolkit",
     "neofetch",
+    "datamash",
     "peco"
 ]
 
