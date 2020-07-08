@@ -6,7 +6,7 @@ ROOTDIR=${ZZROOT:-$HOME/app}
 NAME="denseflow"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://codeload.github.com/innerlee/denseflow/tar.gz/master"
+DOWNLOADURL="https://codeload.github.com/open-mmlab/denseflow/tar.gz/master"
 echo $NAME will be installed in "$ROOTDIR"
 echo Dependency: boost, opencv
 

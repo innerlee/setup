@@ -49,7 +49,7 @@ If you compile from source, please make sure that they are compiled using the sa
 
 Verified on Ubuntu 18.04
 
-Updated: Dec 31, 2019
+Updated: July 8, 2020
 
 ### libs
 
@@ -177,7 +177,7 @@ Updated: Dec 31, 2019
 -   [sshpass](https://github.com/innerlee/sshpass) (support 2-step verification)
     -   depends on: `oathtool`, `autoconf`
     -   install script: [`./zzsshpass.sh`](zzsshpass.sh)
--   [denseflow](https://github.com/innerlee/denseflow) (extract frames, optical flow, resize, and more!)
+-   [denseflow](https://github.com/open-mmlab/denseflow) (extract frames, optical flow, resize, and more!)
     -   depends on: `boost`, `opencv`
     -   install script: [`./zzdenseflow.sh`](zzdenseflow.sh)
 -   [wslssh.bat](wslssh.bat) (use ssh of wsl in win10, no installation, `.bat` script as is)
@@ -296,7 +296,7 @@ UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.
   -O CHARSET  specify a character encoding for DOS, Windows and OS/2 archives
   -I CHARSET  specify a character encoding for UNIX and other archives
   ...
-  
+
 unzip -O GB18030 gb18030.zip -d target_dir
 ```
 
@@ -312,4 +312,3 @@ sudo dpkg-reconfigure locales
 
 - **Q**: moov atom not found :( <br/>
 **A**: Use https://github.com/anthwlock/untrunc to fix it.
-
