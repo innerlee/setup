@@ -178,7 +178,7 @@ Updated: July 8, 2020
     -   depends on: `oathtool`, `autoconf`
     -   install script: [`./zzsshpass.sh`](zzsshpass.sh)
 -   [denseflow](https://github.com/open-mmlab/denseflow) (extract frames, optical flow, resize, and more!)
-    -   depends on: `boost`, `opencv`
+    -   depends on: `boost`, `opencv`, `cmake`
     -   install script: [`./zzdenseflow.sh`](zzdenseflow.sh)
 -   [wslssh.bat](wslssh.bat) (use ssh of wsl in win10, no installation, `.bat` script as is)
     -   depends on: `sshpass`
