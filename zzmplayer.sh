@@ -1,12 +1,12 @@
 #!/bin/bash
-# install nmon
+# install ccache
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="nmon"
+NAME="ccache"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="http://sourceforge.net/projects/nmon/files/nmon16j.tar.gz"
+DOWNLOADURL="http://www.mplayerhq.hu/MPlayer/releases/mplayer-export-snapshot.tar.bz2"
 echo $NAME will be installed in "$ROOTDIR"
 
 mkdir -p "$ROOTDIR/downloads"
@@ -21,9 +21,11 @@ else
 fi
 
 mkdir -p src/$NAME
-tar xf downloads/$FILE -C src/$NAME
+tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
-cd bin
-ln -s ../src/nmon/nmon_x86_rhel75 nmon -f
+cd src/$NAME
+
+./configure --prefix="$ROOTDIR"
+make -j"$(nproc)" && make install
 
 echo $NAME installed on "$ROOTDIR"

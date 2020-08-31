@@ -1,12 +1,12 @@
 #!/bin/bash
-# install nmon
+# install powershell
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="nmon"
+NAME="powershell"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="http://sourceforge.net/projects/nmon/files/nmon16j.tar.gz"
+DOWNLOADURL="https://github.com/PowerShell/PowerShell/releases/download/v7.0.0/powershell-7.0.0-linux-x64.tar.gz"
 echo $NAME will be installed in "$ROOTDIR"
 
 mkdir -p "$ROOTDIR/downloads"
@@ -20,10 +20,11 @@ else
     mv $FILE downloads/
 fi
 
-mkdir -p src/$NAME
-tar xf downloads/$FILE -C src/$NAME
+mkdir -p bin/$NAME
+tar xf downloads/$FILE -C bin/$NAME --strip-components 1
 
-cd bin
-ln -s ../src/nmon/nmon_x86_rhel75 nmon -f
+cd bin/
+
+ln -s $NAME/pwsh .
 
 echo $NAME installed on "$ROOTDIR"

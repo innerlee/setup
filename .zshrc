@@ -27,3 +27,5 @@ proxy_off () { export https_proxy=''; }
 vidres () { ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0 $1 }
 vidnframe () { ffmpeg -i $1 -vcodec copy -f rawvideo -y /dev/null 2>&1 | tr ^M '\n' | awk '/^frame=/ {print $2}' | tail -n 1 }
 lswc () { ls | wc -l }
+
+export JULIA_NUM_THREADS=`nproc`

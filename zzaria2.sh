@@ -7,10 +7,10 @@ NAME="aria2"
 TYPE=".tar.xz"
 FILE="$NAME$TYPE"
 DOWNLOADURL="https://github.com/aria2/aria2/releases/download/release-1.35.0/aria2-1.35.0.tar.xz"
-echo $NAME will be installed in $ROOTDIR
+echo $NAME will be installed in "$ROOTDIR"
 
-mkdir -p $ROOTDIR/downloads
-cd $ROOTDIR
+mkdir -p "$ROOTDIR/downloads"
+cd "$ROOTDIR"
 
 if [ -f "downloads/$FILE" ]; then
     echo "downloads/$FILE exist"
@@ -28,9 +28,9 @@ cd src/$NAME
 export CFLAGS="-I$ROOTDIR/include"
 export CPPFLAGS="-I$ROOTDIR/include"
 export LDFLAGS="-L$ROOTDIR/lib"
-export PKG_CONFIG_PATH="$ROOTDIR/lib/pkgconfig":"$ROOTDIR/share/pkgconfig":$PKG_CONFIG_PATH
+export PKG_CONFIG_PATH="$ROOTDIR/lib/pkgconfig:$ROOTDIR/share/pkgconfig:"$PKG_CONFIG_PATH
 
-./configure --prefix=$ROOTDIR
-make -j$(nproc) && make install
+./configure --prefix="$ROOTDIR"
+make -j"$(nproc)" && make install
 
-echo $NAME installed on $ROOTDIR
+echo $NAME installed on "$ROOTDIR"

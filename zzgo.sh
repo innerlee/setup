@@ -1,12 +1,12 @@
 #!/bin/bash
-# install nmon
+# install go
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="nmon"
+NAME="go"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="http://sourceforge.net/projects/nmon/files/nmon16j.tar.gz"
+DOWNLOADURL="https://dl.google.com/go/go1.13.8.linux-amd64.tar.gz"
 echo $NAME will be installed in "$ROOTDIR"
 
 mkdir -p "$ROOTDIR/downloads"
@@ -21,9 +21,7 @@ else
 fi
 
 mkdir -p src/$NAME
-tar xf downloads/$FILE -C src/$NAME
+tar xf downloads/$FILE -C $ROOTDIR/
 
-cd bin
-ln -s ../src/nmon/nmon_x86_rhel75 nmon -f
-
-echo $NAME installed on "$ROOTDIR"
+echo $NAME installed on "$ROOTDIR", please add this line to your .zshrc or .bashrc
+echo "export PATH=\$PATH:$ROOTDIR/go/bin:$HOME/go/bin"

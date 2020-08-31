@@ -25,6 +25,19 @@ export LD_LIBRARY_PATH=$ZZROOT/lib:$ZZROOT/lib64:$LD_LIBRARY_PATH
 sh zzgit.sh
 ```
 
+### jlinstall
+
+`jlinstall` is another way to install softwares.
+It uses pre-built binaries so that no compilation is needed.
+The default install path of `jlinstall` is `JLROOT=$ZZROOT/jl`.
+
+```
+export ZZROOT=$HOME/app
+export JLROOT=$ZZROOT/jl
+export PATH=$ZZROOT/bin:$JLROOT/bin:$PATH
+export LD_LIBRARY_PATH=$ZZROOT/lib:$ZZROOT/lib64:$JLROOT/lib:$JLROOT/lib64:$LD_LIBRARY_PATH
+```
+
 **NOTE:**
 If the download speed of the machine is too slow, you can put the `git.tar.gz` (using git as an example) into `$ZZROOT/downloads` before running the script.
 For the download link, check the `DOWNLOADURL` variable in its script; for the exact name of the software, check the `NAME` variable.
@@ -36,7 +49,7 @@ If you compile from source, please make sure that they are compiled using the sa
 
 Verified on Ubuntu 18.04
 
-Updated: Dec 31, 2019
+Updated: July 8, 2020
 
 ### libs
 
@@ -57,6 +70,7 @@ Updated: Dec 31, 2019
     -   install script: [`./zzyasm.sh`](zzyasm.sh)
 -   [ncurses](https://invisible-island.net/ncurses/) (6.1)
     -   install script: [`./zzncurses.sh`](zzncurses.sh)
+    -   post install: `export TERMINFO=$ZZROOT/share/terminfo`
 -   [freetype](https://www.freetype.org/) (2.10.1)
     -   install script: [`./zzfreetype.sh`](zzfreetype.sh)
 -   [opencv](https://opencv.org/) (4.1.2)
@@ -163,8 +177,8 @@ Updated: Dec 31, 2019
 -   [sshpass](https://github.com/innerlee/sshpass) (support 2-step verification)
     -   depends on: `oathtool`, `autoconf`
     -   install script: [`./zzsshpass.sh`](zzsshpass.sh)
--   [denseflow](https://github.com/innerlee/denseflow) (extract frames, optical flow, resize, and more!)
-    -   depends on: `boost`, `opencv`
+-   [denseflow](https://github.com/open-mmlab/denseflow) (extract frames, optical flow, resize, and more!)
+    -   depends on: `boost`, `opencv`, `cmake`
     -   install script: [`./zzdenseflow.sh`](zzdenseflow.sh)
 -   [wslssh.bat](wslssh.bat) (use ssh of wsl in win10, no installation, `.bat` script as is)
     -   depends on: `sshpass`
@@ -192,11 +206,20 @@ Updated: Dec 31, 2019
 
 ### misc
 
--   [opengl on remote machine](https://www.scm.com/doc/Installation/Remote_GUI.html)
+- [opengl on remote machine](https://www.scm.com/doc/Installation/Remote_GUI.html)
 - useful Julia packages: ArgParse Glob Images FileIO StatsBase Shell UnicodePlots PyCall PyPlot Plots ImageFiltering ImageMagick Interpolations Revise OhMyREPL DataFrames ProgressMeter JLD2 Distances ImageTransformations JuMP HDF5 ImageInTerminal ImageView DataStructures JSON JuliaFormatter
 - free JuMP solvers: Cbc Clp COSMO CSDP ECOS GLPK Juniper OSQP ProxSDP SCS SDPA
 - good reference: http://www.linuxfromscratch.org/lfs/view/development/index.html and http://www.linuxfromscratch.org/blfs/view/svn/index.html and https://pkgs.org/
--   [CUDA arch and CUDA gencode list](https://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-cards/)
+- [CUDA arch and CUDA gencode list](https://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-cards/)
+- Good note on how to load jpeg faster. https://docs.fast.ai/performance.html
+- View image in terminal: [viu](https://github.com/atanunq/viu) and [tiv](https://github.com/stefanhaustein/TerminalImageViewer)
+- image lossless optimization: jpegtran optipng
+- image lossy optimization: pngquant
+- ffmpeg tricks
+  * silent: `ffmpeg -hide_banner -loglevel panic`
+  * get resolution `ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0 input.mp4`
+  * count frames `ffmpeg -i input.mp4 -map 0:v:0 -c copy -f null - 2>&1 | grep frame`
+  * remove duplicated frames `ffmpeg -i input.mp4 -vf mpdecimate -vsync vfr out.mp4`
 
 ### faq
 
@@ -219,3 +242,73 @@ Updated: Dec 31, 2019
 export GIT_EXEC_PATH=$ZZROOT/libexec/git-core
 export GIT_SSL_CAINFO=/etc/ssl/certs/ca-bundle.crt
 ```
+
+- **Q**: `Using the 'memory' GSettings backend.  Your settings will not be saved or shared with other applications.` :( <br/>
+**A**: Add the following to `$HOME/.zshrc` (or `.bashrc` of course)
+```
+export GIO_EXTRA_MODULES=/usr/lib/x86_64-linux-gnu/gio/modules/
+```
+
+- **Q**: `import pyvips` segfault :( <br/>
+**A**: Make sure `gstreamer-orc <0.4.30`, `imagemagick <7.0.9`.
+```
+conda install -c conda-forge imagemagick=7.0.8
+conda install -c conda-forge gstreamer-orc=0.4.29
+```
+
+- **Q**: GitError(Code:ECERTIFICATE, Class:SSL, the SSL certificate is invalid: 0x08 - The certificate is not correctly signed by the trusted CA) :( <br/>
+**A**: Run the following
+```julia
+julia> import LibGit2
+julia> LibGit2.set_ssl_cert_locations("/etc/ssl/certs/ca-certificates.crt")
+```
+
+- **Q**: dotnet error :( <br/>
+**A**: Add the following to `$HOME/.zshrc` (or `.bashrc` of course)
+```bash
+export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true
+export MSBuildSDKsPath=$DOTNET_ROOT/sdk/3.1.102/Sdks
+```
+
+- **Q**: Install OpenCV: CUDA Version wrong:( <br/>
+**A**: Add the path of the correct version CUDA to `zzopencv.sh` when runing cmake
+```bash
+cmake   ......
+        -DCUDA_TOOLKIT_ROOT_DIR=/mnt/lustre/share/cuda-9.0/ \
+        ......
+```
+
+- **Q**: Install Denseflow: OpenCV Version wrong, can't find customized path for opencv:( <br/>
+**A**: Add the path of the correct version opencv and corresponding cuda version to `zzdenseflow.sh` when runing cmake
+```bash
+cmake -DCMAKE_INSTALL_PREFIX=$ROOTDIR \
+      -DOpenCV_DIR=$ROOT_DIR/lib64/cmake/opencv4 \
+      -gencode=arch=compute_61,code=sm_61 \
+      -DCUDA_TOOLKIT_ROOT_DIR=/mnt/lustre/share/cuda-9.0/ ..
+```
+
+- **Q**: Unzip filenames looks messy when there are unicodes :( <br/>
+**A**: Specify the encoding of filenames.
+```bash
+$ unzip -h
+UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.
+  ...
+  -O CHARSET  specify a character encoding for DOS, Windows and OS/2 archives
+  -I CHARSET  specify a character encoding for UNIX and other archives
+  ...
+
+unzip -O GB18030 gb18030.zip -d target_dir
+```
+
+- **Q**: Get locale warnings :( <br/>
+**A**: Run
+```bash
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+locale-gen en_US.UTF-8
+sudo dpkg-reconfigure locales
+```
+
+- **Q**: moov atom not found :( <br/>
+**A**: Use https://github.com/anthwlock/untrunc to fix it.

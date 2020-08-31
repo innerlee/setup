@@ -7,10 +7,10 @@ NAME="autojump"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
 DOWNLOADURL="https://github.com/wting/autojump/archive/master.tar.gz"
-echo $NAME will be installed in $ROOTDIR
+echo $NAME will be installed in "$ROOTDIR"
 
-mkdir -p $ROOTDIR/downloads
-cd $ROOTDIR
+mkdir -p "$ROOTDIR/downloads"
+cd "$ROOTDIR"
 
 if [ -f "downloads/$FILE" ]; then
     echo "downloads/$FILE exist"
@@ -27,4 +27,4 @@ cd src/$NAME
 
 ./install.py
 
-echo $NAME installed on $ROOTDIR
+echo $NAME installed on "$ROOTDIR"

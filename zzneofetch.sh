@@ -1,12 +1,12 @@
 #!/bin/bash
-# install nmon
+# install neofetch
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="nmon"
+NAME="neofetch"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="http://sourceforge.net/projects/nmon/files/nmon16j.tar.gz"
+DOWNLOADURL="https://codeload.github.com/dylanaraps/neofetch/tar.gz/master"
 echo $NAME will be installed in "$ROOTDIR"
 
 mkdir -p "$ROOTDIR/downloads"
@@ -21,9 +21,10 @@ else
 fi
 
 mkdir -p src/$NAME
-tar xf downloads/$FILE -C src/$NAME
+tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
-cd bin
-ln -s ../src/nmon/nmon_x86_rhel75 nmon -f
+cd src/$NAME
+
+cp neofetch $ROOTDIR/bin
 
 echo $NAME installed on "$ROOTDIR"

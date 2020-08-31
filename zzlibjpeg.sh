@@ -7,10 +7,10 @@ NAME="libjpeg"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
 DOWNLOADURL="http://www.ijg.org/files/jpegsrc.v6b.tar.gz"
-echo $NAME will be installed in $ROOTDIR
+echo $NAME will be installed in "$ROOTDIR"
 
-mkdir -p $ROOTDIR/downloads
-cd $ROOTDIR
+mkdir -p "$ROOTDIR/downloads"
+cd "$ROOTDIR"
 
 if [ -f "downloads/$FILE" ]; then
     echo "downloads/$FILE exist"
@@ -25,8 +25,8 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-ln -s `which libtool` libtool -f
-./configure --enable-shared --prefix=$ROOTDIR
-make -j$(nproc) && make install-lib
+ln -s "$(which libtool)" libtool -f
+./configure --enable-shared --prefix="$ROOTDIR"
+make -j"$(nproc)" && make install-lib
 
-echo $NAME installed on $ROOTDIR
+echo $NAME installed on "$ROOTDIR"

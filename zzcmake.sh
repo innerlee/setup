@@ -6,11 +6,11 @@ ROOTDIR=${ZZROOT:-$HOME/app}
 NAME="cmake"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://github.com/Kitware/CMake/releases/download/v3.16.0/cmake-3.16.0.tar.gz"
-echo $NAME will be installed in $ROOTDIR
+DOWNLOADURL="https://github.com/Kitware/CMake/releases/download/v3.16.6/cmake-3.16.6.tar.gz"
+echo $NAME will be installed in "$ROOTDIR"
 
-mkdir -p $ROOTDIR/downloads
-cd $ROOTDIR
+mkdir -p "$ROOTDIR/downloads"
+cd "$ROOTDIR"
 
 if [ -f "downloads/$FILE" ]; then
     echo "downloads/$FILE exist"
@@ -25,7 +25,7 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix=$ROOTDIR
-make -j$(nproc) && make install
+./configure --prefix="$ROOTDIR"
+make -j"$(nproc)" && make install
 
-echo $NAME installed on $ROOTDIR
+echo $NAME installed on "$ROOTDIR"

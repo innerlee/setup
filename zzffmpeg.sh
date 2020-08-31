@@ -6,12 +6,12 @@ ROOTDIR=${ZZROOT:-$HOME/app}
 NAME="ffmpeg"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://www.ffmpeg.org/releases/ffmpeg-4.2.1.tar.gz"
+DOWNLOADURL="https://www.ffmpeg.org/releases/ffmpeg-4.2.2.tar.gz"
 echo $NAME will be installed in $ROOTDIR
-echo [NOTES] install nasm, yasm, libx264, libx265, libvpx first
+echo install nasm, yasm, libx264, libx265, libvpx
 
-mkdir -p $ROOTDIR/downloads
-cd $ROOTDIR
+mkdir -p "$ROOTDIR/downloads"
+cd "$ROOTDIR"
 
 if [ -f "downloads/$FILE" ]; then
     echo "downloads/$FILE exist"
@@ -29,10 +29,10 @@ cd src/$NAME
 export CFLAGS="-I$ROOTDIR/include"
 export CPPFLAGS="-I$ROOTDIR/include"
 export LDFLAGS="-L$ROOTDIR/lib"
-export PKG_CONFIG_PATH="$ROOTDIR/lib/pkgconfig":"$ROOTDIR/share/pkgconfig":$PKG_CONFIG_PATH
+export PKG_CONFIG_PATH="$ROOTDIR/lib/pkgconfig:$ROOTDIR/share/pkgconfig:"$PKG_CONFIG_PATH
 
 ./configure \
-    --prefix=$ROOTDIR \
+    --prefix="$ROOTDIR" \
     --extra-libs=-lpthread \
     --extra-libs=-lm \
     --enable-gpl \
@@ -42,6 +42,6 @@ export PKG_CONFIG_PATH="$ROOTDIR/lib/pkgconfig":"$ROOTDIR/share/pkgconfig":$PKG_
     --enable-nonfree \
     --enable-pic \
     --enable-shared
-make -j$(nproc) && make install
+make -j"$(nproc)" && make install
 
-echo $NAME installed on $ROOTDIR
+echo $NAME installed on "$ROOTDIR"

@@ -7,10 +7,10 @@ NAME="ninja"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
 DOWNLOADURL="https://github.com/ninja-build/ninja/archive/v1.9.0.tar.gz"
-echo $NAME will be installed in $ROOTDIR
+echo $NAME will be installed in "$ROOTDIR"
 
-mkdir -p $ROOTDIR/downloads
-cd $ROOTDIR
+mkdir -p "$ROOTDIR/downloads"
+cd "$ROOTDIR"
 
 if [ -f "downloads/$FILE" ]; then
     echo "downloads/$FILE exist"
@@ -26,6 +26,6 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 cd src/$NAME
 
 ./configure.py --bootstrap
-cp ninja $ROOTDIR/bin
+cp ninja "$ROOTDIR"/bin
 
-echo $NAME installed on $ROOTDIR
+echo $NAME installed on "$ROOTDIR"

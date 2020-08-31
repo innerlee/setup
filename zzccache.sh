@@ -7,10 +7,10 @@ NAME="ccache"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
 DOWNLOADURL="https://github.com/ccache/ccache/releases/download/v3.7.6/ccache-3.7.6.tar.gz"
-echo $NAME will be installed in $ROOTDIR
+echo $NAME will be installed in "$ROOTDIR"
 
-mkdir -p $ROOTDIR/downloads
-cd $ROOTDIR
+mkdir -p "$ROOTDIR/downloads"
+cd "$ROOTDIR"
 
 if [ -f "downloads/$FILE" ]; then
     echo "downloads/$FILE exist"
@@ -25,7 +25,7 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix=$ROOTDIR
-make -j$(nproc) && make install
+./configure --prefix="$ROOTDIR"
+make -j"$(nproc)" && make install
 
-echo $NAME installed on $ROOTDIR
+echo $NAME installed on "$ROOTDIR"
