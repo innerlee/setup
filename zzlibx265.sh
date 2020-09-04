@@ -6,7 +6,7 @@ ROOTDIR=${ZZROOT:-$HOME/app}
 NAME="libx265"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://bitbucket.org/multicoreware/x265/downloads/x265_3.2.1.tar.gz"
+DOWNLOADURL="http://anduin.linuxfromscratch.org/BLFS/x265/x265_3.4.tar.gz"
 echo $NAME will be installed in "$ROOTDIR"
 
 mkdir -p "$ROOTDIR/downloads"
