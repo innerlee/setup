@@ -211,7 +211,7 @@ Updated: July 8, 2020
 - free JuMP solvers: Cbc Clp COSMO CSDP ECOS GLPK Juniper OSQP ProxSDP SCS SDPA
 - good reference: http://www.linuxfromscratch.org/lfs/view/development/index.html and http://www.linuxfromscratch.org/blfs/view/svn/index.html and https://pkgs.org/
 - [CUDA arch and CUDA gencode list](https://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-cards/)
-- Good note on how to load jpeg faster. https://docs.fast.ai/performance.html
+- Instruction on how to load jpeg faster. https://github.com/innerlee/cvbenchmark#setup
 - View image in terminal: [viu](https://github.com/atanunq/viu) and [tiv](https://github.com/stefanhaustein/TerminalImageViewer)
 - image lossless optimization: jpegtran optipng
 - image lossy optimization: pngquant
