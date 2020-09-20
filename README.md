@@ -83,9 +83,6 @@ Updated: July 8, 2020
     -   note: both `PREFIX` and `OPENSSLDIR` are set to `$ZZROOT/ssl`
     -   install script: [`./zzopenssl.sh`](zzopenssl.sh)
     -   post install: for cmake `export OPENSSL_ROOT_DIR=$ZZROOT/ssl`, and for configure `--with-ssl=$ZZROOT/ssl`
--   [libautoconf](https://www.gnu.org/software/autoconf/) (2.69)
-    -   depends on: `m4`, `perl`
-    -   install script: [`./zzlibautoconf.sh`](zzlibautoconf.sh)
 -   [libcurl](https://curl.haxx.se/libcurl/) (7.67.0)
     -   depends on: `autoconf`, `automake`, `libtool`, `m4`, `nroff`, `perl`, `openssl`
     -   install script: [`./zzlibcurl.sh`](zzlibcurl.sh)
@@ -124,6 +121,9 @@ Updated: July 8, 2020
 
 ### tools
 
+-   [autoconf](https://www.gnu.org/software/autoconf/) (2.69)
+    -   depends on: `m4`, `perl`
+    -   install script: [`./zzautoconf.sh`](zzautoconf.sh)
 -   [ccache](https://ccache.dev/) (3.7.6)
     -   install script: [`./zzccache.sh`](zzccache.sh)
 -   [cmake](https://cmake.org/) (3.16.0)

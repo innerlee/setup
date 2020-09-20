@@ -1,9 +1,9 @@
 #!/bin/bash
-# install libautoconf
+# install autoconf
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="libautoconf"
+NAME="autoconf"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
 DOWNLOADURL="http://ftp.gnu.org/gnu/autoconf/autoconf-latest.tar.gz"
