@@ -121,6 +121,9 @@ Updated: July 8, 2020
 
 ### tools
 
+-   [autoconf](https://www.gnu.org/software/autoconf/) (2.69)
+    -   depends on: `m4`, `perl`
+    -   install script: [`./zzautoconf.sh`](zzautoconf.sh)
 -   [ccache](https://ccache.dev/) (3.7.6)
     -   install script: [`./zzccache.sh`](zzccache.sh)
 -   [cmake](https://cmake.org/) (3.16.0)

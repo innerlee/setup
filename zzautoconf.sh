@@ -1,13 +1,14 @@
 #!/bin/bash
-# install libautoconf
+# install autoconf
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="libautoconf"
+NAME="autoconf"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
 DOWNLOADURL="http://ftp.gnu.org/gnu/autoconf/autoconf-latest.tar.gz"
 echo $NAME will be installed in "$ROOTDIR"
+echo Dependency: m4, perl
 
 mkdir -p "$ROOTDIR/downloads"
 cd "$ROOTDIR"

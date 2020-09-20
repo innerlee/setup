@@ -6,7 +6,7 @@ ROOTDIR=${ZZROOT:-$HOME/app}
 NAME="ncurses"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="ftp://ftp.invisible-island.net/ncurses/ncurses.tar.gz"
+DOWNLOADURL="https://ftp.gnu.org/gnu/ncurses/ncurses-6.2.tar.gz"
 echo $NAME will be installed in "$ROOTDIR"
 
 mkdir -p "$ROOTDIR/downloads"
