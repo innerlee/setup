@@ -4,10 +4,10 @@ set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
 NAME="julia"
-VERSION="1.5.1"
+VERSION="1.5.2"
 TYPE=".tar.gz"
-FILE="$NAME$VERSION$TYPE"
-DOWNLOADURL="https://julialang-s3.julialang.org/bin/linux/x64/1.5/julia-1.5.1-linux-x86_64.tar.gz"
+FILE="$NAME-$VERSION$TYPE"
+DOWNLOADURL="https://julialang-s3.julialang.org/bin/linux/x64/1.5/julia-${VERSION}-linux-x86_64.tar.gz"
 echo $NAME will be installed in "$ROOTDIR"
 
 mkdir -p "$ROOTDIR/downloads"
