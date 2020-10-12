@@ -126,7 +126,7 @@ Updated: July 8, 2020
     -   install script: [`./zzautoconf.sh`](zzautoconf.sh)
 -   [ccache](https://ccache.dev/) (3.7.6)
     -   install script: [`./zzccache.sh`](zzccache.sh)
-    -   post install: `export CCACHE_DIR=~/.ccache` to avoid writing permission deny
+    -   post install: customize cache dir by `export CCACHE_DIR=~/.ccache` to avoid permission issue
 -   [cmake](https://cmake.org/) (3.16.0)
     -   install script: [`./zzcmake.sh`](zzcmake.sh)
 -   [anaconda3](https://www.anaconda.com/) (2019.10)
