@@ -171,8 +171,7 @@ Updated: July 8, 2020
 -   [ruby](https://www.ruby-lang.org/en/) (2.7.0)
     -   depends on: `openssl (with libssl installed)`
     -   install script: [`./zzruby.sh`](zzruby.sh)
-    -   note: You can install libssl with `apt install libssl-dev`. 
-    If you install openssl from source code, you should set `--with-openssl-dir=$OPENSSL_DIR` for configure script in `zzruby.sh`. For example, if you install openssl with `zzopenssl.sh`:
+    -   note: If you install openssl from source code, you should set `--with-openssl-dir=$OPENSSL_DIR` for configure script in `zzruby.sh`. For example, if you install openssl with `zzopenssl.sh`:
 ```shell
 # modify line 35 in zzruby.sh
 ./configure --prefix="$ROOTDIR" --with-openssl-dir=$ZZROOT/ssl --disable-install-doc
