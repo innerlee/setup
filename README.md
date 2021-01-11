@@ -82,7 +82,7 @@ Updated: July 8, 2020
 -   [openssl](https://www.openssl.org/) (1.1.1d)
     -   note: both `PREFIX` and `OPENSSLDIR` are set to `$ZZROOT/ssl`
     -   install script: [`./zzopenssl.sh`](zzopenssl.sh)
-    -   post install: for cmake `export OPENSSL_ROOT_DIR=$ZZROOT/ssl`, and for configure `--with-ssl=$ZZROOT/ssl`
+    -   post install: for cmake `export OPENSSL_ROOT_DIR=$ZZROOT/ssl`, and for configure `--with-ssl=$ZZROOT/ssl` (the flag may be different in different configure scripts)
 -   [libcurl](https://curl.haxx.se/libcurl/) (7.67.0)
     -   depends on: `autoconf`, `automake`, `libtool`, `m4`, `nroff`, `perl`, `openssl`
     -   install script: [`./zzlibcurl.sh`](zzlibcurl.sh)
@@ -168,6 +168,9 @@ Updated: July 8, 2020
     -   install script: [`./zzohmyzsh.sh`](zzohmyzsh.sh)
 -   [perl](https://www.perl.org/) (5.30.1)
     -   install script: [`./zzperl.sh`](zzperl.sh)
+-   [ruby](https://www.ruby-lang.org/en/) (2.7.0)
+    -   depends on: `openssl (with libssl installed)`
+    -   install script: [`./zzruby.sh`](zzruby.sh)
 -   [tmux](https://github.com/tmux/tmux) (3.0a)
     -   depends on: `libevent`
     -   install script: [`./zztmux.sh`](zztmux.sh)
@@ -203,7 +206,7 @@ Updated: July 8, 2020
 ### zz configures
 
 -   [`.tmux.conf`](.tmux.conf) (tmux configuration)
--   [`.zshrc`](.tmux.conf) (zsh configuration)
+-   [`.zshrc`](.zshrc) (zsh configuration)
 -   [`.netrc`](.netrc) (lftp password-less configuration)
 -   [`.ssh/config`](.ssh/config) (suppress git clone warnings)
 -   [`.lftp/rc`](.lftp/rc) (suppress lftp ssl warning)

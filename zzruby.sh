@@ -32,7 +32,13 @@ export CPPFLAGS="-I$ROOTDIR/include"
 export LDFLAGS="-L$ROOTDIR/lib"
 export PKG_CONFIG_PATH="$ROOTDIR/lib/pkgconfig:$ROOTDIR/share/pkgconfig:"$PKG_CONFIG_PATH
 
-./configure --prefix="$ROOTDIR" --disable-install-doc
+if [ -d "$ZZROOT/ssl" ]; then
+    export SSL_FLAG="--with-openssl-dir=$ZZROOT/ssl"
+else
+    export SSL_FLAG=""
+fi
+
+./configure --prefix="$ROOTDIR" $SSL_FLAG --disable-install-doc
 make -j"$(nproc)" && make install
 
 echo $NAME installed on "$ROOTDIR"
