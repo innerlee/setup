@@ -25,25 +25,15 @@ export LD_LIBRARY_PATH=$ZZROOT/lib:$ZZROOT/lib64:$LD_LIBRARY_PATH
 sh zzgit.sh
 ```
 
-### jlinstall
-
-`jlinstall` is another way to install softwares.
-It uses pre-built binaries so that no compilation is needed.
-The default install path of `jlinstall` is `JLROOT=$ZZROOT/jl`.
-
-```
-export ZZROOT=$HOME/app
-export JLROOT=$ZZROOT/jl
-export PATH=$ZZROOT/bin:$JLROOT/bin:$PATH
-export LD_LIBRARY_PATH=$ZZROOT/lib:$ZZROOT/lib64:$JLROOT/lib:$JLROOT/lib64:$LD_LIBRARY_PATH
-```
-
 **NOTE:**
 If the download speed of the machine is too slow, you can put the `git.tar.gz` (using git as an example) into `$ZZROOT/downloads` before running the script.
 For the download link, check the `DOWNLOADURL` variable in its script; for the exact name of the software, check the `NAME` variable.
 
 **NOTE2:**
 If you compile from source, please make sure that they are compiled using the same gcc version!
+
+**NOTE3:**
+If you **DO** have root privilate on your machine/server, then basic tools such as `libtool`, `ccache`, `git`, etc. might be better installed by OS's package manager. Such as `apt` in Ubuntu. Only install software that are not available on the OS's packaging system.
 
 ## Supported Softwares
 
@@ -319,3 +309,19 @@ sudo dpkg-reconfigure locales
 
 - **Q**: moov atom not found :( <br/>
 **A**: Use https://github.com/anthwlock/untrunc to fix it.
+
+---
+
+### jlinstall
+
+`jlinstall` is another way to install softwares.
+It uses pre-built binaries so that no compilation is needed.
+The default install path of `jlinstall` is `JLROOT=$ZZROOT/jl`.
+
+```
+export ZZROOT=$HOME/app
+export JLROOT=$ZZROOT/jl
+export PATH=$ZZROOT/bin:$JLROOT/bin:$PATH
+export LD_LIBRARY_PATH=$ZZROOT/lib:$ZZROOT/lib64:$JLROOT/lib:$JLROOT/lib64:$LD_LIBRARY_PATH
+```
+
