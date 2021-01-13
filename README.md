@@ -144,7 +144,7 @@ Updated: July 8, 2020
     -   install script: [`./zzautojump.sh`](zzautojump.sh)
     -   post install: put [lines of configs](.zshrc#L17) in `.zshrc`
 -   [imagemagick](https://imagemagick.org/) (latest)
-    -   depends on: `freetype`, `libjpeg-turbo`, `libpng`, `perl`
+    -   depends on: `freetype`, `libjpeg-turbo`, `libpng`, `libtool`, `perl`
     -   install script: [`./zzimagemagick.sh`](zzimagemagick.sh)
 -   [nmon](http://nmon.sourceforge.net/pmwiki.php) (16j)
     -   depends on: `ncurses`
