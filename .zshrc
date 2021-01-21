@@ -29,3 +29,12 @@ vidnframe () { ffmpeg -i $1 -vcodec copy -f rawvideo -y /dev/null 2>&1 | tr ^M '
 lswc () { ls | wc -l }
 
 export JULIA_NUM_THREADS=`nproc`
+
+export ZZROOT=$HOME/app
+export PATH=$ZZROOT/bin:$PATH
+export LD_LIBRARY_PATH=$ZZROOT/lib:$ZZROOT/lib64:$LD_LIBRARY_PATH
+
+export ZZROOT=$HOME/app
+export JLROOT=$ZZROOT/jl
+export PATH=$ZZROOT/bin:$JLROOT/bin:$PATH
+export LD_LIBRARY_PATH=$ZZROOT/lib:$ZZROOT/lib64:$JLROOT/lib:$JLROOT/lib64:$LD_LIBRARY_PATH
