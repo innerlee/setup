@@ -3,7 +3,7 @@ zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 
 ZSH_THEME="ys"
 
-plugins=(git git-extras yarn zsh-completions zsh-syntax-highlighting)
+plugins=(git git-extras yarn zsh-completions zsh-syntax-highlighting autojump)
 
 autoload -Uz compinit && compinit
 export ZSH_DISABLE_COMPFIX=true
@@ -13,8 +13,6 @@ unsetopt BG_NICE
 export PYTHONDONTWRITEBYTECODE=1
 bindkey '^]' autosuggest-accept
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
 
 eval $(thefuck --alias)
 
