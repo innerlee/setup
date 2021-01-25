@@ -3,10 +3,11 @@ zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 
 ZSH_THEME="ys"
 
-plugins=(git git-extras yarn zsh-completions zsh-syntax-highlighting autojump)
+plugins=(git git-extras yarn zsh-completions zsh-syntax-highlighting autojump command-not-found colored-man-pages colorize common-aliases)
 
 autoload -Uz compinit && compinit
 export ZSH_DISABLE_COMPFIX=true
+export ZSH_COLORIZE_CHROMA_FORMATTER=terminal256
 
 alias ls="ls --color=tty 2>/dev/null"
 unsetopt BG_NICE
