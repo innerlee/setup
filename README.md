@@ -310,6 +310,13 @@ sudo dpkg-reconfigure locales
 - **Q**: moov atom not found :( <br/>
 **A**: Use https://github.com/anthwlock/untrunc to fix it.
 
+
+- **Q**: you must add /ou=globalsign root ca ... :( <br/>
+**A**: Set env var.
+```bash
+export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
+```
+
 ---
 
 ### jlinstall
@@ -324,4 +331,3 @@ export JLROOT=$ZZROOT/jl
 export PATH=$ZZROOT/bin:$JLROOT/bin:$PATH
 export LD_LIBRARY_PATH=$ZZROOT/lib:$ZZROOT/lib64:$JLROOT/lib:$JLROOT/lib64:$LD_LIBRARY_PATH
 ```
-
