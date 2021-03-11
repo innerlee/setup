@@ -1,0 +1,26 @@
+# See http://docs.python.org/2/library/pdb.html#id2 for the structure of this file.
+import pdb
+
+# 'inspect x' will print the source code for a method, class or function.
+alias inspect import inspect;print inspect.getsource(%1)
+alias i import inspect;print inspect.getsource(%1)
+# 'help x' opens the man-style help viewer from the interpretter on an object
+alias help !print help(%1)
+alias h !print help(%1)
+# For ordinary Python objects, ppo will pretty-print members and their values.
+alias ppo pp %1.__dict__
+# ppio runs ppo over a sequence of objects
+alias ppio pp [a.__dict__ for a in %1]
+
+# This tries to enable tab-completion of some identifiers.
+!import rlcompleter
+!pdb.Pdb.complete = rlcompleter.Completer(locals()).complete
+
+# Taken from https://gist.github.com/1125049
+# There are a couple of edge cases where you can lose terminal
+# echo. This should restore it next time you open a pdb.
+!import termios, sys
+!termios_fd = sys.stdin.fileno()
+!termios_echo = termios.tcgetattr(termios_fd)
+!termios_echo[3] = termios_echo[3] | termios.ECHO
+!termios_result = termios.tcsetattr(termios_fd, termios.TCSADRAIN, termios_echo)
