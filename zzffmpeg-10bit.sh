@@ -28,8 +28,8 @@ wget http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
 wget https://www.zlib.net/fossils/zlib-1.2.9.tar.gz
 wget https://mirrors.tuna.tsinghua.edu.cn/apache//ant/binaries/apache-ant-1.9.15-bin.tar.gz
 wget https://github.com/sekrit-twc/zimg/archive/refs/tags/release-2.7.3a.tar.gz
+wget https://www.nasm.us/pub/nasm/releasebuilds/2.14/nasm-2.14.tar.gz
 ls *.tar* | xargs -P 2 -i tar xf {}
-unzip *.zip
 git clone https://gitlab.sz.sensetime.com/duanjiaqi/x264_xavc-sony.git
 git clone https://gitlab.sz.sensetime.com/duanjiaqi/ffmpeg_xavc-sony.git
 cd ffmpeg_xavc-sony
@@ -43,6 +43,19 @@ export PKG_CONFIG_PATH=$ROOTDIR/lib/pkgconfig:$ROOTDIR/lib64/pkgconfig:$ROOTDIR/
 export PATH=$ROOTDIR/bin:$ROOTDIR/src/ffmpeg-10bit/apache-ant-1.9.15/bin/:$PATH
 export LD_LIBRARY_PATH=$ROOTDIR/lib:$ROOTDIR/lib64:$LD_LIBRARY_PATH
 cd $ROOTDIR/src/$NAME
+
+# install nasm
+echo -e "\033[32m[-24] >>> install nasm... \033[0m"
+cd nasm-2.14/
+SHELL_FOLDER=$(dirname $(readlink -f "$0"))
+echo "      >>> configure...     [log > "$SHELL_FOLDER/log_configure.txt ]
+bash autogen.sh > log_autogen.txt 2>&1
+./configure --prefix=$ROOTDIR > log_configure.txt 2>&1
+echo "      >>> make...          [log > "$SHELL_FOLDER/log_make.txt ]
+make -j 4 > log_make.txt 2>&1
+echo "      >>> make install...  [log > "$SHELL_FOLDER/log_make_install.txt ]
+make install > log_make_install.txt 2>&1
+cd ../
 
 # install bzip
 echo -e "\033[32m[-23] >>> install bzip... \033[0m"
@@ -115,6 +128,18 @@ echo "      >>> make install...  [log > "$SHELL_FOLDER/log_make_install.txt ]
 make install > log_make_install.txt 2>&1
 cd ../
 
+# install freetype
+echo -e "\033[32m[-15] >>> install freetype... \033[0m"
+cd freetype-2.6.2
+SHELL_FOLDER=$(dirname $(readlink -f "$0"))
+echo "      >>> configure...     [log > "$SHELL_FOLDER/log_configure.txt ]
+./configure --prefix=$ROOTDIR --without-harfbuzz > log_configure.txt 2>&1
+echo "      >>> make...          [log > "$SHELL_FOLDER/log_make.txt ]
+make -j 4 > log_make.txt 2>&1
+echo "      >>> make install...  [log > "$SHELL_FOLDER/log_make_install.txt ]
+make install > log_make_install.txt 2>&1
+cd ../
+
 # install harfbuzz
 echo -e "\033[32m[-17] >>> install harfbuzz... \033[0m"
 cd harfbuzz-1.2.3
@@ -144,7 +169,7 @@ echo -e "\033[32m[-15] >>> install freetype... \033[0m"
 cd freetype-2.6.2
 SHELL_FOLDER=$(dirname $(readlink -f "$0"))
 echo "      >>> configure...     [log > "$SHELL_FOLDER/log_configure.txt ]
-./configure --prefix=$ROOTDIR --without-harfbuzz > log_configure.txt 2>&1
+./configure --prefix=$ROOTDIR > log_configure.txt 2>&1
 echo "      >>> make...          [log > "$SHELL_FOLDER/log_make.txt ]
 make -j 4 > log_make.txt 2>&1
 echo "      >>> make install...  [log > "$SHELL_FOLDER/log_make_install.txt ]
@@ -342,7 +367,7 @@ echo -e "\033[32m[000] >>> install ffmpeg... \033[0m"
 cd ffmpeg_xavc-sony
 SHELL_FOLDER=$(dirname $(readlink -f "$0"))
 echo "      >>> configure...     [log > "$SHELL_FOLDER/log_configure.txt ]
-./configure  --prefix=$ROOTDIR --disable-doc --disable-debug --enable-avisynth --enable-dxva2 --enable-bzlib --enable-fontconfig --enable-gmp --enable-gnutls --enable-iconv --enable-libass --enable-libbluray --enable-libfreetype --enable-libfribidi --enable-libmp3lame --enable-libopus --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libx265 --enable-libzimg --enable-lzma --enable-zlib --enable-gpl --enable-version3 --enable-nonfree --arch=x86_64  > log_configure.txt 2>&1
+./configure  --prefix=$ROOTDIR --disable-doc --disable-debug --enable-avisynth --enable-bzlib --enable-fontconfig --enable-gmp --enable-gnutls --enable-iconv --enable-libass --enable-libbluray --enable-libfreetype --enable-libfribidi --enable-libmp3lame --enable-libopus --enable-libvorbis --enable-libx264 --enable-libx265 --enable-libzimg --enable-lzma --enable-zlib --enable-gpl --enable-version3 --enable-nonfree --arch=x86_64  > log_configure.txt 2>&1
 echo "      >>> make...          [log > "$SHELL_FOLDER/log_make.txt ]
 make -j 4 > log_make.txt 2>&1
 echo "      >>> make install...  [log > "$SHELL_FOLDER/log_make_install.txt ]
