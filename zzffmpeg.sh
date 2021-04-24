@@ -5,9 +5,10 @@ set -e
 ROOTDIR=${ZZROOT:-$HOME/app}
 NAME="ffmpeg"
 TYPE=".tar.gz"
-FILE="$NAME$TYPE"
-DOWNLOADURL="https://www.ffmpeg.org/releases/ffmpeg-4.2.2.tar.gz"
-echo $NAME will be installed in $ROOTDIR
+VERSION="4.3.2"
+FILE="$NAME-$VERSION$TYPE"
+DOWNLOADURL="https://www.ffmpeg.org/releases/ffmpeg-4.3.2.tar.gz"
+echo $NAME will be installed in "$ROOTDIR"
 echo install nasm, yasm, libx264, libx265, libvpx
 
 mkdir -p "$ROOTDIR/downloads"
