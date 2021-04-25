@@ -6,7 +6,7 @@ ROOTDIR=${ZZROOT:-$HOME/app}
 NAME="nasm"
 TYPE=".tar.xz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://www.nasm.us/pub/nasm/releasebuilds/2.14.02/nasm-2.14.02.tar.xz"
+DOWNLOADURL="https://www.nasm.us/pub/nasm/releasebuilds/2.15/nasm-2.15.tar.xz"
 echo $NAME will be installed in "$ROOTDIR"
 
 mkdir -p "$ROOTDIR/downloads"
