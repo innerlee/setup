@@ -5,8 +5,9 @@ set -e
 ROOTDIR=${ZZROOT:-$HOME/app}
 NAME="boost"
 TYPE=".tar.gz"
-FILE="$NAME$TYPE"
-DOWNLOADURL="https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.gz"
+VERSION="1.76.0"
+FILE="$NAME-$VERSION$TYPE"
+DOWNLOADURL="https://boostorg.jfrog.io/artifactory/main/release/1.76.0/source/boost_1_76_0.tar.gz"
 echo $NAME will be installed in "$ROOTDIR"
 
 mkdir -p "$ROOTDIR/downloads"
