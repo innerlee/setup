@@ -217,6 +217,11 @@ Updated: July 8, 2020
   * get resolution `ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0 input.mp4`
   * count frames `ffmpeg -i input.mp4 -map 0:v:0 -c copy -f null - 2>&1 | grep frame`
   * remove duplicated frames `ffmpeg -i input.mp4 -vf mpdecimate -vsync vfr out.mp4`
+- cool rust tools:
+  * bottom https://github.com/ClementTsang/bottom
+  * ripgrep https://github.com/BurntSushi/ripgrep
+  * fd https://github.com/sharkdp/fd
+  * dust https://github.com/bootandy/dust
 
 ### faq
 
