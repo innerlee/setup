@@ -1,14 +1,15 @@
-#!/bin/zsh
-# install tmux
+#!/bin/bash
+# install isl
 set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
-NAME="tmux"
+NAME="isl"
 TYPE=".tar.gz"
 FILE="$NAME$TYPE"
-DOWNLOADURL="https://github.com/tmux/tmux/releases/download/3.0a/tmux-3.0a.tar.gz"
+DOWNLOADURL="http://www.mirrorservice.org/sites/sourceware.org/pub/gcc/infrastructure/isl-0.18.tar.bz2"
 echo $NAME will be installed in "$ROOTDIR"
-echo "hey, install libevent first"
+
+echo install gmp first
 
 mkdir -p "$ROOTDIR/downloads"
 cd "$ROOTDIR"
@@ -26,7 +27,7 @@ tar xf downloads/$FILE -C src/$NAME --strip-components 1
 
 cd src/$NAME
 
-./configure --prefix="$ROOTDIR" LDFLAGS="-L$ROOTDIR/lib"
-make -j"$(nproc)" && make install
+./configure --prefix="$ROOTDIR" --with-gmp-prefix="$ROOTDIR"
+make -j"$(nproc)" && make check && make install
 
 echo $NAME installed on "$ROOTDIR"

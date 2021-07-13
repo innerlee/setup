@@ -7,7 +7,7 @@ plugins=(git git-extras yarn zsh-completions zsh-syntax-highlighting autojump co
 
 autoload -Uz compinit && compinit
 export ZSH_DISABLE_COMPFIX=true
-export ZSH_COLORIZE_CHROMA_FORMATTER=terminal256
+export ZSH_COLORIZE_CHROMA_FORMATTER=terminal256..
 
 alias ls="ls --color=tty 2>/dev/null"
 unsetopt BG_NICE
