@@ -222,6 +222,7 @@ Updated: July 8, 2020
   * ripgrep https://github.com/BurntSushi/ripgrep
   * fd https://github.com/sharkdp/fd
   * dust https://github.com/bootandy/dust
+  * zenith https://github.com/bvaisvil/zenith
 
 ### faq
 
