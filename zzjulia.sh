@@ -4,7 +4,7 @@ set -e
 
 ROOTDIR=${ZZROOT:-$HOME/app}
 NAME="julia"
-VERSION="1.7.1"
+VERSION="1.7.2"
 TYPE=".tar.gz"
 FILE="$NAME-$VERSION$TYPE"
 DOWNLOADURL="https://julialang-s3.julialang.org/bin/linux/x64/1.7/julia-$VERSION-linux-x86_64.tar.gz"
