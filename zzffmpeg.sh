@@ -9,7 +9,7 @@ VERSION="4.3.2"
 FILE="$NAME-$VERSION$TYPE"
 DOWNLOADURL="https://www.ffmpeg.org/releases/ffmpeg-4.3.2.tar.gz"
 echo $NAME will be installed in "$ROOTDIR"
-echo install nasm, yasm, libx264, libx265, libvpx
+echo please install nasm, yasm, libx264-dev, libx265-dev, libvpx-dev first
 
 mkdir -p "$ROOTDIR/downloads"
 cd "$ROOTDIR"
