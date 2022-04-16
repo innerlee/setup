@@ -1,0 +1,786 @@
+gcc will be installed in /home/chenkangyang/local
+CUDA 11 support up to gcc 9, CUDA 10 support up to gcc 7, CUDA 9 support up to gcc 5.
+Building GCC requires GMP 4.2+, MPFR 2.4.0+ and MPC 0.8.0+.
+downloads/gcc.tar.gz exist
+gmp-6.1.0.tar.bz2: OK
+mpfr-3.1.4.tar.bz2: OK
+mpc-1.0.3.tar.gz: OK
+isl-0.16.1.tar.bz2: OK
+All prerequisites downloaded successfully.
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking target system type... x86_64-pc-linux-gnu
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln works... yes
+checking whether ln -s works... yes
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for gawk... gawk
+checking for libatomic support... yes
+checking for libcilkrts support... yes
+checking for libitm support... yes
+checking for libsanitizer support... yes
+checking for libvtv support... yes
+checking for libmpx support... yes
+checking for libhsail-rt support... yes
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking whether g++ accepts -static-libstdc++ -static-libgcc... no
+checking for gnatbind... no
+checking for gnatmake... no
+checking whether compiler driver understands Ada... no
+checking how to compare bootstrapped objects... cmp --ignore-initial=16 $$f1 $$f2
+checking for objdir... .libs
+configure: WARNING: using in-tree isl, disabling version check
+*** This configuration is not supported in the following subdirectories:
+     gnattools gotools target-libada target-libhsail-rt target-libgo target-libffi target-libobjc target-liboffloadmic
+    (Any other directories should still work fine.)
+checking for default BUILD_CONFIG... bootstrap-debug
+checking for --enable-vtable-verify... no
+*** removing build-x86_64-pc-linux-gnu/libiberty/Makefile to force reconfigure
+*** removing build-x86_64-pc-linux-gnu/libcpp/Makefile to force reconfigure
+*** removing build-x86_64-pc-linux-gnu/fixincludes/Makefile to force reconfigure
+checking for bison... bison -y
+checking for bison... bison
+checking for gm4... no
+checking for gnum4... no
+checking for m4... m4
+checking for flex... flex
+checking for flex... flex
+checking for makeinfo... no
+/home/chenkangyang/local/src/gcc/missing: line 81: makeinfo: command not found
+checking for expect... no
+checking for runtest... no
+checking for ar... ar
+checking for as... as
+checking for dlltool... no
+checking for ld... ld
+checking for lipo... no
+checking for nm... nm
+checking for ranlib... ranlib
+checking for strip... strip
+checking for windres... no
+checking for windmc... no
+checking for objcopy... objcopy
+checking for objdump... objdump
+checking for readelf... readelf
+checking for cc... cc
+checking for c++... c++
+checking for gcc... gcc
+checking for gfortran... gfortran
+checking for gccgo... no
+checking for ar... no
+checking for ar... ar
+checking for as... no
+checking for as... as
+checking for dlltool... no
+checking for dlltool... no
+checking for ld... no
+checking for ld... ld
+checking for lipo... no
+checking for lipo... no
+checking for nm... no
+checking for nm... nm
+checking for objcopy... no
+checking for objcopy... objcopy
+checking for objdump... no
+checking for objdump... objdump
+checking for ranlib... no
+checking for ranlib... ranlib
+checking for readelf... no
+checking for readelf... readelf
+checking for strip... no
+checking for strip... strip
+checking for windres... no
+checking for windres... no
+checking for windmc... no
+checking for windmc... no
+checking where to find the target ar... host tool
+checking where to find the target as... host tool
+checking where to find the target cc... just compiled
+checking where to find the target c++... just compiled
+checking where to find the target c++ for libstdc++... just compiled
+checking where to find the target dlltool... host tool
+checking where to find the target gcc... just compiled
+checking where to find the target gfortran... just compiled
+checking where to find the target gccgo... host tool
+checking where to find the target ld... host tool
+checking where to find the target lipo... host tool
+checking where to find the target nm... host tool
+checking where to find the target objcopy... host tool
+checking where to find the target objdump... host tool
+checking where to find the target ranlib... host tool
+checking where to find the target readelf... host tool
+checking where to find the target strip... host tool
+checking where to find the target windres... host tool
+checking where to find the target windmc... host tool
+checking whether to enable maintainer-specific portions of Makefiles... no
+configure: creating ./config.status
+config.status: creating Makefile
+[ -f stage_final ] || echo stage3 > stage_final
+make[1]: Entering directory `/home/chenkangyang/local/src/gcc'
+make[2]: Entering directory `/home/chenkangyang/local/src/gcc'
+make[3]: Entering directory `/home/chenkangyang/local/src/gcc'
+rm -f stage_current
+make[3]: Leaving directory `/home/chenkangyang/local/src/gcc'
+make[2]: Leaving directory `/home/chenkangyang/local/src/gcc'
+make[2]: Entering directory `/home/chenkangyang/local/src/gcc'
+Configuring in build-x86_64-pc-linux-gnu/libcpp
+Configuring in build-x86_64-pc-linux-gnu/libiberty
+Configuring in build-x86_64-pc-linux-gnu/fixincludes
+make[3]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/intl'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/intl'
+make[3]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/libdecnumber'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/libdecnumber'
+make[3]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp'
+make[3]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/libiberty'
+make  all-recursive
+make[3]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/libbacktrace'
+make[4]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp'
+make  all-am
+make[3]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/zlib'
+true "AR_FLAGS=rc" "CC_FOR_BUILD=gcc" "CFLAGS=-g" "CXXFLAGS=-g" "CFLAGS_FOR_BUILD=-g -O2" "CFLAGS_FOR_TARGET=-g -O2" "INSTALL=/usr/bin/install -c" "INSTALL_DATA=/usr/bin/install -c -m 644" "INSTALL_PROGRAM=/usr/bin/install -c" "INSTALL_SCRIPT=/usr/bin/install -c" "LDFLAGS=" "LIBCFLAGS=-g -O2" "LIBCFLAGS_FOR_TARGET=-g -O2" "MAKE=make" "MAKEINFO=/home/chenkangyang/local/src/gcc/missing makeinfo --split-size=5000000 --split-size=5000000 --split-size=5000000 " "PICFLAG=" "PICFLAG_FOR_TARGET=" "SHELL=/bin/sh" "EXPECT=expect" "RUNTEST=runtest" "RUNTESTFLAGS=" "exec_prefix=/home/chenkangyang/local" "infodir=/home/chenkangyang/local/share/info" "libdir=/home/chenkangyang/local/lib" "prefix=/home/chenkangyang/local" "tooldir=/home/chenkangyang/local/x86_64-pc-linux-gnu" "AR=ar" "AS=as" "CC=gcc" "CXX=g++ -std=gnu++98" "LD=ld" "LIBCFLAGS=-g -O2" "NM=nm" "PICFLAG=" "RANLIB=ranlib" "DESTDIR=" DO=all multi-do # make
+Making all in tests
+make[3]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/zlib'
+make[4]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/libbacktrace'
+make[4]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/libiberty/testsuite'
+make[4]: Nothing to be done for `all'.
+make[4]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/libiberty/testsuite'
+true  DO=all multi-do # make
+make[5]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/tests'
+make[4]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/libbacktrace'
+make[3]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/libbacktrace'
+make[3]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/libiberty'
+Making all in .
+make[6]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/tests'
+make[6]: Nothing to be done for `all-am'.
+make[6]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/tests'
+Making all in devel
+make[6]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/tests/devel'
+make[6]: Nothing to be done for `all'.
+make[6]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/tests/devel'
+Making all in mpn
+make[6]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/tests/mpn'
+make[6]: Nothing to be done for `all'.
+make[6]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/tests/mpn'
+Making all in mpz
+make[6]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/tests/mpz'
+make[6]: Nothing to be done for `all'.
+make[6]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/tests/mpz'
+Making all in mpq
+make[6]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/tests/mpq'
+make[6]: Nothing to be done for `all'.
+make[6]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/tests/mpq'
+Making all in mpf
+make[3]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/lto-plugin'
+make[6]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/tests/mpf'
+make[6]: Nothing to be done for `all'.
+make[6]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/tests/mpf'
+Making all in rand
+make  all-am
+make[6]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/tests/rand'
+make[6]: Nothing to be done for `all'.
+make[6]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/tests/rand'
+Making all in misc
+make[3]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/libcpp'
+test -f config.h || (rm -f stamp-h1 && make stamp-h1)
+make[4]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/lto-plugin'
+make[3]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/libcpp'
+make[6]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/tests/misc'
+make[6]: Nothing to be done for `all'.
+make[6]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/tests/misc'
+Making all in cxx
+make[4]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/lto-plugin'
+make[3]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/lto-plugin'
+make[6]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/tests/cxx'
+make[6]: Nothing to be done for `all'.
+make[6]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/tests/cxx'
+make[5]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/tests'
+Making all in mpn
+make[5]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/mpn'
+make[5]: Nothing to be done for `all'.
+make[5]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/mpn'
+Making all in mpz
+make[5]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/mpz'
+make[5]: Nothing to be done for `all'.
+make[5]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/mpz'
+Making all in mpq
+make[5]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/mpq'
+make[5]: Nothing to be done for `all'.
+make[5]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/mpq'
+Making all in mpf
+make[5]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/mpf'
+make[5]: Nothing to be done for `all'.
+make[5]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/mpf'
+Making all in printf
+make[5]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/printf'
+make[5]: Nothing to be done for `all'.
+make[5]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/printf'
+Making all in scanf
+make[5]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/scanf'
+make[5]: Nothing to be done for `all'.
+make[5]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/scanf'
+Making all in rand
+make[5]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/rand'
+make[5]: Nothing to be done for `all'.
+make[5]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/rand'
+Making all in cxx
+make[5]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/cxx'
+make[5]: Nothing to be done for `all'.
+make[5]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/cxx'
+Making all in demos
+make[5]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/demos'
+Making all in calc
+make[6]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/demos/calc'
+make  all-am
+make[7]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/demos/calc'
+make[7]: Nothing to be done for `all-am'.
+make[7]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/demos/calc'
+make[6]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/demos/calc'
+Making all in expr
+make[6]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/demos/expr'
+make[6]: Nothing to be done for `all'.
+make[6]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/demos/expr'
+make[6]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/demos'
+make[6]: Nothing to be done for `all-am'.
+make[6]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/demos'
+make[5]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/demos'
+Making all in tune
+make[5]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/tune'
+make[5]: Nothing to be done for `all'.
+make[5]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/tune'
+Making all in doc
+make[5]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/doc'
+make[5]: Nothing to be done for `all'.
+make[5]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp/doc'
+make[5]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp'
+make[5]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp'
+make[4]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp'
+make[3]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gmp'
+make[3]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/mpfr'
+Making all in doc
+make[4]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/mpfr/doc'
+make[4]: Nothing to be done for `all'.
+make[4]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/mpfr/doc'
+Making all in src
+make[3]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/isl'
+make  all-recursive
+make[4]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/mpfr/src'
+make  all-am
+configure: loading cache ./config.cache
+configure: loading cache ./config.cache
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for makeinfo... (cached) /home/zhangwenting/zzapp/src/gcc/missing makeinfo --split-size=5000000 --split-size=5000000
+configure: WARNING:
+*** Makeinfo is missing. Info documentation will not be built.
+checking for perl... (cached) perl
+configure: loading cache ./config.cache
+checking build system type... (cached) x86_64-pc-linux-gnu
+checking host system type... (cached) x86_64-pc-linux-gnu
+checking for x86_64-pc-linux-gnu-ar... (cached) ar
+checking build system type... (cached) x86_64-pc-linux-gnu
+checking for x86_64-pc-linux-gnu-ranlib... (cached) ranlib
+checking host system type... (cached) x86_64-pc-linux-gnu
+checking target system type... (cached) x86_64-pc-linux-gnu
+checking whether to install libiberty headers and static library... no
+configure: target_header_dir = 
+checking for x86_64-pc-linux-gnu-gcc... (cached) gcc
+checking for x86_64-pc-linux-gnu-gcc... (cached) gcc
+make[4]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/isl'
+checking build system type... (cached) x86_64-pc-linux-gnu
+checking host system type... (cached) x86_64-pc-linux-gnu
+checking target system type... (cached) x86_64-pc-linux-gnu
+checking whether make sets $(MAKE)... (cached) yes
+checking for a BSD-compatible install... /usr/bin/install -c
+Making all in .
+checking for x86_64-pc-linux-gnu-gcc... (cached) gcc
+make[5]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/mpfr/src'
+make[5]: Nothing to be done for `all-am'.
+make[5]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/mpfr/src'
+make[4]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/mpfr/src'
+Making all in tests
+make[5]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/isl'
+checking for C compiler default output file name... checking for C compiler default output file name... make[5]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/isl'
+Making all in doc
+make[5]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/isl/doc'
+make[5]: Nothing to be done for `all'.
+make[5]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/isl/doc'
+make[4]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/isl'
+make[4]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/mpfr/tests'
+make[4]: Nothing to be done for `all'.
+make[3]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/isl'
+make[4]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/mpfr/tests'
+Making all in tune
+make[4]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/mpfr/tune'
+make[4]: Nothing to be done for `all'.
+make[4]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/mpfr/tune'
+make[4]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/mpfr'
+make[4]: Nothing to be done for `all-am'.
+make[4]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/mpfr'
+make[3]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/mpfr'
+a.out
+checking whether the C compiler works... a.out
+checking whether the C compiler works... yes
+yes
+make[3]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/mpc'
+checking whether we are cross compiling... no
+checking for suffix of executables... checking whether we are cross compiling... no
+checking for suffix of executables... make  all-recursive
+make[4]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/mpc'
+Making all in src
+make[5]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/mpc/src'
+make[5]: Nothing to be done for `all'.
+make[5]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/mpc/src'
+Making all in tests
+
+checking for suffix of object files... (cached) o
+checking whether we are using the GNU C compiler... (cached) yes
+make[5]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/mpc/tests'
+make[5]: Nothing to be done for `all'.
+checking whether gcc accepts -g... make[5]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/mpc/tests'
+(cached) yes
+checking for gcc option to accept ISO C89... Making all in doc
+(cached) none needed
+
+checking how to run the C preprocessor... (cached) gcc -E
+checking for suffix of object files... (cached) o
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+make[5]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/mpc/doc'
+make[5]: Nothing to be done for `all'.
+make[5]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/mpc/doc'
+make[5]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/mpc'
+make[5]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/mpc'
+make[4]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/mpc'
+make[3]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/mpc'
+checking for C compiler default output file name... checking for grep that handles long lines and -e... (cached) /usr/bin/grep
+checking for egrep... checking whether we are using the GNU C++ compiler... (cached) (cached) /usr/bin/grep -E
+yes
+checking for ANSI C header files... (cached) checking whether g++ -std=gnu++98 accepts -g... yes
+(cached) yes
+checking for x86_64-pc-linux-gnu-ranlib... (cached) ranlib
+checking how to run the C preprocessor... (cached) gcc -E
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for memory.h... (cached) yes
+checking for strings.h... (cached) yes
+a.out
+checking whether the C compiler works... yes
+checking for inttypes.h... (cached) yes
+checking whether we are cross compiling... no
+checking for suffix of executables... checking for grep that handles long lines and -e... (cached) /usr/bin/grep
+checking for egrep... (cached) /usr/bin/grep -E
+checking for ANSI C header files... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for minix/config.h... (cached) no
+checking whether it is safe to define __EXTENSIONS__... (cached) yes
+checking for a sed that does not truncate output... (cached) /usr/bin/sed
+checking for string.h... (cached) yes
+checking whether gcc supports -W... (cached) yes
+checking whether gcc supports -Wall... (cached) yes
+checking whether gcc supports -Wwrite-strings... (cached) yes
+checking for memory.h... (cached) yes
+checking whether gcc supports -Wstrict-prototypes... (cached) yes
+checking whether gcc supports -Wmissing-prototypes... (cached) yes
+checking for strings.h... (cached) yes
+checking whether gcc supports -Wold-style-definition... (cached) yes
+
+checking whether gcc supports -Wmissing-format-attribute... (cached) yes
+checking for inttypes.h... (cached) yes
+checking whether gcc supports -Woverlength-strings... (cached) yes
+checking whether gcc supports -pedantic -Wlong-long... (cached) yes
+checking for ANSI C header files... (cached) yes
+checking for stdint.h... (cached) yes
+checking for stddef.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for suffix of object files... (cached) o
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking how to run the C preprocessor... (cached) gcc -E
+checking for stdlib.h... (cached) yes
+checking for minix/config.h... (cached) no
+checking whether it is safe to define __EXTENSIONS__... (cached) yes
+checking for special C compiler options needed for large files... (cached) no
+checking for _FILE_OFFSET_BITS value needed for large files... (cached) no
+checking for aclocal... (cached) aclocal
+checking for autoconf... (cached) autoconf
+checking for autoheader... (cached) autoheader
+checking for strings.h... (cached) yes
+checking whether gcc supports -W... (cached) yes
+checking for unistd.h... (cached) yes
+checking whether gcc supports -Wall... (cached) yes
+checking whether gcc supports -Wnarrowing... (cached) yes
+checking for fcntl.h... (cached) yes
+checking whether gcc supports -Wwrite-strings... (cached) yes
+checking whether gcc supports -Wmissing-format-attribute... (cached) yes
+checking for sys/file.h... (cached) yes
+checking whether gcc supports -Wstrict-prototypes... (cached) yes
+checking whether gcc supports -Wmissing-prototypes... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking whether gcc supports -Wold-style-definition... (cached) yes
+checking for grep that handles long lines and -e... (cached) /usr/bin/grep
+checking for egrep... checking whether gcc supports -Wc++-compat... (cached) yes
+(cached) /usr/bin/grep -E
+checking for ANSI C header files... (cached) yes
+checking whether gcc supports -pedantic -Wlong-long... (cached) yes
+checking for clearerr_unlocked... (cached) yes
+checking whether gcc supports -fno-exceptions... (cached) yes
+checking for sys/types.h... (cached) yes
+checking whether gcc supports -fno-rtti... (cached) yes
+checking for feof_unlocked... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for ferror_unlocked... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for fflush_unlocked... (cached) yes
+checking for string.h... (cached) yes
+checking for fgetc_unlocked... (cached) yes
+checking for memory.h... (cached) yes
+checking for fgets_unlocked... (cached) yes
+checking for strings.h... (cached) yes
+checking for fileno_unlocked... (cached) yes
+checking for inttypes.h... (cached) yes
+checking dependency style of g++ -std=gnu++98... (cached) gcc3
+checking whether time.h and sys/time.h may both be included... (cached) yes
+checking whether string.h and strings.h may both be included... (cached) yes
+checking for fprintf_unlocked... (cached) no
+checking for stdint.h... (cached) yes
+checking for locale.h... (cached) yes
+checking for fputc_unlocked... (cached) yes
+checking for unistd.h... (cached) yes
+checking for fcntl.h... (cached) yes
+checking for fputs_unlocked... (cached) yes
+checking for minix/config.h... (cached) no
+checking whether it is safe to define __EXTENSIONS__... (cached) yes
+checking for special C compiler options needed for large files... (cached) no
+checking for _FILE_OFFSET_BITS value needed for large files... (cached) no
+checking for limits.h... (cached) yes
+checking for fread_unlocked... (cached) yes
+checking whether gcc supports -W... (cached) yes
+checking whether gcc supports -Wall... (cached) yes
+checking for fwrite_unlocked... (cached) yes
+checking for stddef.h... (cached) yes
+checking whether gcc supports -Wwrite-strings... (cached) yes
+checking whether gcc supports -Wc++-compat... (cached) yes
+checking for getchar_unlocked... (cached) yes
+checking for stdlib.h... (cached) yes
+checking whether gcc supports -Wstrict-prototypes... (cached) yes
+checking whether gcc supports -Wshadow=local... (cached) no
+checking whether gcc supports -pedantic ... (cached) yes
+checking whether gcc and cc understand -c and -o together... checking for getc_unlocked... (cached) yes
+checking for strings.h... (cached) yes
+(cached) yes
+checking for an ANSI C-conforming const... (cached) yes
+checking for inline... (cached) inline
+checking whether byte ordering is bigendian... (cached) no
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for putchar_unlocked... (cached) yes
+checking for string.h... (cached) yes
+checking for putc_unlocked... (cached) yes
+checking for sys/file.h... (cached) yes
+checking for sys/file.h... (cached) yes
+checking whether abort is declared... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/param.h... (cached) yes
+checking whether byte ordering is bigendian... (cached) no
+checking for an ANSI C-conforming const... (cached) yes
+checking for inline... (cached) checking whether asprintf is declared... inline
+(cached) checking for obstacks... yes
+(cached) yes
+checking for off_t... (cached) yes
+checking for size_t... (cached) yes
+checking for ssize_t... (cached) yes
+checking for uintptr_t... (cached) yes
+checking for ptrdiff_t... (cached) yes
+checking for uint64_t... (cached) yes
+checking whether struct tm is in sys/time.h or time.h... (cached) time.h
+checking size of int... (cached) 4
+checking for limits.h... (cached) yes
+checking size of long... (cached) 8
+checking whether basename is declared... (cached) yes
+checking for clearerr_unlocked... (cached) yes
+checking for stdlib.h... (cached) yes
+checking whether errno is declared... (cached) no
+checking for feof_unlocked... (cached) yes
+checking for malloc.h... (cached) yes
+checking whether vasprintf is declared... (cached) yes
+checking for ferror_unlocked... (cached) yes
+checking whether clearerr_unlocked is declared... (cached) yes
+checking for string.h... (cached) yes
+checking for fflush_unlocked... (cached) yes
+checking whether feof_unlocked is declared... (cached) yes
+checking for unistd.h... (cached) yes
+checking whether ferror_unlocked is declared... (cached) yes
+checking for fgetc_unlocked... (cached) yes
+checking for strings.h... (cached) yes
+checking whether fflush_unlocked is declared... (cached) yes
+checking for fgets_unlocked... (cached) yes
+checking for sys/time.h... (cached) yes
+checking whether fgetc_unlocked is declared... (cached) yes
+checking for fileno_unlocked... (cached) yes
+checking whether fgets_unlocked is declared... (cached) yes
+checking for time.h... (cached) yes
+checking for fprintf_unlocked... (cached) no
+checking whether fileno_unlocked is declared... (cached) yes
+checking for sys/resource.h... (cached) yes
+checking for fputc_unlocked... (cached) yes
+checking whether fprintf_unlocked is declared... (cached) no
+checking for sys/stat.h... (cached) checking for fputs_unlocked... yes
+(cached) yes
+checking whether fputc_unlocked is declared... (cached) yes
+checking for sys/mman.h... (cached) yes
+checking whether fputs_unlocked is declared... (cached) checking for fread_unlocked... yes
+(cached) yes
+checking whether fread_unlocked is declared... (cached) yes
+checking for fwrite_unlocked... (cached) yes
+checking for fcntl.h... (cached) yes
+checking whether fwrite_unlocked is declared... (cached) yes
+checking for getchar_unlocked... (cached) yes
+checking for alloca.h... (cached) yes
+checking whether getchar_unlocked is declared... (cached) yes
+checking for getc_unlocked... (cached) yes
+checking for sys/pstat.h... (cached) no
+checking for sys/sysmp.h... (cached) no
+checking whether getc_unlocked is declared... (cached) yes
+checking for sys/sysinfo.h... (cached) yes
+checking for putchar_unlocked... (cached) yes
+checking whether putchar_unlocked is declared... (cached) yes
+checking for machine/hal_sysinfo.h... (cached) no
+checking for putc_unlocked... (cached) yes
+checking whether putc_unlocked is declared... (cached) yes
+checking for sys/table.h... (cached) no
+checking for an ANSI C-conforming const... (cached) yes
+checking for sys/mman.h... (cached) yes
+checking for mmap... (cached) yes
+checking whether read-only mmap of a plain file works... (cached) yes
+checking whether mmap from /dev/zero works... (cached) yes
+checking for MAP_ANON(YMOUS)... (cached) yes
+checking whether mmap with MAP_ANON(YMOUS) works... (cached) yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for sys/sysctl.h... (cached) yes
+checking whether abort is declared... (cached) yes
+checking for sys/systemcfg.h... (cached) no
+checking for stdint.h... (cached) yes
+checking whether asprintf is declared... (cached) yes
+checking for stdio_ext.h... (cached) yes
+checking whether basename is declared... (cached) yes
+checking whether errno is declared... (cached) no
+checking for process.h... (cached) no
+checking for sys/prctl.h... (cached) yes
+configure: creating ./config.status
+checking whether getopt is declared... (cached) yes
+checking for sys/wait.h that is POSIX.1 compatible... (cached) yes
+checking whether time.h and sys/time.h may both be included... (cached) yes
+checking whether errno must be declared... (cached) no
+checking size of int... (cached) 4
+checking size of long... (cached) 8
+checking whether vasprintf is declared... (cached) checking size of size_t... yes
+(cached) 8
+checking for long long... (cached) yes
+checking size of long long... (cached) 8
+checking for a 64-bit type... (cached) uint64_t
+checking for intptr_t... (cached) yes
+checking for uintptr_t... (cached) yes
+checking whether clearerr_unlocked is declared... checking for ssize_t... (cached) yes
+(cached) yes
+checking for pid_t... (cached) yes
+checking for library containing strerror... (cached) none required
+checking for asprintf... (cached) yes
+checking whether feof_unlocked is declared... (cached) yes
+checking for atexit... (cached) yes
+checking whether ferror_unlocked is declared... (cached) yes
+checking for basename... (cached) yes
+checking whether fflush_unlocked is declared... (cached) yes
+checking whether fgetc_unlocked is declared... (cached) yes
+checking for bcmp... (cached) yes
+checking whether fgets_unlocked is declared... (cached) yes
+checking for bcopy... (cached) yes
+checking whether fileno_unlocked is declared... (cached) yes
+checking for bsearch... (cached) yes
+checking whether fprintf_unlocked is declared... (cached) no
+checking for bzero... (cached) yes
+checking whether fputc_unlocked is declared... (cached) yes
+checking for calloc... (cached) yes
+checking whether fputs_unlocked is declared... (cached) yes
+checking for clock... (cached) yes
+checking whether fread_unlocked is declared... (cached) yes
+checking for ffs... (cached) yes
+checking whether fwrite_unlocked is declared... (cached) yes
+checking for getcwd... (cached) yes
+checking whether getchar_unlocked is declared... (cached) yes
+checking for getpagesize... (cached) yes
+checking whether getc_unlocked is declared... (cached) yes
+checking for gettimeofday... (cached) yes
+checking whether putchar_unlocked is declared... (cached) yes
+checking for index... (cached) yes
+checking whether putc_unlocked is declared... (cached) yes
+checking for working alloca.h... (cached) yes
+checking for alloca... (cached) yes
+checking for ANSI C header files... (cached) yes
+checking for nl_langinfo and CODESET... (cached) yes
+checking whether NLS is requested... no
+checking for uchar... checking for insque... (cached) yes
+checking for memchr... (cached) yes
+checking for memcmp... (cached) yes
+checking for memcpy... (cached) yes
+checking for memmem... (cached) yes
+
+checking for ld used by GCC... checking for memmove... (cached) yes
+(cached) ld
+checking if the linker (ld) is GNU ld... (cached) yes
+checking for shared library run path origin... (cached) done
+checking for iconv... (cached) no
+checking for mempcpy... (cached) yes
+checking for memset... (cached) yes
+checking for mkstemps... (cached) yes
+checking for putenv... (cached) yes
+checking for random... (cached) yes
+checking for rename... (cached) yes
+checking for rindex... (cached) yes
+checking for setenv... (cached) yes
+checking for snprintf... (cached) yes
+checking for sigsetmask... (cached) yes
+checking for stpcpy... (cached) yes
+configure: creating ./config.status
+checking for stpncpy... (cached) yes
+checking for strcasecmp... (cached) yes
+checking for strchr... (cached) yes
+checking for strdup... (cached) yes
+checking for strncasecmp... (cached) yes
+checking for strndup... (cached) yes
+checking for strnlen... (cached) yes
+checking for strrchr... (cached) yes
+checking for strstr... (cached) yes
+checking for strtod... (cached) yes
+checking for strtol... (cached) yes
+checking for strtoul... (cached) yes
+checking for strtoll... (cached) yes
+checking for strtoull... (cached) yes
+checking for strverscmp... (cached) yes
+checking for tmpnam... (cached) yes
+checking for vasprintf... (cached) yes
+checking for vfprintf... (cached) yes
+checking for vprintf... (cached) yes
+checking for vsnprintf... (cached) yes
+checking for vsprintf... (cached) yes
+checking for waitpid... (cached) yes
+checking for setproctitle... (cached) no
+checking whether alloca needs Cray hooks... (cached) no
+checking stack direction for C alloca... (cached) -1
+checking for vfork.h... (cached) no
+checking for fork... (cached) yes
+checking for vfork... (cached) yes
+checking for working fork... (cached) yes
+checking for working vfork... (cached) yes
+checking for _doprnt... (cached) no
+checking for sys_errlist... (cached) yes
+checking for sys_nerr... (cached) yes
+checking for sys_siglist... (cached) yes
+checking for external symbol _system_configuration... no
+checking for __fsetlocking... (cached) yes
+checking for canonicalize_file_name... (cached) yes
+checking for dup3... (cached) yes
+checking for getrlimit... (cached) yes
+checking for getrusage... (cached) yes
+checking for getsysinfo... (cached) no
+checking for gettimeofday... (cached) yes
+checking for on_exit... (cached) yes
+checking for psignal... (cached) yes
+checking for pstat_getdynamic... (cached) no
+checking for pstat_getstatic... (cached) no
+checking for realpath... (cached) yes
+checking for setrlimit... (cached) yes
+checking for sbrk... (cached) yes
+checking for spawnve... (cached) no
+checking for spawnvpe... (cached) no
+checking for strerror... (cached) yes
+checking for strsignal... (cached) yes
+checking for sysconf... (cached) yes
+checking for sysctl... (cached) yes
+checking for sysmp... (cached) no
+checking for table... (cached) no
+checking for times... (cached) yes
+checking for wait3... (cached) yes
+checking for wait4... (cached) yes
+checking whether basename is declared... (cached) yes
+checking whether ffs is declared... (cached) yes
+checking whether asprintf is declared... (cached) yes
+checking whether vasprintf is declared... (cached) yes
+checking whether snprintf is declared... (cached) yes
+checking whether vsnprintf is declared... (cached) yes
+checking whether calloc is declared... (cached) yes
+checking whether getenv is declared... (cached) yes
+checking whether getopt is declared... (cached) yes
+checking whether malloc is declared... (cached) yes
+checking whether realloc is declared... (cached) yes
+checking whether sbrk is declared... (cached) yes
+checking whether strtol is declared... (cached) yes
+checking whether strtoul is declared... (cached) yes
+checking whether strtoll is declared... (cached) yes
+checking whether strtoull is declared... (cached) yes
+checking whether strverscmp is declared... (cached) yes
+checking whether canonicalize_file_name must be declared... (cached) no
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for getpagesize... (cached) yes
+checking for working mmap... (cached) yes
+checking for working strncmp... (cached) yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating Makefile
+config.status: creating Makefile
+config.status: creating config.h
+config.status: creating mkheaders.almost
+config.status: config.h is unchanged
+config.status: creating testsuite/Makefile
+config.status: creating config.h
+config.status: config.h is unchanged
+config.status: creating config.h
+config.status: config.h is unchanged
+config.status: executing default commands
+config.status: executing depdir commands
+make[3]: Entering directory `/home/chenkangyang/local/src/gcc/build-x86_64-pc-linux-gnu/libiberty'
+echo ./regex.o ./cplus-dem.o ./cp-demangle.o ./md5.o ./sha1.o ./alloca.o ./argv.o ./choose-temp.o ./concat.o ./cp-demint.o ./crc32.o ./d-demangle.o ./dwarfnames.o ./dyn-string.o ./fdmatch.o ./fibheap.o ./filename_cmp.o ./floatformat.o ./fnmatch.o ./fopen_unlocked.o ./getopt.o ./getopt1.o ./getpwd.o ./getruntime.o ./hashtab.o ./hex.o ./lbasename.o ./lrealpath.o ./make-relative-prefix.o ./make-temp-file.o ./objalloc.o ./obstack.o ./partition.o ./pexecute.o ./physmem.o ./pex-common.o ./pex-one.o ./pex-unix.o ./vprintf-support.o ./rust-demangle.o ./safe-ctype.o ./simple-object.o ./simple-object-coff.o ./simple-object-elf.o ./simple-object-mach-o.o ./simple-object-xcoff.o ./sort.o ./spaces.o ./splay-tree.o ./stack-limit.o ./strerror.o ./strsignal.o ./timeval-utils.o ./unlink-if-ordinary.o ./xasprintf.o ./xatexit.o ./xexit.o ./xmalloc.o ./xmemdup.o ./xstrdup.o ./xstrerror.o ./xstrndup.o ./xvasprintf.o > required-list
+make[4]: Entering directory `/home/chenkangyang/local/src/gcc/build-x86_64-pc-linux-gnu/libiberty/testsuite'
+make[4]: Nothing to be done for `all'.
+make[4]: Leaving directory `/home/chenkangyang/local/src/gcc/build-x86_64-pc-linux-gnu/libiberty/testsuite'
+make[3]: Leaving directory `/home/chenkangyang/local/src/gcc/build-x86_64-pc-linux-gnu/libiberty'
+make[3]: Entering directory `/home/chenkangyang/local/src/gcc/build-x86_64-pc-linux-gnu/fixincludes'
+srcdir="../.././fixincludes" /bin/sh ../.././fixincludes/mkfixinc.sh x86_64-pc-linux-gnu
+sed -e 's/@gcc_version@/7.5.0/' < mkheaders.almost > mkheadersT
+make[3]: Entering directory `/home/chenkangyang/local/src/gcc/build-x86_64-pc-linux-gnu/libcpp'
+echo "#define LOCALEDIR \"/home/chenkangyang/local/share/locale\"" > localedir.new
+../.././libcpp/../move-if-change localedir.new localedir.h
+mv -f mkheadersT mkheaders
+echo timestamp > localedir.hs
+make[3]: Leaving directory `/home/chenkangyang/local/src/gcc/build-x86_64-pc-linux-gnu/libcpp'
+make[3]: Leaving directory `/home/chenkangyang/local/src/gcc/build-x86_64-pc-linux-gnu/fixincludes'
+make[3]: Entering directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gcc'
+Makefile:1730: ../.././gcc/d/Make-lang.in: No such file or directory
+Makefile:1738: ../.././gcc/config/i386/t-cet: No such file or directory
+make[3]: *** No rule to make target `../.././gcc/config/i386/t-cet'.  Stop.
+make[3]: Leaving directory `/home/chenkangyang/local/src/gcc/host-x86_64-pc-linux-gnu/gcc'
+make[2]: *** [all-stage1-gcc] Error 2
+make[2]: Leaving directory `/home/chenkangyang/local/src/gcc'
+make[1]: *** [stage1-bubble] Error 2
+make[1]: Leaving directory `/home/chenkangyang/local/src/gcc'
+make: *** [all] Error 2
+gcc installed on /home/chenkangyang/local
